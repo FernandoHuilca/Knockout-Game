@@ -4,7 +4,7 @@ trigger:
       - main  # Configura el pipeline para que se active en el branch principal
 
 pool:
-  vmImage: 'Default'  # Puedes cambiar la imagen según tus necesidades
+  name: 'Default'  # Apunta al pool de tu agente privado
 
 steps:
   - checkout: self  # Realiza el checkout del repositorio de GitHub
