@@ -4,7 +4,7 @@ trigger:
       - main  # Configura el pipeline para que se active en el branch principal
 
 pool:
-  vmImage: 'ubuntu-latest'  # Puedes cambiar la imagen según tus necesidades
+  vmImage: 'Default'  # Puedes cambiar la imagen según tus necesidades
 
 steps:
   - checkout: self  # Realiza el checkout del repositorio de GitHub
