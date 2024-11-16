@@ -63,6 +63,7 @@ El juego ofrece varios escenarios que complementan la temática melancólica del
 - **Fernando Huilca** - Programador [@FernandoHuilca](https://github.com/FernandoHuilca)
 - **Mateo Simbaña** - Programador [@mateonicolasg](https://github.com/mateonicolasg)
 - **Alisson Betancourt** - Programadora [@AlizBet44](https://github.com/AlizBet44)
+- **Gregory Salazar** - Programador [@Gregory](https://github.com/AlizBet44)
   
 <table>
     <tr>
