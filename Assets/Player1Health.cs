@@ -7,9 +7,19 @@ public class Player1Health : MonoBehaviour
     public float currentHealth;
     public float maxHealth = 100f;
 
+    public Image[] lives;
+    public int livesRemaining;
+
+    private Vector2 startPos;
+    private Rigidbody2D playerRb;
+
     private void Start()
     {
+        livesRemaining = lives.Length;
         currentHealth = maxHealth;
+        startPos = transform.position;
+        playerRb = gameObject.GetComponent<Rigidbody2D>(); 
+    
     }
 
     void Update()
@@ -26,8 +36,34 @@ public class Player1Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             Update();
-            Die();
+
+            // Decrease the value of livesRemaining
+            livesRemaining--;
+            // Hide one of the life images
+            lives[livesRemaining].enabled = false;
+
+            // If we run out of lives we lose the game
+            if (livesRemaining == 0)
+            {
+                Die();
+            }
+
+            respawn();
+            currentHealth = 100;
+
         }
+    }
+
+    private void respawn()
+    {
+        playerRb.simulated = false;
+        transform.localScale = new Vector3(0, 0, 0);
+
+        
+        transform.position = startPos;
+        
+        transform.localScale = new Vector3(1, 1, 1);
+        playerRb.simulated = true;
     }
 
     private void Die()

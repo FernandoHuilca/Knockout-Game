@@ -23,12 +23,18 @@ public class Player2AttackLogic : MonoBehaviour
     {
         animator.SetTrigger("Attack");
 
+      
+
         Collider2D[] hitOtherPlayers = Physics2D.OverlapCircleAll(weaponHitBox.position, attackRange, otherPlayer);
 
         foreach (Collider2D playerEnemy in hitOtherPlayers)
         {
-            playerEnemy.GetComponent<Player1Health>().decreaselife(attackDamage);
-            //Debug.Log("We hit "+ playerEnemy.name);
+            if (!playerEnemy.GetComponent<Player1ShieldLogic>().isTheShieldActive())
+            {
+                playerEnemy.GetComponent<Player1Health>().decreaselife(attackDamage);
+                //Debug.Log("We hit "+ playerEnemy.name);
+                
+            }
         }
 
     }
