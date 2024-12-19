@@ -3,17 +3,19 @@ using UnityEngine;
 
 public class Player2Movement : MonoBehaviour
 {
-    public float speed = 8f; // Puedes ajustar la velocidad espec�fica de Player2
-    public float jumpForce = 15f; // Fuerza de salto espec�fica de Player2
-    public KeyCode jumpKey = KeyCode.RightShift; // Tecla espec�fica para el salto de Player2
+    public float speed = 8f;
+    public float jumpForce = 15f;
+    public KeyCode jumpKey = KeyCode.RightShift;
     public LayerMask groundLayer;
+    public Transform groundCheck; // Asigna un objeto hijo cerca de los pies del jugador
+    public float groundCheckRadius = 0.2f; // Radio del área de detección
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool isGrounded;
 
     public Transform weaponHitBox;
-    private bool facingRight = true; // Dirección inicial
+    private bool facingRight = true;
 
     void Start()
     {
@@ -23,25 +25,24 @@ public class Player2Movement : MonoBehaviour
 
     void Update()
     {
+        // Detectar si está en el suelo
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
         // Movimiento horizontal
-        float moveX = Input.GetAxis("Horizontal2"); // Control con el eje "Horizontal2" (configura esto en el Input Manager)
+        float moveX = Input.GetAxis("Horizontal2");
         rb.linearVelocity = new Vector2(moveX * speed, rb.linearVelocity.y);
 
-        // Cambiar orientaci�n del sprite seg�n la direcci�n del movimiento en el eje X
+        // Cambiar orientación del sprite según la dirección del movimiento en el eje X
         if (moveX > 0 && !facingRight)
         {
-            //spriteRenderer.flipX = false;
-            //UpdateWeaponHitBox(false);
             Flip();
         }
         else if (moveX < 0 && facingRight)
         {
-            //spriteRenderer.flipX = true;
-            //UpdateWeaponHitBox(true);
             Flip();
         }
 
-        // Salto con tecla espec�fica
+        // Salto con tecla específica
         if (isGrounded && Input.GetKeyDown(jumpKey))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
@@ -59,42 +60,15 @@ public class Player2Movement : MonoBehaviour
         if (weaponHitBox != null)
         {
             Vector3 localPosition = weaponHitBox.localPosition;
-            localPosition.x *= -1; // Cambia el lado
+            localPosition.x *= -1;
             weaponHitBox.localPosition = localPosition;
         }
-        else
-        {
-            Debug.LogWarning("weaponHitBox no está asignado. Por favor, revisa en el Inspector.");
-        }
     }
 
-    //private void UpdateWeaponHitBox(bool isFlipped)
-    //{
-    //    if(weaponHitBox != null)
-    //    {
-    //        Vector3 localPosition = weaponHitBox.localPosition;
-    //        localPosition.x = Mathf.Abs(localPosition.x) * (isFlipped?-1:1);
-    //        weaponHitBox.localPosition = localPosition;
-    //    }
-    //}
-
-
-
-    // Detecta si el personaje est� tocando el suelo
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnDrawGizmosSelected()
     {
-        if (((1 << collision.gameObject.layer) & groundLayer) != 0)
-        {
-            isGrounded = true;
-        }
-    }
-
-    // Detecta si el personaje deja de tocar el suelo
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (((1 << collision.gameObject.layer) & groundLayer) != 0)
-        {
-            isGrounded = false;
-        }
+        // Visualizar el área de detección del suelo en el editor
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 }

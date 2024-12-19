@@ -29,12 +29,24 @@ public class Player2AttackLogic : MonoBehaviour
 
         foreach (Collider2D playerEnemy in hitOtherPlayers)
         {
-            //if (!playerEnemy.GetComponent<Player1ShieldLogic>().isTheShieldActive())
-            //{
-                playerEnemy.GetComponent<Player1Health>().decreaselife(attackDamage);
-                //Debug.Log("We hit "+ playerEnemy.name);
-                
-            //}
+            if(playerEnemy.GetComponent<Player1Health>() != null)
+            {
+                if (!playerEnemy.GetComponent<Player1ShieldLogic>().IsShieldActive())
+                {
+                    playerEnemy.GetComponent<Player1Health>().decreaselife(attackDamage);
+                    Debug.Log("We hit "+ playerEnemy.name);
+
+                }
+                else
+                {
+                    if(playerEnemy.GetComponent<Player1ShieldLogic>().getMaxHits() > 3)
+                    {
+
+                    }
+                }
+
+            }
+           
         }
 
     }
