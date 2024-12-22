@@ -9,6 +9,7 @@ public class Player2AttackLogic : MonoBehaviour
     public LayerMask otherPlayer;
 
     private float attackDamage = 10f;
+    [SerializeField] private AudioClip soundAttack1;
 
     // Update is called once per frame
     void Update()
@@ -16,6 +17,7 @@ public class Player2AttackLogic : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             Attack();
+            SoundsController.Instance.RunSound(soundAttack1);
         }
     }
 
