@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mateo\\Documents\\Knockout-Game\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B08B78C5-A2A7-20D8-8BF4-7A8430E1759F}|Assembly-CSharp.csproj|c:\\users\\mateo\\documents\\knockout-game\\assets\\player1health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B08B78C5-A2A7-20D8-8BF4-7A8430E1759F}|Assembly-CSharp.csproj|solutionrelative:assets\\player1health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B08B78C5-A2A7-20D8-8BF4-7A8430E1759F}|Assembly-CSharp.csproj|c:\\users\\mateo\\documents\\knockout-game\\assets\\scriptscharactermenu\\personajes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B08B78C5-A2A7-20D8-8BF4-7A8430E1759F}|Assembly-CSharp.csproj|solutionrelative:assets\\scriptscharactermenu\\personajes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B08B78C5-A2A7-20D8-8BF4-7A8430E1759F}|Assembly-CSharp.csproj|C:\\Users\\mateo\\Documents\\Knockout-Game\\assets\\scriptscharactermenu\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B08B78C5-A2A7-20D8-8BF4-7A8430E1759F}|Assembly-CSharp.csproj|solutionrelative:assets\\scriptscharactermenu\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Player1Health.cs",
+              "DocumentMoniker": "C:\\Users\\mateo\\Documents\\Knockout-Game\\Assets\\Player1Health.cs",
+              "RelativeDocumentMoniker": "Assets\\Player1Health.cs",
+              "ToolTip": "C:\\Users\\mateo\\Documents\\Knockout-Game\\Assets\\Player1Health.cs",
+              "RelativeToolTip": "Assets\\Player1Health.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAWwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T01:36:52.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Personajes.cs",
+              "DocumentMoniker": "C:\\Users\\mateo\\Documents\\Knockout-Game\\Assets\\ScriptsCharacterMenu\\Personajes.cs",
+              "RelativeDocumentMoniker": "Assets\\ScriptsCharacterMenu\\Personajes.cs",
+              "ToolTip": "C:\\Users\\mateo\\Documents\\Knockout-Game\\Assets\\ScriptsCharacterMenu\\Personajes.cs",
+              "RelativeToolTip": "Assets\\ScriptsCharacterMenu\\Personajes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T00:19:15.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\mateo\\Documents\\Knockout-Game\\Assets\\ScriptsCharacterMenu\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\ScriptsCharacterMenu\\GameManager.cs",
+              "ToolTip": "C:\\Users\\mateo\\Documents\\Knockout-Game\\Assets\\ScriptsCharacterMenu\\GameManager.cs",
+              "RelativeToolTip": "Assets\\ScriptsCharacterMenu\\GameManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T00:19:04.566Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

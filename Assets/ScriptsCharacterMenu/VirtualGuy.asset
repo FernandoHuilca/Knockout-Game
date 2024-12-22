@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9737d5aa763642a4e8a4d4a419e67266, type: 3}
+  m_Name: VirtualGuy
+  m_EditorClassIdentifier: 
+  personajeJugable: {fileID: 958317737538049524, guid: 88d2213d828d6b44ba10a5b0b980fbdf, type: 3}
+  imagen: {fileID: -2823441739632455846, guid: 9baccadbb39d06e47997fc39b3b7b62a, type: 3}
+  nombre: Chica sexy
