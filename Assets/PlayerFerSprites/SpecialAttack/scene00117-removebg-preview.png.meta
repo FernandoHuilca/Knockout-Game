@@ -397,7 +397,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      scene00117-removebg-preview_0: -2255903616314473426
+      scene00117-removebg-preview_1: 5300652566901525146
+      scene00117-removebg-preview_10: -8651861491611356555
+      scene00117-removebg-preview_2: -3276913022877998287
+      scene00117-removebg-preview_3: -9057699316842917482
+      scene00117-removebg-preview_4: 1118870641415906915
+      scene00117-removebg-preview_5: 5850601730474663832
+      scene00117-removebg-preview_6: -696020582090001790
+      scene00117-removebg-preview_7: -5693486374071940254
+      scene00117-removebg-preview_8: -4578814791864015224
+      scene00117-removebg-preview_9: -5389409927654019411
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
