@@ -3,7 +3,6 @@ using UnityEngine;
 public class Player1ShieldLogic : MonoBehaviour
 {
     [Header("Shield Components")]
-    public CircleCollider2D circleCollider2D;
     public BoxCollider2D boxCollider2D;
     public SpriteRenderer spriteRenderer;
 
@@ -45,7 +44,6 @@ public class Player1ShieldLogic : MonoBehaviour
         isShieldActive = !isShieldActive;
 
         // Activar/Desactivar componentes del escudo
-        circleCollider2D.enabled = isShieldActive;
         boxCollider2D.enabled = isShieldActive;
         spriteRenderer.enabled = isShieldActive;
 

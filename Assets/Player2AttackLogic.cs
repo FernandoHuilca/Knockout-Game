@@ -9,15 +9,23 @@ public class Player2AttackLogic : MonoBehaviour
     public LayerMask otherPlayer;
 
     private float attackDamage = 10f;
+    [SerializeField] private AudioClip soundAttack1;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Alpha1)) // Ataque normal.
         {
             Attack();
+            SoundsController.Instance.RunSound(soundAttack1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2)) // Ataque especial.
+        {
+            //FindObjectOfType<SpecialAttack>().UseSpecialAttack();
         }
     }
+
 
     void Attack()
     {
@@ -35,7 +43,8 @@ public class Player2AttackLogic : MonoBehaviour
                 {
                     playerEnemy.GetComponent<Player1Health>().decreaselife(attackDamage);
                     Debug.Log("We hit "+ playerEnemy.name);
-
+                    // Cargar barra de ataque especial con cada golpe acertado.
+                    //FindObjectOfType<SpecialAttack>().IncreaseCharge(10f);  
                 }
                 else
                 {

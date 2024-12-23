@@ -21,6 +21,9 @@ public class Player1Health : MonoBehaviour
     // Componente Rigidbody2D del jugador (para física)
     private Rigidbody2D playerRb;
 
+    // Componente Script de ataque del jugador
+    public Player1AttackLogic attackLogic;
+
     private void Start()
     {
         // Inicializa las vidas y la salud
@@ -57,8 +60,9 @@ public class Player1Health : MonoBehaviour
                 Die();
             }
 
-            // Reaparece al jugador y restablece su salud
+            // Reaparece al jugador, restablece su salud y regresa el poder especial a 0
             respawn();
+            attackLogic.setCurrentSpecialPower(0);
             currentHealth = 100;
         }
     }

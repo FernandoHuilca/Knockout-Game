@@ -17,6 +17,8 @@ public class Player2Movement : MonoBehaviour
     public Transform weaponHitBox;
     private bool facingRight = true;
 
+    [SerializeField] private AudioClip soundJump;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -46,6 +48,7 @@ public class Player2Movement : MonoBehaviour
         if (isGrounded && Input.GetKeyDown(jumpKey))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            SoundsController.Instance.RunSound(soundJump);
         }
     }
 
