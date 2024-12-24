@@ -4,6 +4,7 @@ public class Player1Movement : MonoBehaviour
 {
     public float speed = 10f;
     public float jumpForce = 19f;
+    public KeyCode jumpKey = KeyCode.Space; // Tecla específica para el salto de Player1
     public LayerMask groundLayer;
 
     private Rigidbody2D rb;
@@ -13,13 +14,8 @@ public class Player1Movement : MonoBehaviour
     public Transform weaponHitBox;
     private bool facingRight = true; // Dirección inicial
 
-    //Teclas
-    
-    public KeyCode jumpKey = KeyCode.Space; // Tecla específica para el salto de Player1
-
     void Start()
     {
-
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }

@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Player1AttackLogic : MonoBehaviour
 {
@@ -25,41 +24,26 @@ public class Player1AttackLogic : MonoBehaviour
     public float attackRate = 1f;
     float nexAttackTime = 0f; // Tiempo de espera para el próximo ataque
 
-    // Lógica de ataque especial
-    public Image specialAttackBarFill;
-    private float currentSpeacialPower = 0f;
-    private float maxSpecialPower = 100f;
-
-    public User1Logic user1Logic;
-
-    public Start()
-    {
-        //user1Logic = if()
-    }
-
     // Update se llama una vez por cuadro
     void Update()
     {
-        // Actualiza la barra de vida visualmente (entre 0 y 1)
-        specialAttackBarFill.fillAmount = Mathf.Clamp(currentSpeacialPower / maxSpecialPower, 0, 1);
-
         // Solo permite ataques si ha pasado suficiente tiempo desde el último ataque
         if (Time.time >= nexAttackTime)
         {
             // Si se presiona la tecla "1", realiza un golpe
-            if (Input.GetKeyDown(user1Logic.hit))
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 hit();
                 nexAttackTime = Time.time + 1.5f / attackRate; // 1.5 segundos de enfriamiento
             }
             // Si se presiona la tecla "2", realiza una patada
-            else if (Input.GetKeyDown(KeyCode.N))
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 kick();
                 nexAttackTime = Time.time + 0.75f / attackRate; // Menor enfriamiento
             }
             // Si se presiona la tecla "3", activa el poder especial
-            else if (Input.GetKeyDown(KeyCode.M) && currentSpeacialPower==100f)
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 activeSpecialPower();
             }
@@ -87,7 +71,6 @@ public class Player1AttackLogic : MonoBehaviour
             if (playerEnemy.GetComponent<Player2Health>() != null)
             {
                 playerEnemy.GetComponent<Player2Health>().decreaselife(kickDamage);
-                currentSpeacialPower += 10f; // Aumenta el poder especial
             }
         }
     }
@@ -106,7 +89,6 @@ public class Player1AttackLogic : MonoBehaviour
             if (playerEnemy.GetComponent<Player2Health>() != null)
             {
                 playerEnemy.GetComponent<Player2Health>().decreaselife(hitDamage);
-                currentSpeacialPower += 10f; // Aumenta el poder especial
             }
         }
     }
@@ -120,10 +102,5 @@ public class Player1AttackLogic : MonoBehaviour
         }
         Gizmos.color = Color.red; // Color del Gizmo
         Gizmos.DrawWireSphere(weaponHitBox.position, attackRange); // Área circular del rango de ataque
-    }
-
-    internal void setCurrentSpecialPower(int specialPowerValueEntered)
-    {
-        currentSpeacialPower = specialPowerValueEntered;
     }
 }

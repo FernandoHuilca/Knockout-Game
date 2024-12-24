@@ -2,49 +2,53 @@ using UnityEngine;
 
 public class Player2AttackLogic : MonoBehaviour
 {
-    public Animator animator;
+    public Animator animator; // TODO: Asignar el componente Animator de cada luchador
 
-    public Transform weaponHitBox;
-    public float attackRange = 0.5f;
-    public LayerMask otherPlayer;
+    public Transform weaponHitBox; // TODO: Asignar un objeto hijo cerca de las manos del luchador
+    public float attackRange = 0.5f; // TODO: Asignar el rango de ataque de cada luchador
+    public LayerMask otherPlayer; 
 
-    private float attackDamage = 10f;
+    private float attackDamage = 10f; // TODO: Asignar el daño de ataque de cada luchador
+
+    // Atritubos que depende si es player 1 o player 2
+    public KeyCode attackKey = KeyCode.F; // TODO: Toca ver cómo asignar teclas a cada jugador, en base a si es player 1 o player 2
+    public KeyCode specialAttackKey = KeyCode.G;
+
+    // Atributos para sonidos
     [SerializeField] private AudioClip soundAttack1;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) // Ataque normal.
+        if (Input.GetKeyDown(attackKey)) // Ataque normal.
         {
-            Attack();
+            hit();
             SoundsController.Instance.RunSound(soundAttack1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2)) // Ataque especial.
+        if (Input.GetKeyDown(specialAttackKey)) // Ataque especial.
         {
-            //FindObjectOfType<SpecialAttack>().UseSpecialAttack();
+            FindObjectOfType<SpecialAttack>().UseSpecialAttack();
         }
     }
 
 
-    void Attack()
+    void hit()
     {
         animator.SetTrigger("Attack");
-
-      
 
         Collider2D[] hitOtherPlayers = Physics2D.OverlapCircleAll(weaponHitBox.position, attackRange, otherPlayer);
 
         foreach (Collider2D playerEnemy in hitOtherPlayers)
         {
-            if(playerEnemy.GetComponent<Player1Health>() != null)
+            if(playerEnemy.GetComponent<FighterHealth>() != null)
             {
                 if (!playerEnemy.GetComponent<Player1ShieldLogic>().IsShieldActive())
                 {
-                    playerEnemy.GetComponent<Player1Health>().decreaselife(attackDamage);
+                    playerEnemy.GetComponent<FighterHealth>().decreaselife(attackDamage);
                     Debug.Log("We hit "+ playerEnemy.name);
                     // Cargar barra de ataque especial con cada golpe acertado.
-                    //FindObjectOfType<SpecialAttack>().IncreaseCharge(10f);  
+                    FindObjectOfType<SpecialAttack>().IncreaseCharge(10f);  
                 }
                 else
                 {

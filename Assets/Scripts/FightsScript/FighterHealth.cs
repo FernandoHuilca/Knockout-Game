@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player1Health : MonoBehaviour
+public class FighterHealth : MonoBehaviour
 {
     // Referencia al componente de imagen de la barra de vida
     public Image healthBarFill;

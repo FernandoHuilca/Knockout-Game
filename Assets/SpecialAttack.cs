@@ -14,7 +14,6 @@ public class SpecialAttack : MonoBehaviour
     {
         if (!isReady) // Si el ataque especial no está listo, cargar la barra.
         {
-            Debug.Log("AQUIIIII!");
             specialCharge += amount;
             specialCharge = Mathf.Clamp(specialCharge, 0, maxCharge); // Asegurarse de que no pase de 100.
             specialBarFill.fillAmount = specialCharge / maxCharge;

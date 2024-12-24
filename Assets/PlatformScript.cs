@@ -5,26 +5,20 @@ public class PlatformScript : MonoBehaviour
 {
     private GameObject currentOneWayPlatform;
 
+    public KeyCode downKey;
+    public int layer; 
+
     [SerializeField] private CapsuleCollider2D playerCollider;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow) && gameObject.layer==6)
+        if (Input.GetKeyDown(downKey) && gameObject.layer==layer)
         {
             if (currentOneWayPlatform != null) {
                 StartCoroutine(DisableCollision());
             }
 
-        }else if (Input.GetKeyDown(KeyCode.S) && gameObject.layer==3)
-        {
-            if (currentOneWayPlatform != null)
-            {
-                StartCoroutine(DisableCollision());
-            }
         }
-
-
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -7,10 +7,6 @@ TagManager:
   - Player2
   - Player1
   - OneWayPlatform
-  - Fighter1
-  - Fighter2
-  - User1
-  - User2
   layers:
   - Default
   - TransparentFX
@@ -21,7 +17,7 @@ TagManager:
   - Player1
   - Player
   - Ground
-  - 
+  - BaseFighter
   - 
   - 
   - 
