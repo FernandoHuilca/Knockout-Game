@@ -38,6 +38,12 @@ public class Player1Health : MonoBehaviour
         healthBarFill.fillAmount = Mathf.Clamp(currentHealth / maxHealth, 0, 1);
     }
 
+    public void IncreaseHealth(float amount)
+    {
+        currentHealth += amount;  // Aumenta la salud por la cantidad especificada
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);  // Asegura que la salud no supere el máximo
+    }
+
     // Método para reducir la vida del jugador
     internal void decreaselife(float damage)
     {
