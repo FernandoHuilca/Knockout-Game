@@ -28,7 +28,7 @@ public class Player2AttackLogic : MonoBehaviour
 
         if (Input.GetKeyDown(specialAttackKey)) // Ataque especial.
         {
-            FindObjectOfType<SpecialAttack>().UseSpecialAttack();
+            FindObjectOfType<SpecialAttack>().useSpecialAttack();
         }
     }
 
@@ -48,7 +48,7 @@ public class Player2AttackLogic : MonoBehaviour
                     playerEnemy.GetComponent<FighterHealth>().decreaselife(attackDamage);
                     Debug.Log("We hit "+ playerEnemy.name);
                     // Cargar barra de ataque especial con cada golpe acertado.
-                    FindObjectOfType<SpecialAttack>().IncreaseCharge(10f);  
+                    FindObjectOfType<SpecialAttack>().increaseCharge(10f);  
                 }
                 else
                 {

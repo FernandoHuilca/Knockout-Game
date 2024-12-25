@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager gameManagerInstance;
 
-    public List<Personajes> personajes;
+    public List<FightersData> fightersData;
 
     private void Awake()
     {
-        if (GameManager.Instance == null)
+        if (GameManager.gameManagerInstance == null)
         {
-            GameManager.Instance = this;
+            GameManager.gameManagerInstance = this;
             DontDestroyOnLoad(this.gameObject);
         }
         else

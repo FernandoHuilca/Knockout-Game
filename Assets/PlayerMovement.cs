@@ -25,8 +25,6 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private bool facingRight = true; // TODO: Modificar EN BASE AL USUARIO
 
-    private User1Logic user1Logic;
-
     void Start()
     {
         //jummpKey = user1Logic.jumpKey;

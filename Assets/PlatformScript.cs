@@ -6,9 +6,15 @@ public class PlatformScript : MonoBehaviour
     private GameObject currentOneWayPlatform;
 
     public KeyCode downKey;
-    public int layer; 
+    
+    private int layer; 
+    private CapsuleCollider2D playerCollider;
 
-    [SerializeField] private CapsuleCollider2D playerCollider;
+    void OnValidate()
+    {
+        playerCollider = GetComponent<CapsuleCollider2D>();
+        layer = LayerMask.NameToLayer("BaseFighter");
+    }
 
     private void Update()
     {

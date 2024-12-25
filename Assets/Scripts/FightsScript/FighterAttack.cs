@@ -3,35 +3,27 @@ using UnityEngine;
 
 public class FighterAttack : MonoBehaviour
 {
-    // Referencia al Animator para reproducir animaciones de ataque
-    public Animator animator;
-
-    // Posición donde se verificará el impacto de las armas
-    public Transform weaponHitBox;
-
-    // Rango en el que se pueden detectar jugadores enemigos
-    public float attackRange = 0.5f;
-
-    // Capa que representa al otro jugador (enemigo)
-    //public LayerMask otherPlayer;
+    
+    public Animator animator; // Referencia al Animator para reproducir animaciones de ataque
+    public Transform weaponHitBox; // Posición donde se verificará el impacto de las armas
+    public float attackRange; // Rango en el que se pueden detectar jugadores enemigos
 
     // Valores de daño para diferentes ataques
-    private float hitDamage = 10f;            // Daño del ataque normal
-    private float kickDamage = 5f;          // Daño del ataque de patada
-    private float specialPowerDamage = 30f;   // Daño del poder especial
-
-    private float hitDamageToShield = 20f; // Daño al escudo con golpe
-    private float kickDamageToShield = 10f; // Daño al escudo con patada
-
-    private float attackRate = 1f; // Tasa de ataque: número de ataques por segundo permitidos
-    public float waitingTimeHit = 1.25f; // Tiempo de espera entre golpes
-    public float waitingTimeKick = 0.75f; // Tiempo de espera entre patadas
+    public float hitDamage = 10f;
+    public float kickDamage;
+    public float specialPowerDamage;
+    
+    public float hitDamageToShield; 
+    public float kickDamageToShield;
+    
+    public float attackRate = 1f; // Tasa de ataque: número de ataques por segundo permitidos
+    public float waitingTimeHit; // Tiempo de espera entre golpes
+    public float waitingTimeKick; // Tiempo de espera entre patadas
     private float nexAttackTime = 0f; // Acumulador del tiempo de espera para el próximo ataque
     
-
-    public KeyCode hitKey = KeyCode.Alpha1;
-    public KeyCode kickKey = KeyCode.Alpha2;
-    public KeyCode specialPowerKey = KeyCode.Alpha3;
+    public KeyCode hitKey;
+    public KeyCode kickKey;
+    public KeyCode specialPowerKey;
 
     private SpecialAttack specialAttack;
 
@@ -67,7 +59,7 @@ public class FighterAttack : MonoBehaviour
             // Si se presiona la tecla correspondiente, activa el poder especial
             else if (Input.GetKeyDown(specialPowerKey))
             {
-                specialAttack.UseSpecialAttack();
+                specialAttack.useSpecialAttack();
             }
         }
     }
@@ -76,7 +68,7 @@ public class FighterAttack : MonoBehaviour
     void hit()
     {
         animator.SetTrigger("Attack"); // Activa la animación de ataque
-        ApplyDamageToEnemies(hitDamage, hitDamageToShield); // Aplica daño a los enemigos detectados
+        applyDamageToEnemies(hitDamage, hitDamageToShield); // Aplica daño a los enemigos detectados
     }
 
     // Método para realizar la patada
@@ -84,11 +76,11 @@ public class FighterAttack : MonoBehaviour
     {
         // Activa la animación de ataque
         animator.SetTrigger("Attack"); // DEBERÍA SER DIFRENTE PARA LA ANIMACIÓN DE KICK
-        ApplyDamageToEnemies(kickDamage, kickDamageToShield);
+        applyDamageToEnemies(kickDamage, kickDamageToShield);
     }
 
     // Método que aplica daño a los enemigos detectados
-    private void ApplyDamageToEnemies(float damage, float damageToShield)
+    private void applyDamageToEnemies(float damage, float damageToShield)
     {
         // Detecta jugadores enemigos dentro del área del "weaponHitBox"
         //Collider2D[] hitOtherPlayers = Physics2D.OverlapCircleAll(weaponHitBox.position, attackRange, otherPlayer);
@@ -108,7 +100,7 @@ public class FighterAttack : MonoBehaviour
                     health.decreaselife(damage);
                     Debug.Log("We hit " + playerEnemy.name);
                     // Cargar barra de ataque especial con cada golpe acertado
-                    specialAttack.IncreaseCharge(damage);
+                    specialAttack.increaseCharge(damage);
                 }
                 else
                 {
@@ -142,5 +134,65 @@ public class FighterAttack : MonoBehaviour
         }
         Gizmos.color = Color.red; // Color del Gizmo
         Gizmos.DrawWireSphere(weaponHitBox.position, attackRange); // Área circular del rango de ataque
+    }
+
+    public void setHitKey(KeyCode hitKey)
+    {
+        this.hitKey = hitKey;
+    }
+
+    public void setKickKey(KeyCode kickKey)
+    {
+        this.kickKey = kickKey;
+    }
+
+    public void setSpecialPowerKey(KeyCode specialPowerKey)
+    {
+        this.specialPowerKey = specialPowerKey;
+    }
+
+    public void setHitDamage(float hitDamageFromPersonaje)
+    {
+        hitDamage = hitDamageFromPersonaje;
+    }
+
+    public void setKickDamage(float kickDamageFromPersonaje)
+    {
+        kickDamage = kickDamageFromPersonaje;
+    }
+
+    public void setSpecialPowerDamage(float specialPowerDamageFromPersonaje)
+    {
+        specialPowerDamage = specialPowerDamageFromPersonaje;
+    }
+
+    public void setHitDamageToShield(float hitDamageToShieldFromPersonaje)
+    {
+        hitDamageToShield = hitDamageToShieldFromPersonaje;
+    }
+
+    public void setKickDamageToShield(float kickDamageToShieldFromPersonaje)
+    {
+        kickDamageToShield = kickDamageToShieldFromPersonaje;
+    }
+
+    public void setWaitingTimeHit(float waitingTimeHitFromPersonaje)
+    {
+        waitingTimeHit = waitingTimeHitFromPersonaje;
+    }
+
+    public void setWaitingTimeKick(float waitingTimeKickFromPersonaje)
+    {
+        waitingTimeKick = waitingTimeKickFromPersonaje;
+    }
+
+    public void setAttackRange(float attackRangeFromPersonaje)
+    {
+        attackRange = attackRangeFromPersonaje;
+    }
+
+    public void setAttackRate(float attackRateFromPersonaje)
+    {
+        attackRate = attackRateFromPersonaje;
     }
 }

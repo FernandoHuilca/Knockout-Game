@@ -8,10 +8,10 @@ public class FighterShield : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     [Header("Shield Settings")]
-    public float shieldDuration = 5f; // Tiempo de recarga si el escudo se desactiva.
-    private float shieldCapacity = 100f; // Capacidad total del escudo INICIAL.
-    private const float maxShieldCapacity = 100f; // Capacidad máxima del escudo.
-    private const float rechargeRate = 10f; // Cantidad de recarga por segundo.
+    public float shieldDuration; // Tiempo de recarga si el escudo se desactiva.
+    public float shieldCapacity = 0; // Capacidad del escudo.
+    public float maxShieldCapacity; // Capacidad máxima del escudo.
+    public float rechargeRate; // Cantidad de recarga por segundo.
     private bool isShieldActive = false; // Estado del escudo.
     private bool isRechargingFromZero = false; // Para controlar la recarga tras agotarse.
 
@@ -28,18 +28,12 @@ public class FighterShield : MonoBehaviour
 
     void Start()
     {
+        shieldCapacity = maxShieldCapacity;
 
         Transform shield = transform.Find("Shield");
+        boxCollider2D = shield.GetComponent<BoxCollider2D>();
 
-        if (shield != null)
-        {
-            boxCollider2D = shield.GetComponent<BoxCollider2D>();
-            spriteRenderer = shield.GetComponent<SpriteRenderer>();
-        }
-        else
-        {
-            Debug.LogError("No se encontró un hijo llamado 'Shield'.");
-        }
+        spriteRenderer = shield.GetComponent<SpriteRenderer>();
 
         specialAttack = GetComponent<SpecialAttack>();
         fighterAttack = GetComponent<FighterAttack>();
@@ -165,5 +159,25 @@ public class FighterShield : MonoBehaviour
     public void DecreaseShieldCapacity(float amount)
     {
         TakeDamage(amount);
+    }
+
+    public void setShieldKey(KeyCode shieldKey)
+    {
+        this.shieldKey = shieldKey;
+    }
+
+    public void setShieldDuration(float shieldDuration)
+    {
+        this.shieldDuration = shieldDuration;
+    }
+
+    public void setMaxShieldCapacity(float maxShieldCapacityFromPersonaje)
+    {
+        maxShieldCapacity = maxShieldCapacityFromPersonaje;
+    }
+
+    public void setRechargeRate(float rechargeRate)
+    {
+        this.rechargeRate = rechargeRate;
     }
 }
