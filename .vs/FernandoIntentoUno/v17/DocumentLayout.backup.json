@@ -3,32 +3,64 @@
   "WorkspaceRootPath": "C:\\Users\\GregorySD\\FernandoIntentoUno\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|c:\\users\\gregorysd\\fernandointentouno\\assets\\player1health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\player1health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|c:\\users\\gregorysd\\fernandointentouno\\assets\\userinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\userinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|c:\\users\\gregorysd\\fernandointentouno\\assets\\player1movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\player1movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1NumberLifes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player1NumberLifes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|C:\\Users\\GregorySD\\FernandoIntentoUno\\assets\\player1attacklogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\player1attacklogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|C:\\Users\\GregorySD\\FernandoIntentoUno\\assets\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|c:\\users\\gregorysd\\fernandointentouno\\assets\\player2movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\player2movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\UIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\UIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|c:\\users\\gregorysd\\fernandointentouno\\assets\\user1logic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\user1logic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1State.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player1State.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|C:\\Users\\GregorySD\\FernandoIntentoUno\\assets\\player1shieldlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\player1shieldlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\circe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\circe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|C:\\Users\\GregorySD\\FernandoIntentoUno\\assets\\platformscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\platformscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|C:\\Users\\GregorySD\\FernandoIntentoUno\\assets\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\User1Logic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\User1Logic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\User1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\User1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|C:\\Users\\GregorySD\\FernandoIntentoUno\\assets\\scripts\\fightsscript\\fighterhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\fightsscript\\fighterhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|C:\\Users\\GregorySD\\FernandoIntentoUno\\assets\\uiinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\uiinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|C:\\Users\\GregorySD\\FernandoIntentoUno\\assets\\scripts\\fightsscript\\fightershield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\fightsscript\\fightershield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|C:\\Users\\GregorySD\\FernandoIntentoUno\\assets\\scripts\\fightsscript\\fighterattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\fightsscript\\fighterattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|C:\\Users\\GregorySD\\FernandoIntentoUno\\assets\\specialattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\specialattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|C:\\Users\\GregorySD\\FernandoIntentoUno\\assets\\uicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\uicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,92 +75,177 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Player1Health.cs",
-              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1Health.cs",
-              "RelativeDocumentMoniker": "Assets\\Player1Health.cs",
-              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1Health.cs",
-              "RelativeToolTip": "Assets\\Player1Health.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAA3wDYAAAAxAAAAAAAAAA==",
+              "Title": "UserInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\UserInitializer.cs",
+              "RelativeDocumentMoniker": "Assets\\UserInitializer.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\UserInitializer.cs",
+              "RelativeToolTip": "Assets\\UserInitializer.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T02:54:58.361Z",
+              "WhenOpened": "2024-12-25T23:13:29.914Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Player1NumberLifes.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1NumberLifes.cs",
+              "RelativeDocumentMoniker": "Assets\\Player1NumberLifes.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1NumberLifes.cs",
+              "RelativeToolTip": "Assets\\Player1NumberLifes.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T23:12:48.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\MainMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\MainMenu.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\MainMenu.cs",
+              "RelativeToolTip": "Assets\\MainMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T23:11:58.825Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Player2Movement.cs",
-              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player2Movement.cs",
-              "RelativeDocumentMoniker": "Assets\\Player2Movement.cs",
-              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player2Movement.cs",
-              "RelativeToolTip": "Assets\\Player2Movement.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAcwE0AAAAAAAAAAAAAAA==",
+              "Title": "UIManager.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\UIManager.cs",
+              "RelativeDocumentMoniker": "Assets\\UIManager.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\UIManager.cs",
+              "RelativeToolTip": "Assets\\UIManager.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T02:51:14.421Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T23:10:49.613Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Player1State.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1State.cs",
+              "RelativeDocumentMoniker": "Assets\\Player1State.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1State.cs",
+              "RelativeToolTip": "Assets\\Player1State.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T23:10:27.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "circe.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\circe.cs",
+              "RelativeDocumentMoniker": "Assets\\circe.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\circe.cs",
+              "RelativeToolTip": "Assets\\circe.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T23:09:42.586Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PlayerMovement.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\PlayerMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\PlayerMovement.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\PlayerMovement.cs",
+              "RelativeToolTip": "Assets\\PlayerMovement.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T23:09:09.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "User1Logic.cs",
               "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\User1Logic.cs",
               "RelativeDocumentMoniker": "Assets\\User1Logic.cs",
               "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\User1Logic.cs",
               "RelativeToolTip": "Assets\\User1Logic.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T02:39:58.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T23:08:39.188Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Player1ShieldLogic.cs",
-              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1ShieldLogic.cs",
-              "RelativeDocumentMoniker": "Assets\\Player1ShieldLogic.cs",
-              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1ShieldLogic.cs",
-              "RelativeToolTip": "Assets\\Player1ShieldLogic.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAARAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "User1.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\User1.cs",
+              "RelativeDocumentMoniker": "Assets\\User1.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\User1.cs",
+              "RelativeToolTip": "Assets\\User1.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T01:24:31.761Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T23:07:58.268Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Player1AttackLogic.cs",
-              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1AttackLogic.cs",
-              "RelativeDocumentMoniker": "Assets\\Player1AttackLogic.cs",
-              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1AttackLogic.cs",
-              "RelativeToolTip": "Assets\\Player1AttackLogic.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAAwFEAAABRAAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "UIController.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\UIController.cs",
+              "RelativeDocumentMoniker": "Assets\\UIController.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\UIController.cs",
+              "RelativeToolTip": "Assets\\UIController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowBcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T02:28:08.216Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T21:35:34.371Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PlatformScript.cs",
-              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\PlatformScript.cs",
-              "RelativeDocumentMoniker": "Assets\\PlatformScript.cs",
-              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\PlatformScript.cs",
-              "RelativeToolTip": "Assets\\PlatformScript.cs",
+              "DocumentIndex": 10,
+              "Title": "UIInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\UIInitializer.cs",
+              "RelativeDocumentMoniker": "Assets\\UIInitializer.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\UIInitializer.cs",
+              "RelativeToolTip": "Assets\\UIInitializer.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwBwAAABzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T20:56:08.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FighterHealth.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Scripts\\FightsScript\\FighterHealth.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FightsScript\\FighterHealth.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Scripts\\FightsScript\\FighterHealth.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FightsScript\\FighterHealth.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEgAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T20:28:31.584Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SpecialAttack.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\SpecialAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\SpecialAttack.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\SpecialAttack.cs",
+              "RelativeToolTip": "Assets\\SpecialAttack.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T20:28:21.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "FighterAttack.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Scripts\\FightsScript\\FighterAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FightsScript\\FighterAttack.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Scripts\\FightsScript\\FighterAttack.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FightsScript\\FighterAttack.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T02:28:05.442Z"
+              "WhenOpened": "2024-12-25T20:28:27.242Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Player1Movement.cs",
-              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1Movement.cs",
-              "RelativeDocumentMoniker": "Assets\\Player1Movement.cs",
-              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Player1Movement.cs",
-              "RelativeToolTip": "Assets\\Player1Movement.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "FighterShield.cs",
+              "DocumentMoniker": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Scripts\\FightsScript\\FighterShield.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FightsScript\\FighterShield.cs",
+              "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\Scripts\\FightsScript\\FighterShield.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FightsScript\\FighterShield.cs",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAAALcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T02:28:01.504Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T20:27:56.123Z"
             }
           ]
         }
