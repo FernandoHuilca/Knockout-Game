@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\fighterselectionmenulogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|c:\\users\\gregorysd\\fernandointentouno\\assets\\characterselectionscripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|C:\\Users\\GregorySD\\FernandoIntentoUno\\assets\\characterselectionscripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{522CC2E2-BBA1-A7B7-890B-7C8B39154320}|Assembly-CSharp.csproj|solutionrelative:assets\\characterselectionscripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "Assets\\FighterSelectionMenuLogic.cs",
               "ToolTip": "C:\\Users\\GregorySD\\FernandoIntentoUno\\Assets\\FighterSelectionMenuLogic.cs",
               "RelativeToolTip": "Assets\\FighterSelectionMenuLogic.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-25T23:29:23.296Z",
               "EditorCaption": ""
@@ -55,8 +55,7 @@
               "RelativeToolTip": "Assets\\CharacterSelectionScripts\\GameManager.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T23:29:16.089Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T23:29:16.089Z"
             },
             {
               "$type": "Document",
@@ -68,8 +67,7 @@
               "RelativeToolTip": "Assets\\SpecialAttack.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAQwC8AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T20:28:21.161Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T20:28:21.161Z"
             },
             {
               "$type": "Document",
@@ -81,8 +79,7 @@
               "RelativeToolTip": "Assets\\Scripts\\FightsScript\\FighterAttack.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T20:28:27.242Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T20:28:27.242Z"
             },
             {
               "$type": "Document",
