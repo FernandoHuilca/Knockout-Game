@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d750995a6ca2743a2dc90ef9f4e2a0, type: 3}
+  m_Name: Fighter2
+  m_EditorClassIdentifier: 
+  fighterImage: {fileID: -855298285791758126, guid: 74b7259c4194c3048a0ce88c535cf6c1, type: 3}
+  fighterName: bruja puta
+  fighterDescription: una puta que se hizo bruja
+  fighterPrefab: {fileID: 1129147576050782473, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+  speed: 10
+  jumpForce: 30
+  groundCheckRadius: 0.1
+  maxHealth: 100
+  attackRange: 0.5
+  hitDamage: 20
+  kickDamage: 15
+  specialPowerDamage: 40
+  hitDamageToShield: 5
+  kickDamageToShield: 50
+  attackRate: 1
+  waitingTimeHit: 2
+  waitingTimeKick: 3
+  maxCharge: 100
+  shieldDuration: 5
+  maxShieldCapacity: 100
+  rechargeRate: 10

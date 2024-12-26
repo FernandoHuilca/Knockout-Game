@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d750995a6ca2743a2dc90ef9f4e2a0, type: 3}
+  m_Name: Fighter1
+  m_EditorClassIdentifier: 
+  fighterImage: {fileID: -2823441739632455846, guid: 9baccadbb39d06e47997fc39b3b7b62a, type: 3}
+  fighterName: Miriam
+  fighterDescription: Valiente guerrera
+  fighterPrefab: {fileID: 1366319999723965150, guid: 4aefabd85b1a8a74dbe57825adcba09b, type: 3}
+  speed: 8
+  jumpForce: 20
+  groundCheckRadius: 0.1
+  maxHealth: 100
+  attackRange: 0.5
+  hitDamage: 10
+  kickDamage: 5
+  specialPowerDamage: 30
+  hitDamageToShield: 15
+  kickDamageToShield: 10
+  attackRate: 1
+  waitingTimeHit: 1.25
+  waitingTimeKick: 0.75
+  maxCharge: 100
+  shieldDuration: 5
+  maxShieldCapacity: 100
+  rechargeRate: 10
