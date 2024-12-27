@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class FighterShield : MonoBehaviour
+public class Shield : MonoBehaviour, Shieldable
 {
     [Header("Shield Components")]
     public BoxCollider2D boxCollider2D;
@@ -15,10 +15,12 @@ public class FighterShield : MonoBehaviour
     private bool isShieldActive = false; // Estado del escudo.
     private bool isRechargingFromZero = false; // Para controlar la recarga tras agotarse.
 
-    public KeyCode shieldKey = KeyCode.V;
+    //public KeyCode shieldKey = KeyCode.V;
 
     private Rigidbody2D rb;
     private RigidbodyConstraints2D originalConstraints;
+
+    private UserConfiguration userConfiguration;
 
     [Header("Scripts to Disable")]
     public MonoBehaviour specialAttack;
@@ -36,20 +38,22 @@ public class FighterShield : MonoBehaviour
         spriteRenderer = shield.GetComponent<SpriteRenderer>();
 
         specialAttack = GetComponent<SpecialAttack>();
-        fighterAttack = GetComponent<FighterAttack>();
-        fighterHealth = GetComponent<FighterHealth>();
-        fighterMovement = GetComponent<FighterMovement>();
+        fighterAttack = GetComponent<Attack>();
+        fighterHealth = GetComponent<Health>();
+        fighterMovement = GetComponent<Movement>();
 
         rb = GetComponent<Rigidbody2D>();
 
         // Guarda las restricciones originales del Rigidbody
         originalConstraints = rb.constraints;
+
+        userConfiguration = GetComponent<UserConfiguration>();
     }
 
     void Update()
     {
         // Activa o desactiva el escudo al presionar la tecla "V", solo si no está recargando desde 0.
-        if (Input.GetKeyDown(shieldKey) && !isRechargingFromZero)
+        if (Input.GetKeyDown(userConfiguration.getShieldKey()) && !isRechargingFromZero)
         {
             ToggleShield();
         }
@@ -156,28 +160,28 @@ public class FighterShield : MonoBehaviour
         return isShieldActive && !isRechargingFromZero;
     }
 
-    public void DecreaseShieldCapacity(float amount)
+    public void decreaseShieldCapacity(float amount)
     {
         TakeDamage(amount);
     }
 
-    public void setShieldKey(KeyCode shieldKey)
-    {
-        this.shieldKey = shieldKey;
-    }
+    //public void setShieldKey(KeyCode shieldKey)
+    //{
+    //    this.shieldKey = shieldKey;
+    //}
 
-    public void setShieldDuration(float shieldDuration)
-    {
-        this.shieldDuration = shieldDuration;
-    }
+    //public void setShieldDuration(float shieldDuration)
+    //{
+    //    this.shieldDuration = shieldDuration;
+    //}
 
-    public void setMaxShieldCapacity(float maxShieldCapacityFromPersonaje)
-    {
-        maxShieldCapacity = maxShieldCapacityFromPersonaje;
-    }
+    //public void setMaxShieldCapacity(float maxShieldCapacityFromPersonaje)
+    //{
+    //    maxShieldCapacity = maxShieldCapacityFromPersonaje;
+    //}
 
-    public void setRechargeRate(float rechargeRate)
-    {
-        this.rechargeRate = rechargeRate;
-    }
+    //public void setRechargeRate(float rechargeRate)
+    //{
+    //    this.rechargeRate = rechargeRate;
+    //}
 }

@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
 
-public class FighterHealth : MonoBehaviour
+public class Health : MonoBehaviour, Damageable
 {
+    public Animator animator; // Referencia al Animator para reproducir animaciones de ataque
     public float currentHealth;
     public float maxHealth;
     public int livesRemaining;
@@ -10,12 +11,20 @@ public class FighterHealth : MonoBehaviour
     private Vector2 startPosition;
     private Rigidbody2D startRigidbody2D;
     private Vector3 originalLocalScale;
-    private FighterMovement fighterMovement;
-
+    private Movement movement;
+    private Attack attack;
+    private Shield shield;
+    private SpecialAttack specialAttack;
+    private Rigidbody2D rigidBody2D;
+    private RigidbodyConstraints2D originalConstraints;
+    private UserConfiguration userConfiguration;
     private UIController UIController;
+
+    
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         UIController = GetComponent<UIController>();
         livesRemaining = UIController.getNumberOfLives();
 
@@ -25,7 +34,16 @@ public class FighterHealth : MonoBehaviour
         startRigidbody2D = GetComponent<Rigidbody2D>();
         originalLocalScale = transform.localScale;
 
-        fighterMovement = GetComponent<FighterMovement>();
+        movement = GetComponent<Movement>();
+        attack = GetComponent<Attack>();
+        shield = GetComponent<Shield>();
+        specialAttack = GetComponent<SpecialAttack>();
+        userConfiguration = GetComponent<UserConfiguration>();
+
+        rigidBody2D = GetComponent<Rigidbody2D>();
+
+        // Guarda las restricciones originales del Rigidbody
+        originalConstraints = rigidBody2D.constraints;
     }
 
     void updateUI()
@@ -34,22 +52,37 @@ public class FighterHealth : MonoBehaviour
         UIController.updateLives(livesRemaining);
     }
 
-    internal void decreaselife(float damage)
+    public void decreaseLife(float damage)
     {
         currentHealth -= damage;
+        //animator.SetTrigger("hurt");
 
         if (currentHealth <= 0)
         {
-            livesRemaining--;
+            rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            
+            specialAttack.enabled = false;
+            attack.enabled = false;
+            movement.enabled = false;
+            shield.enabled = false;
 
-            if (livesRemaining == 0)
+            livesRemaining--;
+            //animator.SetBool("isDead", true);
+            //animator.SetTrigger("die");
+
+            if (livesRemaining <= 0)
             {
                 die();
             }
             else
             {
-                respawn();
+                specialAttack.enabled = true;
+                attack.enabled = true;
+                movement.enabled = true;
+                shield.enabled = true;
                 currentHealth = maxHealth;
+                respawn();
+               
             }
         }
         updateUI();
@@ -57,22 +90,37 @@ public class FighterHealth : MonoBehaviour
 
     private void respawn()
     {
+        // Desactiva la simulación del Rigidbody temporalmente.
         startRigidbody2D.simulated = false;
 
-        // Hace que el jugador sea invisible temporalmente (usando scale)
+        // Hace que el jugador sea invisible temporalmente.
         transform.localScale = Vector3.zero;
 
-        // Restablece la posición inicial del jugador
+        // Restablece la posición inicial del jugador.
         transform.position = startPosition;
 
-        // Restaurar la orientación basada en `facingRight`
-        if (fighterMovement != null)
+        // Restaurar la orientación basada en `facingRight`.
+        if (userConfiguration != null)
         {
-            fighterMovement.setFacingRight(fighterMovement.GetFacingRight());
+            userConfiguration.setFacingRight(userConfiguration.getFacingRight());
         }
+
+        // Restaura las restricciones originales del Rigidbody.
+        rigidBody2D.constraints = originalConstraints;
+
+        // Hace visible al jugador y reactiva la simulación.
         transform.localScale = originalLocalScale;
         startRigidbody2D.simulated = true;
+
+        // Asegúrate de que todos los scripts estén habilitados.
+        specialAttack.enabled = true;
+        attack.enabled = true;
+        movement.enabled = true;
+        shield.enabled = true;
+
+        Debug.Log("Respawn completed successfully.");
     }
+
 
 
     private void die()
@@ -81,8 +129,8 @@ public class FighterHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void setMaxHealth(float healthFromPersonaje)
-    {
-        maxHealth = healthFromPersonaje;
-    }
+    //public void setMaxHealth(float healthFromPersonaje)
+    //{
+    //    maxHealth = healthFromPersonaje;
+    //}
 }

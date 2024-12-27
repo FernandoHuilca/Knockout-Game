@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpecialAttack : MonoBehaviour
@@ -12,6 +13,7 @@ public class SpecialAttack : MonoBehaviour
     {
         UIController = GetComponent<UIController>();
         updateUI();
+        
     }
 
     // Método que aumenta la barra de carga.
@@ -47,7 +49,7 @@ public class SpecialAttack : MonoBehaviour
 
     private void performSpecialAttack()
     {
-        // TODO: Lógica del ataque especial (daño en área, efectos, animaciones, etc.).
+       
         Debug.Log("Performing the special attack!");
     }
 

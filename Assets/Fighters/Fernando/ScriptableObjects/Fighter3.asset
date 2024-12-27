@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d750995a6ca2743a2dc90ef9f4e2a0, type: 3}
+  m_Name: Fighter3
+  m_EditorClassIdentifier: 
+  fighterImage: {fileID: -6470460504253458178, guid: 2f87a743e44890b4fbde48df58af96b5, type: 3}
+  fighterName: pepe
+  fighterDescription: este personaje es pepe
+  fighterPrefab: {fileID: 1129147576050782473, guid: a1687d7b82c5b684ba8f321260116e41, type: 3}
+  speed: 20
+  jumpForce: 20
+  groundCheckRadius: 0.1
+  maxHealth: 100
+  attackRange: 0.5
+  hitDamage: 30
+  kickDamage: 30
+  specialPowerDamage: 30
+  hitDamageToShield: 60
+  kickDamageToShield: 60
+  attackRate: 60
+  waitingTimeHit: 0.5
+  waitingTimeKick: 1.2
+  maxCharge: 100
+  shieldDuration: 5
+  maxShieldCapacity: 100
+  rechargeRate: 10

@@ -645,7 +645,7 @@ Transform:
   m_GameObject: {fileID: 445076583}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.24, y: 24.03, z: 0}
+  m_LocalPosition: {x: 13.08, y: 24.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1706,6 +1706,7 @@ MonoBehaviour:
   fightersData:
   - {fileID: 11400000, guid: 944c084e296a64d4f8b76a21d2d293cb, type: 2}
   - {fileID: 11400000, guid: 80ce0046bd4b4c14eb64d4971bb83b93, type: 2}
+  - {fileID: 11400000, guid: 659211227cc58aa4aa4bcc0cc682cfa9, type: 2}
 --- !u!4 &1810013103
 Transform:
   m_ObjectHideFlags: 0

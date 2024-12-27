@@ -2,17 +2,17 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class FighterMovement : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     // Atributos modificables para cada luchador
     public float speed; // Diferente para cada nuevo luchador
     public float jumpForce; // Diferente para cada nuevo luchador
 
     // Atributos modificables en base al player 1 o player 2
-    public KeyCode jumpKey; // Asignar teclas a cada jugador
-    public KeyCode downKey; // Tecla para pasar plataformas
-    public bool facingRight; // Orientaci�n inicial basada en el jugador
-    public string axis; // Eje horizontal del jugador
+    //public KeyCode jumpKey; // Asignar teclas a cada jugador
+    //public KeyCode downKey; // Tecla para pasar plataformas
+    //public bool facingRight; // Orientaci�n inicial basada en el jugador
+    //public string axis; // Eje horizontal del jugador
 
     // Atributos comunes a todos los luchadores
     public LayerMask groundLayer;
@@ -32,6 +32,9 @@ public class FighterMovement : MonoBehaviour
     private int fighterLayer;
     private CapsuleCollider2D playerCollider;
 
+    private UserConfiguration userConfiguration;
+    private Animator animator;
+
     void Start()
     {
         groundLayer = LayerMask.GetMask("Ground");
@@ -41,6 +44,9 @@ public class FighterMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerCollider = GetComponent<CapsuleCollider2D>();
 
+        userConfiguration = GetComponent<UserConfiguration>();
+        animator = GetComponent<Animator>();
+
         InitializeFacingDirection();
     }
 
@@ -49,20 +55,22 @@ public class FighterMovement : MonoBehaviour
         HandleMovement();
         HandleJump();
         HandlePlatformDrop();
+        animator.SetBool("isJumping", !isGrounded);
     }
 
     private void HandleMovement()
     {
         // Movimiento horizontal
-        float moveX = Input.GetAxis(axis);
+        float moveX = Input.GetAxis(userConfiguration.getAxis());
         rb.linearVelocity = new Vector2(moveX * speed, rb.linearVelocity.y);
-
+        animator.SetFloat("speed", Mathf.Abs(moveX * speed));
+        
         // Cambiar orientación del sprite dependiendo de `facingRight`
-        if (moveX > 0 && !facingRight)
+        if (moveX > 0 && !userConfiguration.getFacingRight())
         {
             Flip();
         }
-        else if (moveX < 0 && facingRight)
+        else if (moveX < 0 && userConfiguration.getFacingRight())
         {
             Flip();
         }
@@ -73,18 +81,22 @@ public class FighterMovement : MonoBehaviour
     {
         // Detectar si est� en el suelo
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        
 
-        if (isGrounded && Input.GetKeyDown(jumpKey))
+        if (isGrounded && Input.GetKeyDown(userConfiguration.getJumpKey()))
         {
+            
+            animator.SetBool("isJumping", true);
             Debug.Log("Jump");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             SoundsController.Instance.RunSound(soundJump);
+            
         }
     }
 
     private void HandlePlatformDrop()
     {
-        if (Input.GetKeyDown(downKey) && gameObject.layer == fighterLayer)
+        if (Input.GetKeyDown(userConfiguration.getDownKey()) && gameObject.layer == fighterLayer)
         {
             if (currentOneWayPlatform != null)
             {
@@ -95,7 +107,7 @@ public class FighterMovement : MonoBehaviour
 
     private void Flip()
     {
-        facingRight = !facingRight;
+        userConfiguration.setFacingRight(!userConfiguration.getFacingRight());
 
         // Cambiar la orientaci�n del sprite
         spriteRenderer.flipX = !spriteRenderer.flipX;
@@ -160,7 +172,7 @@ public class FighterMovement : MonoBehaviour
     public void InitializeFacingDirection()
     {
         // Ajustar el sprite y componentes según el valor inicial de facingRight
-        if (!facingRight)
+        if (!userConfiguration.getFacingRight())
         {
             spriteRenderer.flipX = true;
 
@@ -180,43 +192,53 @@ public class FighterMovement : MonoBehaviour
         }
     }
 
-    public void setAxis(string axisFromPersonaje)
+    public UserConfiguration getUserConfiguration()
     {
-        axis = axisFromPersonaje;
+        return userConfiguration;
     }
 
-    public void setUpKey(KeyCode upKey)
+    public Animator getAnimator()
     {
-        jumpKey = upKey;
+        return animator;
     }
 
-    public void setDownKey(KeyCode downKey)
-    {
-        this.downKey = downKey;
-    }
+    //public void setAxis(string axisFromPersonaje)
+    //{
+    //    axis = axisFromPersonaje;
+    //}
 
-    public void setFacingRight(bool facingRight)
-    {
-        this.facingRight = facingRight;
-    }
+    //public void setUpKey(KeyCode upKey)
+    //{
+    //    jumpKey = upKey;
+    //}
 
-    public bool GetFacingRight()
-    {
-        return facingRight;
-    }
+    //public void setDownKey(KeyCode downKey)
+    //{
+    //    this.downKey = downKey;
+    //}
 
-    public void setSpeed(float speedFromPersonaje)
-    {
-        speed = speedFromPersonaje;
-    }
+    //public void setFacingRight(bool facingRight)
+    //{
+    //    this.facingRight = facingRight;
+    //}
 
-    public void setJumpForce(float jumpForceFromPersonaje)
-    {
-        jumpForce = jumpForceFromPersonaje;
-    }
+    //public bool GetFacingRight()
+    //{
+    //    return facingRight;
+    //}
 
-    public void setGroundCheckRadius(float checkRadiusFromPersonaje)
-    {
-        groundCheckRadius = checkRadiusFromPersonaje;
-    }
+    //public void setSpeed(float speedFromPersonaje)
+    //{
+    //    speed = speedFromPersonaje;
+    //}
+
+    //public void setJumpForce(float jumpForceFromPersonaje)
+    //{
+    //    jumpForce = jumpForceFromPersonaje;
+    //}
+
+    //public void setGroundCheckRadius(float checkRadiusFromPersonaje)
+    //{
+    //    groundCheckRadius = checkRadiusFromPersonaje;
+    //}
 }

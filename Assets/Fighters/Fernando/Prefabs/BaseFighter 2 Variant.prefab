@@ -12,6 +12,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseFighter 2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1129147576050782473, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: m_TagString
+      value: User1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: axis
+      value: Horizontal2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: shieldKey
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: facingRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: 'attackKeys.Array.data[0]'
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: 'attackKeys.Array.data[1]'
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: 'attackKeys.Array.data[2]'
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: 'movementKeys.Array.data[0]'
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: 'movementKeys.Array.data[1]'
+      value: 115
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055890416216286067, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: groundCheckRadius
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4646509751400329567, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -42,6 +82,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6369445316826428863, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
       propertyPath: specialBarFill
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956133260280258498, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: healthBarFill
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956133260280258498, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: specialBarFill
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956133260280258498, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: 'lives.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956133260280258498, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: 'lives.Array.data[1]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956133260280258498, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
+      propertyPath: 'lives.Array.data[2]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8798357567669413292, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}

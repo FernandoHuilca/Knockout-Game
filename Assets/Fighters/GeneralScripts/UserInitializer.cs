@@ -8,13 +8,23 @@ public class UserInitializer : MonoBehaviour
     [SerializeField] private KeyCode[] movementKeys; 
     [SerializeField] private KeyCode[] attackKeys;
     [SerializeField] private KeyCode shieldKey;
-    [SerializeField] private  UIInitializer UIInitializer;
+    [SerializeField] private UIInitializer UIInitializer;
+
+    //[SerializeField] private UserConfiguration userConfiguration;
 
     private void Start()
     {
         int fighterIndex = PlayerPrefs.GetInt($"User{userIndex}Index"); // Se obtiene el índice del luchador seleccionado por el usuario
+        
         FightersData fighterData = GameManager.gameManagerInstance.fightersData[fighterIndex]; // Se obtienen los datos del luchador seleccionado
         GameObject fighter = fighterData.getFighterPrefab(); // Se obtiene el prefab del luchador seleccionado
+        fighter.tag = userIndex == 1 ? "User1" : "User2"; // Se asigna la etiqueta correspondiente al luchador
+        UserConfiguration userConfiguration = fighter.GetComponent<UserConfiguration>();
+        userConfiguration.setMovementKeys(movementKeys);
+        userConfiguration.setAttackKeys(attackKeys);
+        userConfiguration.setShieldKey(shieldKey);
+        userConfiguration.setFacingRight(userIndex == 1);
+        userConfiguration.setAxis(userIndex == 1 ? "Horizontal2" : "Horizontal");
 
         // Se configuran los componentes del luchador
         configureMovement(fighter, fighterData);
@@ -32,49 +42,49 @@ public class UserInitializer : MonoBehaviour
 
     private void configureMovement(GameObject fighter, FightersData fighterData)
     {
-        FighterMovement movement = fighter.GetComponent<FighterMovement>();
-        movement.setFacingRight(userIndex == 1);
-        movement.setAxis(userIndex == 1 ? "Horizontal2" : "Horizontal"); // Se asigna el eje horizontal de movimiento
-        movement.setUpKey(movementKeys[0]);
-        movement.setDownKey(movementKeys[1]);
-        movement.setSpeed(fighterData.getSpeed());
-        movement.setJumpForce(fighterData.getJumpForce());
-        movement.setGroundCheckRadius(fighterData.getGroundCheckRadius());
+        //Movement movement = fighter.GetComponent<Movement>();
+        //movement.setFacingRight(userIndex == 1);
+        //movement.setAxis(userIndex == 1 ? "Horizontal2" : "Horizontal"); // Se asigna el eje horizontal de movimiento
+        //movement.setUpKey(movementKeys[0]);
+        //movement.setDownKey(movementKeys[1]);
+        //movement.setSpeed(fighterData.getSpeed());
+        //movement.setJumpForce(fighterData.getJumpForce());
+        //movement.setGroundCheckRadius(fighterData.getGroundCheckRadius());
     }
 
     private void configureAttack(GameObject fighter, FightersData fighterData)
     {
-        FighterAttack attack = fighter.GetComponent<FighterAttack>();
-        attack.setHitKey(attackKeys[0]);
-        attack.setKickKey(attackKeys[1]);
-        attack.setSpecialPowerKey(attackKeys[2]);
+        //Attack attack = fighter.GetComponent<Attack>();
+        //attack.setHitKey(attackKeys[0]);
+        //attack.setKickKey(attackKeys[1]);
+        //attack.setSpecialPowerKey(attackKeys[2]);
 
-        attack.setAttackRate(fighterData.getAttackRate());
-        attack.setAttackRange(fighterData.getAttackRange());
+        //attack.setAttackRate(fighterData.getAttackRate());
+        //attack.setAttackRange(fighterData.getAttackRange());
 
-        attack.setHitDamage(fighterData.getHitDamage());
-        attack.setKickDamage(fighterData.getKickDamage());
-        attack.setSpecialPowerDamage(fighterData.getSpecialPowerDamage());
+        //attack.setHitDamage(fighterData.getHitDamage());
+        //attack.setKickDamage(fighterData.getKickDamage());
+        //attack.setSpecialPowerDamage(fighterData.getSpecialPowerDamage());
+        
+        //attack.setHitDamageToShield(fighterData.getHitDamageToShield());
+        //attack.setKickDamageToShield(fighterData.getKickDamageToShield());
+        
+        //attack.setWaitingTimeHit(fighterData.getWaitingTimeHit());
+        //attack.setWaitingTimeKick(fighterData.getWaitingTimeKick());
 
-        attack.setHitDamageToShield(fighterData.getHitDamageToShield());
-        attack.setKickDamageToShield(fighterData.getKickDamageToShield());
-
-        attack.setWaitingTimeHit(fighterData.getWaitingTimeHit());
-        attack.setWaitingTimeKick(fighterData.getWaitingTimeKick());
-
-        fighter.GetComponent<FighterShield>().setShieldKey(shieldKey);
-        fighter.GetComponent<FighterShield>().setShieldDuration(fighterData.getShieldDuration());
-        fighter.GetComponent<FighterShield>().setMaxShieldCapacity(fighterData.getMaxShieldCapacity());
-        fighter.GetComponent<FighterShield>().setRechargeRate(fighterData.getRechargeRate());
+        //fighter.GetComponent<Shield>().setShieldKey(shieldKey);
+        //fighter.GetComponent<Shield>().setShieldDuration(fighterData.getShieldDuration());
+        //fighter.GetComponent<Shield>().setMaxShieldCapacity(fighterData.getMaxShieldCapacity());
+        //fighter.GetComponent<Shield>().setRechargeRate(fighterData.getRechargeRate());
     }
 
     
     private void configureAttributes(GameObject fighter, FightersData fighterData)
     {
-        FighterHealth health = fighter.GetComponent<FighterHealth>();
-        health.setMaxHealth(fighterData.getMaxHealth());
+        //Health health = fighter.GetComponent<Health>();
+        //health.setMaxHealth(fighterData.getMaxHealth());
 
-        SpecialAttack special = fighter.GetComponent<SpecialAttack>();
-        special.setMaxCharge(fighterData.getMaxCharge());
+        //SpecialAttack special = fighter.GetComponent<SpecialAttack>();
+        //special.setMaxCharge(fighterData.getMaxCharge());
     }
 }

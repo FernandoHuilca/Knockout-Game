@@ -16,8 +16,8 @@ public class FightersData : ScriptableObject
 
     // Atributos de Script Fighter Movement
     [Header("Script Fighter Movement")]
-    [SerializeField] private float speed; // Velocidad de movimiento
-    [SerializeField] private float jumpForce; // Fuerza de salto
+    //[SerializeField] private float speed; // Velocidad de movimiento
+    //[SerializeField] private float jumpForce; // Fuerza de salto
     [SerializeField] private float groundCheckRadius = 0.1f; // Radio de comprobación de suelo (Tiene un valor por defecto)
     // Atributos que dependen si es player 1 o player 2: axis, jumpKey y downKey.
 
@@ -32,16 +32,16 @@ public class FightersData : ScriptableObject
     [Header("Script Fighter Attack")]
     [SerializeField] private float attackRange = 0.5f; // Rango de ataque (Tiene un valor por defecto)
     
-    [SerializeField] private float hitDamage; 
-    [SerializeField] private float kickDamage;
-    [SerializeField] private float specialPowerDamage;
+    //[SerializeField] private float hitDamage; 
+    //[SerializeField] private float kickDamage;
+    //[SerializeField] private float specialPowerDamage;
     
-    [SerializeField] private float hitDamageToShield; // Daño al escudo con golpe
-    [SerializeField] private float kickDamageToShield; // Daño al escudo con patada
+    //[SerializeField] private float hitDamageToShield; // Daño al escudo con golpe
+    //[SerializeField] private float kickDamageToShield; // Daño al escudo con patada
     
     [SerializeField] private float attackRate = 1f; // Tasa de ataque: número de ataques por segundo permitidos (Tiene un valor por defecto)
-    [SerializeField] private float waitingTimeHit; // Tiempo de espera entre golpes
-    [SerializeField] private float waitingTimeKick; // Tiempo de espera entre patadas
+    //[SerializeField] private float waitingTimeHit; // Tiempo de espera entre golpes
+    //[SerializeField] private float waitingTimeKick; // Tiempo de espera entre patadas
     // Atributos que dependen si es player 1 o player 2: hitKey, kickKey y specialPowerKey.
 
 
@@ -66,19 +66,19 @@ public class FightersData : ScriptableObject
     public string getFighterName() { return fighterName; }
     public string getFighterDescription() { return fighterDescription; }
     public GameObject getFighterPrefab() { return fighterPrefab; }
-    public float getSpeed() { return speed; }
-    public float getJumpForce() { return jumpForce; }
+    //public float getSpeed() { return speed; }
+    //public float getJumpForce() { return jumpForce; }
     public float getGroundCheckRadius() { return groundCheckRadius; }
     public float getMaxHealth() { return maxHealth; }
     public float getAttackRange() { return attackRange; }
-    public float getHitDamage() { return hitDamage; }
-    public float getKickDamage() { return kickDamage; }
-    public float getSpecialPowerDamage() { return specialPowerDamage; }
-    public float getHitDamageToShield() { return hitDamageToShield; }
-    public float getKickDamageToShield() { return kickDamageToShield; }
+    //public float getHitDamage() { return hitDamage; }
+    //public float getKickDamage() { return kickDamage; }
+    //public float getSpecialPowerDamage() { return specialPowerDamage; }
+    //public float getHitDamageToShield() { return hitDamageToShield; }
+    //public float getKickDamageToShield() { return kickDamageToShield; }
     public float getAttackRate() { return attackRate; }
-    public float getWaitingTimeHit() { return waitingTimeHit; }
-    public float getWaitingTimeKick() { return waitingTimeKick; }
+    //public float getWaitingTimeHit() { return waitingTimeHit; }
+    //public float getWaitingTimeKick() { return waitingTimeKick; }
     public float getMaxCharge() { return maxCharge; }
     public float getShieldDuration() { return shieldDuration; }
     public float getMaxShieldCapacity() { return maxShieldCapacity; }

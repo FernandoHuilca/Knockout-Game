@@ -28,9 +28,10 @@ public class FighterSelectionMenuLogic : MonoBehaviour
     {
         gameManager = GameManager.gameManagerInstance; // Se obtiene la instancia del GameManager
 
+        
         indexUser1 = PlayerPrefs.GetInt("User1Index"); // Se obtiene el índice del personaje seleccionado por el usuario 1
         indexUser2 = PlayerPrefs.GetInt("User2Index"); // Se obtiene el índice del personaje seleccionado por el usuario 2
-
+        
         // Se comprueba que los índices no sean mayores que la cantidad de fightersData disponibles
         if (indexUser1 > gameManager.fightersData.Count - 1)
         {
@@ -53,6 +54,8 @@ public class FighterSelectionMenuLogic : MonoBehaviour
     private void updateUser1SelectionScreen()
     {
         PlayerPrefs.SetInt("User1Index", indexUser1);
+        
+        
         user1Image.sprite = gameManager.fightersData[indexUser1].getFighterImage();
         user1Name.text = gameManager.fightersData[indexUser1].getFighterName();
     }
@@ -61,6 +64,7 @@ public class FighterSelectionMenuLogic : MonoBehaviour
     private void updateUser2SelectionScreen()
     {
         PlayerPrefs.SetInt("User2Index", indexUser2);
+        
         user2Image.sprite = gameManager.fightersData[indexUser2].getFighterImage();
         user2Name.text = gameManager.fightersData[indexUser2].getFighterName();
     }
@@ -108,6 +112,7 @@ public class FighterSelectionMenuLogic : MonoBehaviour
 
     public void goBackToThePreviousFighterUser1()
     {
+        indexUser1 = goBackToThePreviousFighterUser(indexUser1);
         indexUser1 = goBackToThePreviousFighterUser(indexUser1);
         updateUser1SelectionScreen();
     }

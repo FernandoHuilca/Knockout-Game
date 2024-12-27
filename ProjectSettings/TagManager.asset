@@ -7,6 +7,8 @@ TagManager:
   - Player2
   - Player1
   - OneWayPlatform
+  - User1
+  - User2
   layers:
   - Default
   - TransparentFX
