@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d750995a6ca2743a2dc90ef9f4e2a0, type: 3}
+  m_Name: Goku
+  m_EditorClassIdentifier: 
+  fighterImage: {fileID: -9046237437510416535, guid: d296e7846e9f4034ebe05bf8c4e908f9, type: 3}
+  fighterName: Goku
+  fighterDescription: Hola probando
+  fighterPrefab: {fileID: 4252773541555047966, guid: 40da4f5d1b8880644930330b61300094, type: 3}
+  groundCheckRadius: 0.1
+  maxHealth: 100
+  attackRange: 0.5
+  attackRate: 1
+  maxCharge: 100
+  shieldDuration: 5
+  maxShieldCapacity: 100
+  rechargeRate: 10
