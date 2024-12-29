@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
 public class ZoeSpecialAttack : MonoBehaviour
@@ -9,9 +9,17 @@ public class ZoeSpecialAttack : MonoBehaviour
     private bool isReady = false; // Indica si el ataque especial está listo.
     private UIController UIController; // Referencia al controlador de la UI.
 
+
+    public float specialPowerDamage;
+    public float specialPowerDamageToShield;
+    public Animator animator; // Referencia al Animator para reproducir animaciones de ataque
+    private ZoeAttack attack;
+    
+
     private void Start()
     {
         UIController = GetComponent<UIController>();
+        attack = GetComponent<ZoeAttack>(); // Inicializar attack.
         updateUI();
 
     }
@@ -49,8 +57,15 @@ public class ZoeSpecialAttack : MonoBehaviour
 
     private void performSpecialAttack()
     {
-
+        special();
         Debug.Log("Performing the special attack!");
+    }
+
+    private void special()
+    {
+        // Activa la animación de ataque
+        animator.SetTrigger("special"); // DEBERÍA SER DIFRENTE PARA LA ANIMACIÓN DE KICK
+        attack.applyDamageToEnemies(specialPowerDamage, specialPowerDamageToShield);
     }
 
     private void updateUI()
@@ -63,4 +78,3 @@ public class ZoeSpecialAttack : MonoBehaviour
         this.maxCharge = maxChargeFromPersonaje;
     }
 }
-

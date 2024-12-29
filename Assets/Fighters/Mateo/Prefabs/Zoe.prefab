@@ -290,7 +290,6 @@ MonoBehaviour:
   attackRange: 0.5
   hitDamage: 50
   kickDamage: 15
-  specialPowerDamage: 40
   hitDamageToShield: 5
   kickDamageToShield: 50
   attackRate: 1
@@ -311,6 +310,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialCharge: 0
   maxCharge: 100
+  specialPowerDamage: 50
+  specialPowerDamageToShield: 30
+  animator: {fileID: 6257153250411107707}
 --- !u!114 &-8346464428723491535
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,10 +11,11 @@ public class ZoeAttack : MonoBehaviour
     // Valores de daño para diferentes ataques
     public float hitDamage;
     public float kickDamage;
-    public float specialPowerDamage;
+    
 
     public float hitDamageToShield;
     public float kickDamageToShield;
+    
 
     public float attackRate = 1f; // Tasa de ataque: número de ataques por segundo permitidos
     public float waitingTimeHit; // Tiempo de espera entre golpes
@@ -85,7 +86,7 @@ public class ZoeAttack : MonoBehaviour
     }
 
     // Método que aplica daño a los enemigos detectados
-    private void applyDamageToEnemies(float damage, float damageToShield)
+    public void applyDamageToEnemies(float damage, float damageToShield)
     {
         // Detecta jugadores enemigos dentro del área del "weaponHitBox"
         //Collider2D[] hitOtherPlayers = Physics2D.OverlapCircleAll(weaponHitBox.position, attackRange, otherPlayer);
