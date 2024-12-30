@@ -313,6 +313,11 @@ MonoBehaviour:
   specialPowerDamage: 50
   specialPowerDamageToShield: 30
   animator: {fileID: 6257153250411107707}
+  bolaPrefab: {fileID: 4717737401202766347, guid: 324a72b060d3d6349a5423c799005621, type: 3}
+  numeroBolas: 30
+  "velocidadExpansi\xF3n": 2
+  "r\xE1fagas": 2
+  "tiempoEntreR\xE1fagas": 4
 --- !u!114 &-8346464428723491535
 MonoBehaviour:
   m_ObjectHideFlags: 0
