@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class BolaMovimiento : MonoBehaviour
+public class BallMovement : MonoBehaviour
 {
-    private Vector2 dirección; // Dirección en la que la bola se expandirá
-    private float velocidadExpansión;
+    private Vector2 direction; // Dirección en la que la bola se expandirá
+    private float expansionSpeed;
     private string userTag;
 
-    public void Inicializar(Vector2 dir, float velocidad)
+    public void Initialize(Vector2 dir, float speed)
     {
-        dirección = dir.normalized; // Asegura que la dirección esté normalizada
-        velocidadExpansión = velocidad;
+        direction = dir.normalized; // Asegura que la dirección esté normalizada
+        expansionSpeed = speed;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -45,21 +45,21 @@ public class BolaMovimiento : MonoBehaviour
     void Update()
     {
         // Mueve la bola en la dirección calculada
-        transform.position += (Vector3)dirección * velocidadExpansión * Time.deltaTime;
+        transform.position += (Vector3)direction * expansionSpeed * Time.deltaTime;
 
         // Destruye la bola si está fuera de los límites de la pantalla
-        if (EstáFueraDePantalla())
+        if (IsOutOfScreen())
         {
             Destroy(gameObject);
         }
     }
 
-    private bool EstáFueraDePantalla()
+    private bool IsOutOfScreen()
     {
-        Vector3 posicionEnPantalla = Camera.main.WorldToViewportPoint(transform.position);
+        Vector3 screenPosition = Camera.main.WorldToViewportPoint(transform.position);
 
         // Comprueba si la bola está fuera del rango visible
-        return posicionEnPantalla.x < 0 || posicionEnPantalla.x > 1 ||
-               posicionEnPantalla.y < 0 || posicionEnPantalla.y > 1;
+        return screenPosition.x < 0 || screenPosition.x > 1 ||
+               screenPosition.y < 0 || screenPosition.y > 1;
     }
 }

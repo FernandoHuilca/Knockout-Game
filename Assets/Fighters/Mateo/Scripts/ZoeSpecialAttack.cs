@@ -15,11 +15,11 @@ public class ZoeSpecialAttack : MonoBehaviour
     private ZoeAttack attack;
 
     // Configuración para el poder especial con las bolas
-    public GameObject bolaPrefab; // Prefab de la bola
-    public int numeroBolas = 20; // Número de bolas en el círculo
-    public float velocidadExpansión = 5f; // Velocidad de expansión del círculo
-    public int ráfagas = 3; // Número de ráfagas
-    public float tiempoEntreRáfagas = 0.5f; // Tiempo entre ráfagas
+    public GameObject ballPrefab; // Prefab de la bola
+    public int ballCount = 20; // Número de bolas en el círculo
+    public float expansionSpeed = 5f; // Velocidad de expansión del círculo
+    public int bursts = 3; // Número de ráfagas
+    public float timeBetweenBursts = 0.5f; // Tiempo entre ráfagas
 
     private void Start()
     {
@@ -63,9 +63,7 @@ public class ZoeSpecialAttack : MonoBehaviour
     {
         special();
         Debug.Log("Performing the special attack!");
-
-
-        StartCoroutine(GenerarRáfagas()); // Llama al método para generar las bolas.
+        // La ráfaga será activada por un Animation Event al final de la animación especial.
     }
 
     private void special()
@@ -75,39 +73,43 @@ public class ZoeSpecialAttack : MonoBehaviour
         attack.applyDamageToEnemies(specialPowerDamage, specialPowerDamageToShield);
     }
 
-    private IEnumerator GenerarRáfagas()
+    // Este método se llamará al finalizar la animación "special" usando un Animation Event.
+    private void OnSpecialAnimationEnd()
     {
-        //animator.SetTrigger("balls");
-        for (int i = 0; i < ráfagas; i++)
+        StartCoroutine(GenerateBursts());
+    }
+
+    private IEnumerator GenerateBursts()
+    {
+        animator.SetTrigger("balls");
+        for (int i = 0; i < bursts; i++)
         {
-            GenerarCírculo();
-            yield return new WaitForSeconds(tiempoEntreRáfagas);
+            GenerateCircle();
+            yield return new WaitForSeconds(timeBetweenBursts);
         }
     }
 
-    private void GenerarCírculo()
+    private void GenerateCircle()
     {
-        float ánguloIncremento = 360f / numeroBolas;
+        float angleIncrement = 360f / ballCount;
 
-        for (int i = 0; i < numeroBolas; i++)
+        for (int i = 0; i < ballCount; i++)
         {
             // Calcula el ángulo de cada bola
-            float ángulo = i * ánguloIncremento * Mathf.Deg2Rad;
+            float angle = i * angleIncrement * Mathf.Deg2Rad;
 
             // Genera la posición inicial en el centro del personaje
-            Vector2 posicionInicial = transform.position;
+            Vector2 initialPosition = transform.position;
 
             // Crea la dirección radial basada en el ángulo
-            Vector2 direcciónRadial = new Vector2(Mathf.Cos(ángulo), Mathf.Sin(ángulo));
-
+            Vector2 radialDirection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 
             // Instancia la bola en el centro del personaje
-            GameObject bola = Instantiate(bolaPrefab, posicionInicial, Quaternion.identity);
-
+            GameObject ball = Instantiate(ballPrefab, initialPosition, Quaternion.identity);
 
             // Inicializa la bola para que se mueva radialmente hacia afuera
-            bola.GetComponent<BolaMovimiento>().setUserTag(gameObject.tag);
-            bola.GetComponent<BolaMovimiento>().Inicializar(direcciónRadial, velocidadExpansión);
+            ball.GetComponent<BallMovement>().setUserTag(gameObject.tag);
+            ball.GetComponent<BallMovement>().Initialize(radialDirection, expansionSpeed);
         }
     }
 
@@ -116,8 +118,8 @@ public class ZoeSpecialAttack : MonoBehaviour
         UIController.updateSpecialBar(specialCharge, maxCharge);
     }
 
-    public void setMaxCharge(float maxChargeFromPersonaje)
+    public void setMaxCharge(float maxChargeFromCharacter)
     {
-        this.maxCharge = maxChargeFromPersonaje;
+        this.maxCharge = maxChargeFromCharacter;
     }
 }

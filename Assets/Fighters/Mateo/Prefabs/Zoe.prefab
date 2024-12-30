@@ -313,11 +313,11 @@ MonoBehaviour:
   specialPowerDamage: 50
   specialPowerDamageToShield: 30
   animator: {fileID: 6257153250411107707}
-  bolaPrefab: {fileID: 4717737401202766347, guid: 324a72b060d3d6349a5423c799005621, type: 3}
-  numeroBolas: 30
-  "velocidadExpansi\xF3n": 2
-  "r\xE1fagas": 2
-  "tiempoEntreR\xE1fagas": 4
+  ballPrefab: {fileID: 4717737401202766347, guid: 324a72b060d3d6349a5423c799005621, type: 3}
+  ballCount: 30
+  expansionSpeed: 2
+  bursts: 2
+  timeBetweenBursts: 4
 --- !u!114 &-8346464428723491535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,8 +383,8 @@ Transform:
   m_GameObject: {fileID: 7020672408087064560}
   serializedVersion: 2
   m_LocalRotation: {x: 0.009773729, y: 0, z: 0, w: 0.99995226}
-  m_LocalPosition: {x: -0.0089, y: -0.1276, z: 0}
-  m_LocalScale: {x: 1.8567821, y: 3.618532, z: 5.407372}
+  m_LocalPosition: {x: -0.0132, y: -0.1035, z: 0}
+  m_LocalScale: {x: 2.7134135, y: 3.7148473, z: 5.407372}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8234786728138817651}
@@ -434,7 +434,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.59607846}
+  m_Color: {r: 0.98528075, g: 1, b: 0.8254717, a: 0.59607846}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -515,7 +515,7 @@ Transform:
   m_GameObject: {fileID: 8641308753366593918}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.251, y: 0.051, z: 0}
+  m_LocalPosition: {x: 0.284, y: 0.037, z: 0}
   m_LocalScale: {x: 1.75, y: 1.07, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
