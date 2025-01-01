@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Kamecharge_0: 3826888483211008958
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
