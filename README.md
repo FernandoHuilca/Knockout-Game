@@ -63,10 +63,10 @@ El juego ofrece varios escenarios que complementan la temática melancólica del
 - **Fernando Huilca** - Programador [@FernandoHuilca](https://github.com/FernandoHuilca)
 - **Mateo Simbaña** - Programador [@mateonicolasg](https://github.com/mateonicolasg)
 - **Alisson Betancourt** - Programadora [@AlizBet44](https://github.com/AlizBet44)
-- **Gregory Salazar** - Programador [@Gregory](https://github.com/AlizBet44)
+- **Gregory Salazar** - Programador [@Gregory](https://github.com/GregorySD1707)
   
 <table>
     <tr>
-    <td><img src="https://via.placeholder.com/200" alt="Foto del Autor"></td>
-    <td><img src="https://via.placeholder.com/200" alt="Foto del Colaborador"></td>
+    <td><img src="https://github.com/user-attachments/assets/ad757606-3228-4f9a-9c35-9e2ba8df77cf" alt="Foto del Colaborador"></td>
+    <td><img src="https://github.com/user-attachments/assets/fe6903b6-c2ff-4e10-b51d-490b66f11e7e" alt="Foto del Autor"></td>
 </table>
