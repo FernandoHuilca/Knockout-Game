@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d750995a6ca2743a2dc90ef9f4e2a0, type: 3}
   m_Name: Goku
   m_EditorClassIdentifier: 
-  fighterImage: {fileID: -9046237437510416535, guid: d296e7846e9f4034ebe05bf8c4e908f9, type: 3}
+  fighterImage: {fileID: 5406494899340224620, guid: ec744f7bf7cfc264cbcd2bd18f479a1c, type: 3}
   fighterName: Goku
   fighterDescription: Hola probando
   fighterPrefab: {fileID: 4252773541555047966, guid: 40da4f5d1b8880644930330b61300094, type: 3}

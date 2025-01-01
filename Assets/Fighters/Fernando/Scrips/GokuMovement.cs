@@ -34,6 +34,7 @@ public class GokuMovement : MonoBehaviour
 
     private UserConfiguration userConfiguration;
     private Animator animator;
+    private GokuSpecialAttack specialAttack;
 
     void Start()
     {
@@ -47,11 +48,22 @@ public class GokuMovement : MonoBehaviour
         userConfiguration = GetComponent<UserConfiguration>();
         animator = GetComponent<Animator>();
 
+        specialAttack = GetComponent<GokuSpecialAttack>();
+
         InitializeFacingDirection();
     }
 
     void Update()
     {
+        // Bloquear inputs si el ataque especial está activo
+        // Detener movimiento si el ataque especial está activo
+        if (specialAttack.IsPerformingSpecialAttack())
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); // Mantener velocidad vertical
+            animator.SetBool("isJumping", false); // Forzar que el estado de salto sea falso
+            animator.SetFloat("speed", 0); // Detener la animación de correr
+            return;
+        }
         HandleMovement();
         HandleJump();
         HandlePlatformDrop();
@@ -60,6 +72,8 @@ public class GokuMovement : MonoBehaviour
 
     private void HandleMovement()
     {
+        
+
         // Movimiento horizontal
         float moveX = Input.GetAxis(userConfiguration.getAxis());
         rb.linearVelocity = new Vector2(moveX * speed, rb.linearVelocity.y);
@@ -75,6 +89,7 @@ public class GokuMovement : MonoBehaviour
             Flip();
         }
     }
+
 
 
     private void HandleJump()
@@ -202,43 +217,4 @@ public class GokuMovement : MonoBehaviour
         return animator;
     }
 
-    //public void setAxis(string axisFromPersonaje)
-    //{
-    //    axis = axisFromPersonaje;
-    //}
-
-    //public void setUpKey(KeyCode upKey)
-    //{
-    //    jumpKey = upKey;
-    //}
-
-    //public void setDownKey(KeyCode downKey)
-    //{
-    //    this.downKey = downKey;
-    //}
-
-    //public void setFacingRight(bool facingRight)
-    //{
-    //    this.facingRight = facingRight;
-    //}
-
-    //public bool GetFacingRight()
-    //{
-    //    return facingRight;
-    //}
-
-    //public void setSpeed(float speedFromPersonaje)
-    //{
-    //    speed = speedFromPersonaje;
-    //}
-
-    //public void setJumpForce(float jumpForceFromPersonaje)
-    //{
-    //    jumpForce = jumpForceFromPersonaje;
-    //}
-
-    //public void setGroundCheckRadius(float checkRadiusFromPersonaje)
-    //{
-    //    groundCheckRadius = checkRadiusFromPersonaje;
-    //}
 }

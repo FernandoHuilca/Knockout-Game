@@ -50,7 +50,6 @@ GameObject:
   - component: {fileID: 3077847469709614939}
   - component: {fileID: 3786660211388923180}
   - component: {fileID: 6804079217059272270}
-  - component: {fileID: 3058746192841967697}
   - component: {fileID: 6523764882311554126}
   m_Layer: 9
   m_Name: Goku
@@ -75,6 +74,7 @@ Transform:
   - {fileID: 5978992941991935399}
   - {fileID: 1075876621959843433}
   - {fileID: 6068648961029915643}
+  - {fileID: 2774222097249527481}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6868050912817165152
@@ -286,9 +286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab51650a5c67fe4cb84e3528d72e2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 6257153250411107707}
   weaponHitBox: {fileID: 5978992941991935399}
-  attackRange: 0.4
+  attackRange: 0.5
   hitDamage: 40
   kickDamage: 50
   specialPowerDamage: 30
@@ -310,9 +310,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a80c357f63924340a0f64f47c5f54a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 6257153250411107707}
   specialCharge: 0
   maxCharge: 100
+  genkidamaPrefab: {fileID: 4160737951631346286, guid: f1c549bade7aeb243a371bdec2192f26, type: 3}
+  genkidamaSpawnPoint: {fileID: 2774222097249527481}
+  genkidamaSpeed: 5
+  genkidamaDamage: 50
+  followTime: 6
+  animationDuration: 4
 --- !u!114 &6804079217059272270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,20 +341,6 @@ MonoBehaviour:
   fighterAttack: {fileID: 0}
   fighterHealth: {fileID: 0}
   fighterMovement: {fileID: 0}
---- !u!114 &3058746192841967697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4252773541555047966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10fb7579d7c95864f93b7d05c6f0836d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  specialCharge: 0
-  maxCharge: 0
 --- !u!114 &6523764882311554126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +357,37 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 100
   livesRemaining: 0
+--- !u!1 &4872247264926956411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2774222097249527481}
+  m_Layer: 0
+  m_Name: GenkidamaSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2774222097249527481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4872247264926956411}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.17, y: 7.73, z: -0.002044871}
+  m_LocalScale: {x: 2.7317889, y: 3.186357, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8234786728138817651}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7020672408087064560
 GameObject:
   m_ObjectHideFlags: 0

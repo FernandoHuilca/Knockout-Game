@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class GokuAttack : MonoBehaviour
 {
-
     public Animator animator; // Referencia al Animator para reproducir animaciones de ataque
     public Transform weaponHitBox; // Posición donde se verificará el impacto de las armas
     public float attackRange; // Rango en el que se pueden detectar jugadores enemigos
@@ -25,7 +24,7 @@ public class GokuAttack : MonoBehaviour
     //public KeyCode kickKey;
     //public KeyCode specialPowerKey;
 
-    private SpecialAttack specialAttack;
+    private GokuSpecialAttack specialAttack;
     private UserConfiguration userConfiguration;
 
     // Atributos para sonidos
@@ -35,7 +34,7 @@ public class GokuAttack : MonoBehaviour
 
     void Start()
     {
-        specialAttack = GetComponent<SpecialAttack>();
+        specialAttack = GetComponent<GokuSpecialAttack>();
         animator = GetComponent<Animator>();
         userConfiguration = GetComponent<UserConfiguration>();
         ownTag = gameObject.tag;
@@ -45,6 +44,9 @@ public class GokuAttack : MonoBehaviour
     // Update se llama una vez por cuadro
     void Update()
     {
+        // Bloquear inputs si el ataque especial está activo
+        if (specialAttack.IsPerformingSpecialAttack())
+            return;
         // Solo permite ataques si ha pasado suficiente tiempo desde el último ataque
         if (Time.time >= nexAttackTime)
         {
@@ -144,63 +146,4 @@ public class GokuAttack : MonoBehaviour
         Gizmos.DrawWireSphere(weaponHitBox.position, attackRange); // Área circular del rango de ataque
     }
 
-    //public void setHitKey(KeyCode hitKey)
-    //{
-    //    this.hitKey = hitKey;
-    //}
-
-    //public void setKickKey(KeyCode kickKey)
-    //{
-    //    this.kickKey = kickKey;
-    //}
-
-    //public void setSpecialPowerKey(KeyCode specialPowerKey)
-    //{
-    //    this.specialPowerKey = specialPowerKey;
-    //}
-
-    //public void setHitDamage(float hitDamageFromPersonaje)
-    //{
-    //    hitDamage = hitDamageFromPersonaje;
-    //}
-
-    //public void setKickDamage(float kickDamageFromPersonaje)
-    //{
-    //    kickDamage = kickDamageFromPersonaje;
-    //}
-
-    //public void setSpecialPowerDamage(float specialPowerDamageFromPersonaje)
-    //{
-    //    specialPowerDamage = specialPowerDamageFromPersonaje;
-    //}
-
-    //public void setHitDamageToShield(float hitDamageToShieldFromPersonaje)
-    //{
-    //    hitDamageToShield = hitDamageToShieldFromPersonaje;
-    //}
-
-    //public void setKickDamageToShield(float kickDamageToShieldFromPersonaje)
-    //{
-    //    kickDamageToShield = kickDamageToShieldFromPersonaje;
-    //}
-
-    //public void setWaitingTimeHit(float waitingTimeHitFromPersonaje)
-    //{
-    //    waitingTimeHit = waitingTimeHitFromPersonaje;
-    //}
-
-    //public void setWaitingTimeKick(float waitingTimeKickFromPersonaje)
-    //{
-    //    waitingTimeKick = waitingTimeKickFromPersonaje;
-    //}
-
-    //public void setAttackRange(float attackRangeFromPersonaje)
-    //{
-    //    attackRange = attackRangeFromPersonaje;
-    //}
-
-    //public void setAttackRate(float attackRateFromPersonaje)
-    //{
-    //    attackRate = attackRateFromPersonaje;
-    //}
 }
