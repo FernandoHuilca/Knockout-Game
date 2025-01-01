@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 53142
+  controlID: 126
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 53143
+  controlID: 127
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 53060
+  controlID: 45
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 53061
+  controlID: 46
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -217,8 +217,8 @@ MonoBehaviour:
     y: 0
     width: 316.8
     height: 539.2
-  m_MinSize: {x: 201, y: 226}
-  m_MaxSize: {x: 4001, y: 4026}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -243,8 +243,8 @@ MonoBehaviour:
     y: 0
     width: 853.60004
     height: 539.2
-  m_MinSize: {x: 202, y: 226}
-  m_MaxSize: {x: 4002, y: 4026}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 15}
@@ -299,8 +299,8 @@ MonoBehaviour:
     y: 0
     width: 365.59998
     height: 764.8
-  m_MinSize: {x: 276, y: 76}
-  m_MaxSize: {x: 4001, y: 4026}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -327,8 +327,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 317.8
-    y: 24
+    x: 316.80002
+    y: 79.200005
     width: 851.60004
     height: 513.2
   m_SerializedDataModeController:
@@ -402,7 +402,7 @@ MonoBehaviour:
       height: 887.7633
     m_MinimalGUI: 1
   m_defaultScale: 0.5544271
-  m_LastWindowPixelSize: {x: 851.60004, y: 513.2}
+  m_LastWindowPixelSize: {x: 1064.5, y: 641.5}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 24
+    y: 79.200005
     width: 315.8
     height: 513.2
   m_SerializedDataModeController:
@@ -447,9 +447,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 7cbf0000
       m_LastClickedID: 0
-      m_ExpandedIDs: e4f3fcff980ffdffbc28feff182afeff6418ffff8e18ffff221bffff4c2bffff522fffffac30ffff3c34ffffae69ffffbee5ffffd0fafffff4ffffff50dc000068dc000092dc0000b4dc0000cadd00002ede000080df0000ccdf0000f0e6000016e700001ae700003ce7000090e700009ae7000046310100683101006c31010094310100
+      m_ExpandedIDs: 8adcffff7ae0ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 0, y: 0, z: 0}
     speed: 2
-    m_Value: {x: -0.07084437, y: -0.40447938, z: 0.07737338}
+    m_Value: {x: 0, y: 0, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1093,7 +1093,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 10
     speed: 2
-    m_Value: 6.0017295
+    m_Value: 10
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1303,7 +1303,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 563.2
+    y: 618.4
     width: 1169.4
     height: 199.59998
   m_SerializedDataModeController:
@@ -1328,7 +1328,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Fighters/Fernando/Animations/Images/Goku base
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1338,16 +1338,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 67
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Fighters/Fernando/Animations/Images/Goku base
   m_LastFoldersGridSize: 67
   m_LastProjectPath: C:\Users\Fernando_Huilca\Documents\Git-Fernando_Huilca\Knockout-Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 113.20001}
-    m_SelectedIDs: 6cb30000
-    m_LastClickedID: 45932
-    m_ExpandedIDs: 000000007abf00007cbf00007ebf000080bf000082bf000084bf0000
+    scrollPos: {x: 0, y: 12.400024}
+    m_SelectedIDs: 7cbf0000
+    m_LastClickedID: 49020
+    m_ExpandedIDs: 000000007abf00007cbf00007ebf000080bf000082bf000084bf000062c1000064c100006ec100005ac4000090c4000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1530,8 +1530,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1171.4
-    y: 24
+    x: 1170.4
+    y: 79.200005
     width: 364.59998
     height: 738.8
   m_SerializedDataModeController:
@@ -1552,7 +1552,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 273.60004
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
