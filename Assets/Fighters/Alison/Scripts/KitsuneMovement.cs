@@ -34,6 +34,7 @@ public class KitsuneMovement : MonoBehaviour
 
     private UserConfiguration userConfiguration;
     private Animator animator;
+    private KitsuneSpecialAttack KitsuneSpecialAttack;
 
     void Start()
     {
@@ -47,6 +48,8 @@ public class KitsuneMovement : MonoBehaviour
         userConfiguration = GetComponent<UserConfiguration>();
         animator = GetComponent<Animator>();
 
+        KitsuneSpecialAttack = GetComponent<KitsuneSpecialAttack>();
+
         InitializeFacingDirection();
     }
 
@@ -56,6 +59,13 @@ public class KitsuneMovement : MonoBehaviour
         HandleJump();
         HandlePlatformDrop();
         animator.SetBool("isJumping", !isGrounded);
+
+        // Revisar si se presiona la tecla del ataque especial
+        if (Input.GetKeyDown(userConfiguration.getSpecialPowerKey()))
+        {
+            // Activar ataque especial
+            KitsuneSpecialAttack.useSpecialAttack(); // Referencia al ataque especial
+        }
     }
 
     private void HandleMovement()
@@ -201,44 +211,4 @@ public class KitsuneMovement : MonoBehaviour
     {
         return animator;
     }
-
-    //public void setAxis(string axisFromPersonaje)
-    //{
-    //    axis = axisFromPersonaje;
-    //}
-
-    //public void setUpKey(KeyCode upKey)
-    //{
-    //    jumpKey = upKey;
-    //}
-
-    //public void setDownKey(KeyCode downKey)
-    //{
-    //    this.downKey = downKey;
-    //}
-
-    //public void setFacingRight(bool facingRight)
-    //{
-    //    this.facingRight = facingRight;
-    //}
-
-    //public bool GetFacingRight()
-    //{
-    //    return facingRight;
-    //}
-
-    //public void setSpeed(float speedFromPersonaje)
-    //{
-    //    speed = speedFromPersonaje;
-    //}
-
-    //public void setJumpForce(float jumpForceFromPersonaje)
-    //{
-    //    jumpForce = jumpForceFromPersonaje;
-    //}
-
-    //public void setGroundCheckRadius(float checkRadiusFromPersonaje)
-    //{
-    //    groundCheckRadius = checkRadiusFromPersonaje;
-    //}
 }

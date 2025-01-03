@@ -25,7 +25,7 @@ public class KitsuneAttack : MonoBehaviour
     //public KeyCode kickKey;
     //public KeyCode specialPowerKey;
 
-    private SpecialAttack specialAttack;
+    private KitsuneSpecialAttack specialAttack;
     private UserConfiguration userConfiguration;
 
     // Atributos para sonidos
@@ -35,7 +35,7 @@ public class KitsuneAttack : MonoBehaviour
 
     void Start()
     {
-        specialAttack = GetComponent<SpecialAttack>(); //CAMBIAR por Kitsune
+        specialAttack = GetComponent<KitsuneSpecialAttack>(); //CAMBIAR por Kitsune
         animator = GetComponent<Animator>();
         userConfiguration = GetComponent<UserConfiguration>();
         ownTag = gameObject.tag;
@@ -84,6 +84,8 @@ public class KitsuneAttack : MonoBehaviour
         applyDamageToEnemies(kickDamage, kickDamageToShield);
     }
 
+
+
     // Método que aplica daño a los enemigos detectados
     private void applyDamageToEnemies(float damage, float damageToShield)
     {
@@ -114,7 +116,6 @@ public class KitsuneAttack : MonoBehaviour
                 else
                 {
                     shieldable.decreaseShieldCapacity(damageToShield);
-                    //CAMBIAR por shield
                 }
             }
 
@@ -146,63 +147,4 @@ public class KitsuneAttack : MonoBehaviour
         Gizmos.DrawWireSphere(weaponHitBox.position, attackRange); // Área circular del rango de ataque
     }
 
-    //public void setHitKey(KeyCode hitKey)
-    //{
-    //    this.hitKey = hitKey;
-    //}
-
-    //public void setKickKey(KeyCode kickKey)
-    //{
-    //    this.kickKey = kickKey;
-    //}
-
-    //public void setSpecialPowerKey(KeyCode specialPowerKey)
-    //{
-    //    this.specialPowerKey = specialPowerKey;
-    //}
-
-    //public void setHitDamage(float hitDamageFromPersonaje)
-    //{
-    //    hitDamage = hitDamageFromPersonaje;
-    //}
-
-    //public void setKickDamage(float kickDamageFromPersonaje)
-    //{
-    //    kickDamage = kickDamageFromPersonaje;
-    //}
-
-    //public void setSpecialPowerDamage(float specialPowerDamageFromPersonaje)
-    //{
-    //    specialPowerDamage = specialPowerDamageFromPersonaje;
-    //}
-
-    //public void setHitDamageToShield(float hitDamageToShieldFromPersonaje)
-    //{
-    //    hitDamageToShield = hitDamageToShieldFromPersonaje;
-    //}
-
-    //public void setKickDamageToShield(float kickDamageToShieldFromPersonaje)
-    //{
-    //    kickDamageToShield = kickDamageToShieldFromPersonaje;
-    //}
-
-    //public void setWaitingTimeHit(float waitingTimeHitFromPersonaje)
-    //{
-    //    waitingTimeHit = waitingTimeHitFromPersonaje;
-    //}
-
-    //public void setWaitingTimeKick(float waitingTimeKickFromPersonaje)
-    //{
-    //    waitingTimeKick = waitingTimeKickFromPersonaje;
-    //}
-
-    //public void setAttackRange(float attackRangeFromPersonaje)
-    //{
-    //    attackRange = attackRangeFromPersonaje;
-    //}
-
-    //public void setAttackRate(float attackRateFromPersonaje)
-    //{
-    //    attackRate = attackRateFromPersonaje;
-    //}
 }

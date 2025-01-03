@@ -15,20 +15,11 @@ MonoBehaviour:
   fighterImage: {fileID: -1545209068409145737, guid: 09e2be45ebd083f4ebf9b048d2e1518a, type: 3}
   fighterName: Damita
   fighterDescription: Personaje Kitsume
-  fighterPrefab: {fileID: 1366319999723965150, guid: 47877b3af96dba948aacced09f315f89, type: 3}
-  speed: 30
-  jumpForce: 20
+  fighterPrefab: {fileID: 8144658562816297097, guid: 02671f429fe1ea34fbed1083cd7d3bdc, type: 3}
   groundCheckRadius: 0.1
   maxHealth: 100
   attackRange: 0.5
-  hitDamage: 0
-  kickDamage: 0
-  specialPowerDamage: 0
-  hitDamageToShield: 0
-  kickDamageToShield: 0
   attackRate: 1
-  waitingTimeHit: 0
-  waitingTimeKick: 0
   maxCharge: 100
   shieldDuration: 5
   maxShieldCapacity: 100
