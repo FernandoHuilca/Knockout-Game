@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Kitsune_0: -1545209068409145737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

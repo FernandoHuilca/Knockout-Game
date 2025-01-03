@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ParadiseOfChocolate_0: -4402474701078299521
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
