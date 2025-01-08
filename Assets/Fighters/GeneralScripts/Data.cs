@@ -32,16 +32,16 @@ public class FightersData : ScriptableObject
     [Header("Script Fighter Attack")]
     [SerializeField] private float attackRange = 0.5f; // Rango de ataque (Tiene un valor por defecto)
     
-    //[SerializeField] private float hitDamage; 
-    //[SerializeField] private float kickDamage;
+    //[SerializeField] private float attack1Value; 
+    //[SerializeField] private float attack2Value;
     //[SerializeField] private float specialPowerDamage;
     
-    //[SerializeField] private float hitDamageToShield; // Daño al escudo con golpe
-    //[SerializeField] private float kickDamageToShield; // Daño al escudo con patada
+    //[SerializeField] private float attack1ValueToShield; // Daño al escudo con golpe
+    //[SerializeField] private float attack2ValueToShield; // Daño al escudo con patada
     
     [SerializeField] private float attackRate = 1f; // Tasa de ataque: número de ataques por segundo permitidos (Tiene un valor por defecto)
-    //[SerializeField] private float waitingTimeHit; // Tiempo de espera entre golpes
-    //[SerializeField] private float waitingTimeKick; // Tiempo de espera entre patadas
+    //[SerializeField] private float waitingTimeAttack1; // Tiempo de espera entre golpes
+    //[SerializeField] private float waitingTimeAttack2; // Tiempo de espera entre patadas
     // Atributos que dependen si es player 1 o player 2: hitKey, kickKey y specialPowerKey.
 
 
@@ -71,14 +71,14 @@ public class FightersData : ScriptableObject
     public float getGroundCheckRadius() { return groundCheckRadius; }
     public float getMaxHealth() { return maxHealth; }
     public float getAttackRange() { return attackRange; }
-    //public float getHitDamage() { return hitDamage; }
-    //public float getKickDamage() { return kickDamage; }
+    //public float getHitDamage() { return attack1Value; }
+    //public float getKickDamage() { return attack2Value; }
     //public float getSpecialPowerDamage() { return specialPowerDamage; }
-    //public float getHitDamageToShield() { return hitDamageToShield; }
-    //public float getKickDamageToShield() { return kickDamageToShield; }
+    //public float getHitDamageToShield() { return attack1ValueToShield; }
+    //public float getKickDamageToShield() { return attack2ValueToShield; }
     public float getAttackRate() { return attackRate; }
-    //public float getWaitingTimeHit() { return waitingTimeHit; }
-    //public float getWaitingTimeKick() { return waitingTimeKick; }
+    //public float getWaitingTimeHit() { return waitingTimeAttack1; }
+    //public float getWaitingTimeKick() { return waitingTimeAttack2; }
     public float getMaxCharge() { return maxCharge; }
     public float getShieldDuration() { return shieldDuration; }
     public float getMaxShieldCapacity() { return maxShieldCapacity; }
