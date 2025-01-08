@@ -302,8 +302,16 @@ MonoBehaviour:
     m_Bits: 0
   groundCheck: {fileID: 5488829217916631947}
   groundCheckRadius: 0.1
+  isGrounded: 0
   weaponHitBox: {fileID: 5572737540903751156}
+  rb: {fileID: 0}
+  playerCollider: {fileID: 4022318929414593098}
+  spriteRenderer: {fileID: 0}
   soundJump: {fileID: 8300000, guid: d813d933a019e454fa7eabdc4e4822a5, type: 3}
+  animator: {fileID: 0}
+  currentOneWayPlatform: {fileID: 0}
+  fighterLayer: 9
+  userConfiguration: {fileID: 0}
 --- !u!114 &4251750206148118276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,10 +324,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e374cdc73f605048b56a0c2a6eafc66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   currentHealth: 0
   maxHealth: 100
   livesRemaining: 0
+  startPosition: {x: 0, y: 0}
+  startRigidbody2D: {fileID: 0}
+  rigidBody2D: {fileID: 0}
+  originalConstraints: 0
+  originalLocalScale: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
+  soundHurt: {fileID: 8300000, guid: 1cf5a63cee3b00149a9c300b632e12db, type: 3}
+  soundDie: {fileID: 8300000, guid: 2c2944e692a08e84ca8952ebce62ad2b, type: 3}
+  movement: {fileID: 0}
+  attack: {fileID: 0}
+  shield: {fileID: 0}
+  specialAttack: {fileID: 0}
+  userConfiguration: {fileID: 0}
+  UIController: {fileID: 0}
 --- !u!114 &1070405430332330578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,18 +353,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21bd4b8c927ab2b48904d52858dacdd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack1Value: 25
+  attack2Value: 50
+  attackRange: 0.4
+  attack1ValueToShield: 20
+  attack2ValueToShield: 45
+  attackRate: 1
+  waitingTimeAttack1: 0.75
+  waitingTimeAttack2: 1.25
+  nexAttackTime: 0
   animator: {fileID: 0}
   weaponHitBox: {fileID: 5572737540903751156}
-  attackRange: 0.4
-  hitDamage: 40
-  kickDamage: 50
-  specialPowerDamage: 30
-  hitDamageToShield: 50
-  kickDamageToShield: 60
-  attackRate: 1
-  waitingTimeHit: 0.75
-  waitingTimeKick: 1.25
   soundAttack1: {fileID: 8300000, guid: edef044bdb1144f409f9c36aeaec7997, type: 3}
+  soundAttack2: {fileID: 8300000, guid: d6fd73915944c4649b30afdab5211753, type: 3}
+  ownTag: 
+  specialAttack: {fileID: 0}
+  userConfiguration: {fileID: 0}
 --- !u!114 &7001288728197576454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,8 +383,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialCharge: 0
   maxCharge: 100
-  galacticOctopus: {fileID: 8817362232047164966, guid: 5ef5ab29abaa94041a62c0cf923a8584, type: 3}
-  spawnPosition: {x: 9.11, y: 30, z: 0}
+  UIController: {fileID: 0}
+  galacticOctopus: {fileID: 747170698908267952, guid: 5ef5ab29abaa94041a62c0cf923a8584, type: 3}
+  spawnPosition: {x: 0, y: 8.7, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &2768555444643233055
 MonoBehaviour:
@@ -375,10 +401,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxCollider2D: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  rb: {fileID: 0}
+  originalConstraints: 0
+  animator: {fileID: 0}
+  soundShield: {fileID: 8300000, guid: 2814e97c6cbd46e4aa4dd9a877e5d8c3, type: 3}
+  soundAttackToShield: {fileID: 8300000, guid: 5568d291f25e765408b8eeefe14121da, type: 3}
   shieldDuration: 5
   shieldCapacity: 0
   maxShieldCapacity: 100
   rechargeRate: 10
+  isShieldActive: 0
+  isRechargingFromZero: 0
+  userConfiguration: {fileID: 0}
   AlienSpecialAttack: {fileID: 0}
   AlienAttack: {fileID: 0}
   AlienHealth: {fileID: 0}
@@ -410,8 +444,8 @@ Transform:
   m_GameObject: {fileID: 8540874049116757001}
   serializedVersion: 2
   m_LocalRotation: {x: 0.009773729, y: 0, z: 0, w: 0.99995226}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8061, y: 1.8061, z: 1.8061}
+  m_LocalPosition: {x: -0.017, y: 0, z: -0.5}
+  m_LocalScale: {x: 1.7, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2686285497600124204}
@@ -465,8 +499,8 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
-  m_AdaptiveModeThreshold: 0.5
+  m_Size: {x: 0, y: 0}
+  m_AdaptiveModeThreshold: 0
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
@@ -510,10 +544,10 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.2, y: 0.2}
-    newSize: {x: 0.2, y: 0.2}
-    adaptiveTilingThreshold: 0.5
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.19, y: 0.15}
+  m_Size: {x: 0.1, y: 0.15}
   m_EdgeRadius: 0

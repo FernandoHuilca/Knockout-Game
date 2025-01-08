@@ -4,29 +4,28 @@ using System.Collections;
 public class AlienShield : MonoBehaviour, Shieldable
 {
     [Header("Shield Components")]
-    public BoxCollider2D boxCollider2D;
-    public SpriteRenderer spriteRenderer;
+    [SerializeField] private BoxCollider2D boxCollider2D;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private RigidbodyConstraints2D originalConstraints;
+    [SerializeField] private Animator animator;
+    [SerializeField] private AudioClip soundShield;
+    [SerializeField] private AudioClip soundAttackToShield;
 
     [Header("Shield Settings")]
-    public float shieldDuration; // Tiempo de recarga si el escudo se desactiva.
-    public float shieldCapacity = 0; // Capacidad del escudo.
-    public float maxShieldCapacity; // Capacidad máxima del escudo.
-    public float rechargeRate; // Cantidad de recarga por segundo.
-    private bool isShieldActive = false; // Estado del escudo.
-    private bool isRechargingFromZero = false; // Para controlar la recarga tras agotarse.
+    [SerializeField] private float shieldDuration; // Tiempo de recarga si el escudo se desactiva.
+    [SerializeField] private float shieldCapacity = 0; // Capacidad del escudo.
+    [SerializeField] private float maxShieldCapacity; // Capacidad máxima del escudo.
+    [SerializeField] private float rechargeRate; // Cantidad de recarga por segundo.
+    [SerializeField] private bool isShieldActive = false; // Estado del escudo.
+    [SerializeField] private bool isRechargingFromZero = false; // Para controlar la recarga tras agotarse.
+    [SerializeField] private UserConfiguration userConfiguration;
 
-    //public KeyCode shieldKey = KeyCode.V;
-
-    private Rigidbody2D rb;
-    private RigidbodyConstraints2D originalConstraints;
-
-    private UserConfiguration userConfiguration;
-
-    [Header("Scripts to Disable")]
-    public MonoBehaviour AlienSpecialAttack;
-    public MonoBehaviour AlienAttack;
-    public MonoBehaviour AlienHealth;
-    public MonoBehaviour AlienMovement;
+    [Header("Components to Disable")]
+    [SerializeField] private MonoBehaviour AlienSpecialAttack;
+    [SerializeField] private MonoBehaviour AlienAttack;
+    [SerializeField] private MonoBehaviour AlienHealth;
+    [SerializeField] private MonoBehaviour AlienMovement;
 
     void Start()
     {
@@ -34,19 +33,15 @@ public class AlienShield : MonoBehaviour, Shieldable
 
         Transform shield = transform.Find("Shield");
         boxCollider2D = shield.GetComponent<BoxCollider2D>();
-
         spriteRenderer = shield.GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        originalConstraints = rb.constraints;
+        animator = GetComponent<Animator>();
 
         AlienSpecialAttack = GetComponent<AlienSpecialAttack>();
         AlienAttack = GetComponent<AlienAttack>();
         AlienHealth = GetComponent<AlienHealth>();
         AlienMovement = GetComponent<AlienMovement>();
-
-        rb = GetComponent<Rigidbody2D>();
-
-        // Guarda las restricciones originales del Rigidbody
-        originalConstraints = rb.constraints;
-
         userConfiguration = GetComponent<UserConfiguration>();
     }
 
@@ -75,6 +70,7 @@ public class AlienShield : MonoBehaviour, Shieldable
         }
 
         isShieldActive = !isShieldActive;
+        SoundsController.Instance.RunSound(soundShield);
         UpdateShieldComponents();
         UpdateScriptStates();
     }
@@ -84,22 +80,19 @@ public class AlienShield : MonoBehaviour, Shieldable
         // Actualiza la visibilidad y colisión del escudo.
         boxCollider2D.enabled = isShieldActive;
         spriteRenderer.enabled = isShieldActive;
+
         // Restringir movimiento en X y congelar rotación
         if (isShieldActive)
         {
+            animator.SetTrigger("shield");
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            Debug.Log("Shield Activated");
+            return;
         }
-        else
-        {
-            // Restaura las restricciones originales
-            rb.constraints = originalConstraints;
+        // Restaura las restricciones originales
+        rb.constraints = originalConstraints;
 
-            // Corrige ligeramente la posición para forzar el recalculo de colisiones
-            rb.position = new Vector2(rb.position.x, rb.position.y + 0.01f);
-
-            Debug.Log("Shield Deactivated");
-        }
+        // Corrige ligeramente la posición para forzar el recalculo de colisiones
+        rb.position = new Vector2(rb.position.x, rb.position.y + 0.01f);
     }
 
     private void UpdateScriptStates()
@@ -114,21 +107,26 @@ public class AlienShield : MonoBehaviour, Shieldable
 
     public void TakeDamage(float damage)
     {
+        SoundsController.Instance.RunSound(soundAttackToShield);
         if (!isShieldActive || isRechargingFromZero)
+        {
             return;
+        }
 
         shieldCapacity -= damage;
         Debug.Log($"Shield capacity: {shieldCapacity}");
 
-        if (shieldCapacity <= 0)
+        if (shieldCapacity > 0)
         {
-            shieldCapacity = 0;
-            StartCoroutine(DeactivateAndRechargeShieldFromZero());
+            return;
         }
+        shieldCapacity = 0;
+        StartCoroutine(DesactivateAndRechargeShieldFromZero());
     }
 
-    private IEnumerator DeactivateAndRechargeShieldFromZero()
+    private IEnumerator DesactivateAndRechargeShieldFromZero()
     {
+        SoundsController.Instance.RunSound(soundShield);
         isRechargingFromZero = true;
         isShieldActive = false;
         UpdateShieldComponents();
@@ -164,24 +162,4 @@ public class AlienShield : MonoBehaviour, Shieldable
     {
         TakeDamage(amount);
     }
-
-    //public void setShieldKey(KeyCode shieldKey)
-    //{
-    //    this.shieldKey = shieldKey;
-    //}
-
-    //public void setShieldDuration(float shieldDuration)
-    //{
-    //    this.shieldDuration = shieldDuration;
-    //}
-
-    //public void setMaxShieldCapacity(float maxShieldCapacityFromPersonaje)
-    //{
-    //    maxShieldCapacity = maxShieldCapacityFromPersonaje;
-    //}
-
-    //public void setRechargeRate(float rechargeRate)
-    //{
-    //    this.rechargeRate = rechargeRate;
-    //}
 }

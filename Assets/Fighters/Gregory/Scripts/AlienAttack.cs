@@ -3,139 +3,127 @@ using UnityEngine;
 
 public class AlienAttack : MonoBehaviour
 {
+    [Header("Attack values")]
+    [SerializeField] private float attack1Value;
+    [SerializeField] private float attack2Value;
+    [SerializeField] private float attackRange; // Rango en el que se pueden detectar jugadores enemigos
 
-    public Animator animator; // Referencia al Animator para reproducir animaciones de ataque
-    public Transform weaponHitBox; // Posición donde se verificará el impacto de las armas
-    public float attackRange; // Rango en el que se pueden detectar jugadores enemigos
+    [SerializeField] private float attack1ValueToShield;
+    [SerializeField] private float attack2ValueToShield;
 
-    // Valores de daño para diferentes ataques
-    public float hitDamage;
-    public float kickDamage;
-    public float specialPowerDamage;
+    [Header("Attack time settings")]
+    [SerializeField] private float attackRate = 1f; // Tasa de ataque: número de ataques por segundo permitidos
+    [SerializeField] private float waitingTimeAttack1; // Tiempo de espera entre golpes
+    [SerializeField] private float waitingTimeAttack2; // Tiempo de espera entre patadas
+    [SerializeField] private float nexAttackTime = 0f; // Acumulador del tiempo de espera para el próximo ataque
 
-    public float hitDamageToShield;
-    public float kickDamageToShield;
-
-    public float attackRate = 1f; // Tasa de ataque: número de ataques por segundo permitidos
-    public float waitingTimeHit; // Tiempo de espera entre golpes
-    public float waitingTimeKick; // Tiempo de espera entre patadas
-    private float nexAttackTime = 0f; // Acumulador del tiempo de espera para el próximo ataque
-
-    //public KeyCode hitKey;
-    //public KeyCode kickKey;
-    //public KeyCode specialPowerKey;
-
-    private AlienSpecialAttack specialAttack;
-    private UserConfiguration userConfiguration;
-
-    // Atributos para sonidos
+    [Header("Components")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private Transform weaponHitBox; // Posición donde se verificará el impacto de los ataques
     [SerializeField] private AudioClip soundAttack1;
+    [SerializeField] private AudioClip soundAttack2;
+    [SerializeField] private string ownTag;
 
-    string ownTag;
+    [Header("Scripts")]
+    [SerializeField] private AlienSpecialAttack specialAttack;
+    [SerializeField] private UserConfiguration userConfiguration;
+
+    
+    private void OnValidate() // Método necesario para usar hijos del GameObject en el editor
+    {
+        if (weaponHitBox != null)
+        {
+            return;
+        }
+        weaponHitBox = transform.Find("WeaponHitBox");
+    }
 
     void Start()
     {
-        specialAttack = GetComponent<AlienSpecialAttack>();
         animator = GetComponent<Animator>();
-        userConfiguration = GetComponent<UserConfiguration>();
         ownTag = gameObject.tag;
-        //otherPlayer = LayerMask.GetMask("BaseFighter");
+
+        specialAttack = GetComponent<AlienSpecialAttack>();
+        userConfiguration = GetComponent<UserConfiguration>();
     }
 
-    // Update se llama una vez por cuadro
     void Update()
     {
-        // Solo permite ataques si ha pasado suficiente tiempo desde el último ataque
-        if (Time.time >= nexAttackTime)
+        if (Time.time < nexAttackTime) // Solo permite ataques si ha pasado suficiente tiempo desde el último ataque
         {
-            // Si se presiona la tecla correspondiente, realiza un golpe
-            if (Input.GetKeyDown(userConfiguration.getHitKey()))
-            {
-                hit();
-                SoundsController.Instance.RunSound(soundAttack1);
-                nexAttackTime = Time.time + waitingTimeHit / attackRate;
-            }
-            // Si se presiona la tecla correspondiente, realiza una patada
-            else if (Input.GetKeyDown(userConfiguration.getKickKey()))
-            {
-                kick();
-                nexAttackTime = Time.time + waitingTimeKick / attackRate;
-            }
-            // Si se presiona la tecla correspondiente, activa el poder especial
-            else if (Input.GetKeyDown(userConfiguration.getSpecialPowerKey()))
-            {
-                specialAttack.useSpecialAttack();
-            }
+            return;
+        }
+
+        if (Input.GetKeyDown(userConfiguration.getHitKey()))
+        {
+            performAttack(soundAttack1, "attack1", attack1Value, attack1ValueToShield, waitingTimeAttack1);
+            return;
+        }
+        
+        if (Input.GetKeyDown(userConfiguration.getKickKey()))
+        {
+            performAttack(soundAttack2, "attack2", attack2Value, attack2ValueToShield, waitingTimeAttack2);
+            return;
+        }
+        
+        if (Input.GetKeyDown(userConfiguration.getSpecialPowerKey()))
+        {
+            specialAttack.useSpecialAttack();
+            return;
         }
     }
 
-    // Método para realizar el golpe
-    void hit()
+    private void performAttack(AudioClip soundAttack, string nameAttackAnimator, float attackValue, float attackValueToShield, float waitingTimeAttack)
     {
-        animator.SetTrigger("attack1"); // Activa la animación de ataque
-        applyDamageToEnemies(hitDamage, hitDamageToShield); // Aplica daño a los enemigos detectados
+        SoundsController.Instance.RunSound(soundAttack);
+        animator.SetTrigger(nameAttackAnimator);
+        applyDamageToEnemies(attackValue, attackValueToShield); // Aplica daño a los enemigos detectados
+        nexAttackTime = Time.time + waitingTimeAttack / attackRate;
     }
 
-    // Método para realizar la patada
-    private void kick()
+    private void applyDamageToEnemies(float attackValue, float attackValueToShield)
     {
-        // Activa la animación de ataque
-        animator.SetTrigger("attack2"); // DEBERÍA SER DIFRENTE PARA LA ANIMACIÓN DE KICK
-        applyDamageToEnemies(kickDamage, kickDamageToShield);
-    }
-
-    // Método que aplica daño a los enemigos detectados
-    private void applyDamageToEnemies(float damage, float damageToShield)
-    {
-        // Detecta jugadores enemigos dentro del área del "weaponHitBox"
-        //Collider2D[] hitOtherPlayers = Physics2D.OverlapCircleAll(weaponHitBox.position, attackRange, otherPlayer);
-        //Collider2D[] hitOtherPlayers = Physics2D.OverlapCapsuleAll(weaponHitBox.position, attackRange, )
         Collider2D[] hitOtherPlayers = Physics2D.OverlapCircleAll(weaponHitBox.position, attackRange);
 
-
-        // Aplica daño a cada enemigo detectado
-        foreach (Collider2D playerEnemy in hitOtherPlayers)
+        foreach (Collider2D playerEnemy in hitOtherPlayers) // Aplica daño a cada enemigo detectado
         {
-            
-            //var health = playerEnemy.GetComponent<AlienHealth>();
-            //var shield = playerEnemy.GetComponent<Shield>();
-            Damageable damageable = playerEnemy.GetComponent<Damageable>();
-            Shieldable shield = playerEnemy.GetComponent<Shieldable>();
-
-            if (damageable != null && gameObject.tag != playerEnemy.tag)
-            {
-                if (shield == null || !shield.IsShieldActive())
-                {
-                    damageable.decreaseLife(damage);
-                    Debug.Log("We hit " + playerEnemy.name);
-                    // Cargar barra de ataque especial con cada golpe acertado
-                    specialAttack.increaseCharge(damage);
-                }
-                else
-                {
-                    shield.decreaseShieldCapacity(damageToShield);
-                }
-            }
-
+            manageDamage(playerEnemy, attackValue, attackValueToShield);
         }
     }
 
-
-    // Método necesario para usar hijos del GameObject en el editor
-    private void OnValidate()
+    public void manageDamage(Collider2D playerEnemy, float attackValue, float attackValueToShield)
     {
-        if (weaponHitBox == null)
+        Damageable damageable = playerEnemy.GetComponent<Damageable>();
+        Shieldable shieldable = playerEnemy.GetComponent<Shieldable>();
+
+        if (damageable == null || shieldable == null || gameObject.CompareTag(playerEnemy.tag))
         {
-            weaponHitBox = transform.Find("WeaponHitBox");
-            if (weaponHitBox == null)
+            Debug.Log("No damageable or shieldable. Alien: " + gameObject.tag + " and PlayerEnemy: " + playerEnemy.tag);
+            return;
+        }
+
+        if (shieldable == null || !shieldable.IsShieldActive())
+        {
+            Debug.Log("Damageable: "+playerEnemy.tag);
+            if(damageable == null)
             {
-                Debug.LogWarning("WeaponHitBox not found. Ensure there is a child GameObject named 'WeaponHitBox'.");
+                Debug.Log("Damageable is NULL: " + playerEnemy.tag);
             }
+            damageable.decreaseLife(attackValue);
+            specialAttack.increaseCharge(attackValue);
+            Debug.Log("Holaaa");
+            return;
+        }
+
+        if (shieldable != null && shieldable.IsShieldActive())
+        {
+            Debug.Log("Shieldable: " + playerEnemy.tag);
+            shieldable.decreaseShieldCapacity(attackValueToShield);
+            return;
         }
     }
 
-    // Dibuja un Gizmo para visualizar el área de ataque en la escena
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected() // Dibuja un Gizmo para visualizar el área de ataque en la escena
     {
         if (weaponHitBox == null)
         {
@@ -144,64 +132,4 @@ public class AlienAttack : MonoBehaviour
         Gizmos.color = Color.red; // Color del Gizmo
         Gizmos.DrawWireSphere(weaponHitBox.position, attackRange); // Área circular del rango de ataque
     }
-
-    //public void setHitKey(KeyCode hitKey)
-    //{
-    //    this.hitKey = hitKey;
-    //}
-
-    //public void setKickKey(KeyCode kickKey)
-    //{
-    //    this.kickKey = kickKey;
-    //}
-
-    //public void setSpecialPowerKey(KeyCode specialPowerKey)
-    //{
-    //    this.specialPowerKey = specialPowerKey;
-    //}
-
-    //public void setHitDamage(float hitDamageFromPersonaje)
-    //{
-    //    hitDamage = hitDamageFromPersonaje;
-    //}
-
-    //public void setKickDamage(float kickDamageFromPersonaje)
-    //{
-    //    kickDamage = kickDamageFromPersonaje;
-    //}
-
-    //public void setSpecialPowerDamage(float specialPowerDamageFromPersonaje)
-    //{
-    //    specialPowerDamage = specialPowerDamageFromPersonaje;
-    //}
-
-    //public void setHitDamageToShield(float hitDamageToShieldFromPersonaje)
-    //{
-    //    hitDamageToShield = hitDamageToShieldFromPersonaje;
-    //}
-
-    //public void setKickDamageToShield(float kickDamageToShieldFromPersonaje)
-    //{
-    //    kickDamageToShield = kickDamageToShieldFromPersonaje;
-    //}
-
-    //public void setWaitingTimeHit(float waitingTimeHitFromPersonaje)
-    //{
-    //    waitingTimeHit = waitingTimeHitFromPersonaje;
-    //}
-
-    //public void setWaitingTimeKick(float waitingTimeKickFromPersonaje)
-    //{
-    //    waitingTimeKick = waitingTimeKickFromPersonaje;
-    //}
-
-    //public void setAttackRange(float attackRangeFromPersonaje)
-    //{
-    //    attackRange = attackRangeFromPersonaje;
-    //}
-
-    //public void setAttackRate(float attackRateFromPersonaje)
-    //{
-    //    attackRate = attackRateFromPersonaje;
-    //}
 }

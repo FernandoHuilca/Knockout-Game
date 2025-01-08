@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class GalacticOctopus : MonoBehaviour
 {
-    public float verticalSpeed = 2f; // Velocidad inicial hacia abajo
-    public float horizontalSpeed = 3f; // Velocidad horizontal
-    public float verticalOscillationSpeed = 0.5f; // Velocidad del movimiento vertical oscilatorio
-    public float horizontalMin = 2.88f; // Límite mínimo del movimiento horizontal
-    public float horizontalMax = 14.39f; // Límite máximo del movimiento horizontal
-    public float verticalMin = 26.5f; // Límite mínimo del movimiento vertical oscilatorio
-    public float verticalMax = 27.5f; // Límite máximo del movimiento vertical oscilatorio
-    public float finalYPosition = 29.29f; // Posición final en Y
-    public float oscillationDuration = 11.45f; // Duración de la oscilación en segundos
+    public float verticalSpeed; // Velocidad inicial hacia abajo
+    public float horizontalSpeed; // Velocidad horizontal
+    public float verticalOscillationSpeed; // Velocidad del movimiento vertical oscilatorio
+    public float horizontalMin; // Límite mínimo del movimiento horizontal
+    public float horizontalMax; // Límite máximo del movimiento horizontal
+    public float verticalMin; // Límite mínimo del movimiento vertical oscilatorio
+    public float verticalMax; // Límite máximo del movimiento vertical oscilatorio
+    public float finalYPosition; // Posición final en Y
+    public float oscillationDuration; // Duración de la oscilación en segundos
 
     private float startTime;
     private Vector3 initialPosition;
@@ -70,19 +70,24 @@ public class GalacticOctopus : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.tag);
-        Debug.Log(userTag);
         // Compara si la capa del objeto coincide con la capa deseada
         if (other.gameObject.layer == LayerMask.NameToLayer("BaseFighter") && other.tag != userTag)
         {
 
-            // Asegúrate de que el componente Health existe antes de intentar usarlo
             Damageable damageable = other.gameObject.GetComponent<Damageable>();
-            //Health healthComponent = other.gameObject.GetComponent<Health>();
-            if (damageable!= null)
+            Shieldable shield = other.gameObject.GetComponent<Shieldable>();
+
+            if (damageable != null)
             {
-                damageable.decreaseLife(10);
-                //healthComponent.decreaseLife(10);
+                if (shield == null || !shield.IsShieldActive())
+                {
+                    damageable.decreaseLife(10);
+                    Debug.Log("We performAttack1 " + other.gameObject.name);
+                }
+                else
+                {
+                    shield.decreaseShieldCapacity(10);
+                }
             }
         }
     }
@@ -98,9 +103,6 @@ public class GalacticOctopus : MonoBehaviour
         Transform laser = transform.Find(gameObjectLaser);
         laser.GetComponent<Laser>().setTag(userTag);
         laser.gameObject.SetActive(state);
-        
-        //laser.gameObject.GetComponent<Collider2D>().enabled = state;
-        //laser.gameObject.GetComponent<Laser>().enabled = state;
     }
 
     private void deactiveLaser()
@@ -111,8 +113,6 @@ public class GalacticOctopus : MonoBehaviour
 
     public void setTag(string tag)
     {
-        Debug.Log(tag);
         userTag = tag;
-        Debug.Log(userTag);
     }
 }

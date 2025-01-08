@@ -3,68 +3,42 @@ using UnityEngine;
 
 public class AlienSpecialAttack : MonoBehaviour
 {
-    public float specialCharge = 0f; // Carga actual de la barra (inicia en 0).
-    public float maxCharge; // Carga máxima para activar el ataque especial.
+    [Header("Special Attack Settings")]
+    [SerializeField] private float specialCharge = 0f; 
+    [SerializeField] private float maxCharge; 
 
-    private bool isReady = false; // Indica si el ataque especial está listo.
-    private UIController UIController; // Referencia al controlador de la UI.
+    [Header("Script")]
+    [SerializeField] private UIController UIController;
 
+    [Header("Galactic Octopus Settings")]
     [SerializeField] private GameObject galacticOctopus;
-
-    // Posición donde aparecerá el prefab
-    public Vector3 spawnPosition;
-
-    // Rotación del prefab
-    public Quaternion spawnRotation = Quaternion.identity;
+    [SerializeField] private Vector3 spawnPosition; // Posición donde aparecerá el prefab
+    [SerializeField] private Quaternion spawnRotation = Quaternion.identity; // Rotación del prefab
 
     private void Start()
     {
         UIController = GetComponent<UIController>();
         updateUI();
-
     }
 
-    // Método que aumenta la barra de carga.
     public void increaseCharge(float amount)
     {
-        if (!isReady) // Si el ataque especial no está listo, cargar la barra.
-        {
-            specialCharge += amount;
-            specialCharge = Mathf.Clamp(specialCharge, 0, maxCharge); // Asegurarse de que no pase de 100.
-
-            if (specialCharge >= maxCharge) // Si la barra está llena, marcar como listo.
-            {
-                isReady = true;
-                Debug.Log("Special Attack Ready!");
-            }
-
-            updateUI();
-        }
+        specialCharge += amount;
+        updateUI();
     }
 
     // Método para usar el ataque especial.
     public void useSpecialAttack()
     {
-        if (isReady) // Solo se puede usar si está completamente cargada.
-        {
-            Debug.Log("Special Attack Activated!");
-            performSpecialAttack(); // Aquí colocas la lógica del ataque especial.
-            specialCharge = 0f; // Reiniciar la barra.
-            isReady = false;
-            updateUI();
-        }
+        specialCharge = 0f; // Reiniciar la barra.
+        performSpecialAttack(); // Aquí colocas la lógica del ataque especial.
+        updateUI();
     }
 
     private void performSpecialAttack()
     {
         galacticOctopus.GetComponent<GalacticOctopus>().setTag(gameObject.tag);
         GameObject galacticOctopusInstance = Instantiate(galacticOctopus, spawnPosition, spawnRotation);
-        Debug.Log(gameObject.tag);
-        //GalacticOctopus galacticOctopusScript = 
-        //galacticOctopusScript.setTag(gameObject.tag);
-        //galacticOctopus.gameObject.GetComponent<GalacticOctopus>().AlienSpecialAttack();
-        // TODO: Lógica del ataque especial (daño en área, efectos, animaciones, etc.).
-        Debug.Log("Performing the special attack!");
     }
 
     private void updateUI()
@@ -72,8 +46,8 @@ public class AlienSpecialAttack : MonoBehaviour
         UIController.updateSpecialBar(specialCharge, maxCharge);
     }
 
-    public void setMaxCharge(float maxChargeFromPersonaje)
+    public void setMaxCharge(float maxCharge)
     {
-        this.maxCharge = maxChargeFromPersonaje;
+        this.maxCharge = maxCharge;
     }
 }
