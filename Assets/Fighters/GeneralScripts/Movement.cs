@@ -86,7 +86,7 @@ public class Movement : MonoBehaviour
         if (isGrounded && Input.GetKeyDown(userConfiguration.getJumpKey()))
         {
             
-            animator.SetBool("isJumping", true);
+            //animator.SetBool("isJumping", true);
             Debug.Log("Jump");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             SoundsController.Instance.RunSound(soundJump);

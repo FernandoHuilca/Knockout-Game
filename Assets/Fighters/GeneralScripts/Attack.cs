@@ -107,7 +107,7 @@ public class Attack : MonoBehaviour
                 if (shieldable == null || !shieldable.IsShieldActive())
                 {
                     damageable.decreaseLife(damage);
-                    Debug.Log("We hit " + playerEnemy.name);
+                    Debug.Log("We performAttack1 " + playerEnemy.name);
                     // Cargar barra de ataque especial con cada golpe acertado
                     specialAttack.increaseCharge(damage);
                 }
@@ -162,12 +162,12 @@ public class Attack : MonoBehaviour
 
     //public void setHitDamage(float hitDamageFromPersonaje)
     //{
-    //    hitDamage = hitDamageFromPersonaje;
+    //    attack1Value = hitDamageFromPersonaje;
     //}
 
     //public void setKickDamage(float kickDamageFromPersonaje)
     //{
-    //    kickDamage = kickDamageFromPersonaje;
+    //    attack2Value = kickDamageFromPersonaje;
     //}
 
     //public void setSpecialPowerDamage(float specialPowerDamageFromPersonaje)
@@ -177,22 +177,22 @@ public class Attack : MonoBehaviour
 
     //public void setHitDamageToShield(float hitDamageToShieldFromPersonaje)
     //{
-    //    hitDamageToShield = hitDamageToShieldFromPersonaje;
+    //    attack1ValueToShield = hitDamageToShieldFromPersonaje;
     //}
 
     //public void setKickDamageToShield(float kickDamageToShieldFromPersonaje)
     //{
-    //    kickDamageToShield = kickDamageToShieldFromPersonaje;
+    //    attack2ValueToShield = kickDamageToShieldFromPersonaje;
     //}
 
     //public void setWaitingTimeHit(float waitingTimeHitFromPersonaje)
     //{
-    //    waitingTimeHit = waitingTimeHitFromPersonaje;
+    //    waitingTimeAttack1 = waitingTimeHitFromPersonaje;
     //}
 
     //public void setWaitingTimeKick(float waitingTimeKickFromPersonaje)
     //{
-    //    waitingTimeKick = waitingTimeKickFromPersonaje;
+    //    waitingTimeAttack2 = waitingTimeKickFromPersonaje;
     //}
 
     //public void setAttackRange(float attackRangeFromPersonaje)
