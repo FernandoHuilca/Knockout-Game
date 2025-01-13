@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7756076843279373704}
   - component: {fileID: 5535064774966067067}
   - component: {fileID: 5406338127531296671}
-  - component: {fileID: 4881803991137391414}
   - component: {fileID: 5128528681039812219}
+  - component: {fileID: 4881803991137391414}
   - component: {fileID: 3472119005099627883}
   m_Layer: 0
   m_Name: OVNI
@@ -113,23 +113,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4881803991137391414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2830996014160905172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31aebb8125513bd458d361ac6565ad07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPosition: {x: -11.5, y: -0.8545277, z: -1}
-  endPosition: {x: 11.5, y: 0.8545277, z: -1}
-  speed: 0.35
-  rotationSpeed: 350
-  progress: 0
 --- !u!58 &5128528681039812219
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -166,6 +149,24 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.63
+--- !u!114 &4881803991137391414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2830996014160905172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31aebb8125513bd458d361ac6565ad07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPosition: {x: -11.5, y: -2.7972622, z: -1}
+  endPosition: {x: 11.5, y: 2.7972622, z: -1}
+  speed: 0.5
+  rotationSpeed: 350
+  progress: 0
+  movementSound: {fileID: 8300000, guid: e685aea0a24c4f449a7ee5a56911a8c1, type: 3}
 --- !u!114 &3472119005099627883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +179,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ada84008c5f6fd4ebfd3cb818aee130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 15
+  damageToShield: 10

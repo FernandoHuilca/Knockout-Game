@@ -36,4 +36,17 @@ public class SoundsController : MonoBehaviour
             Debug.LogWarning("El AudioClip pasado a RunSound es nulo.");
         }
     }
+
+    public void pauseSound()
+    {
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            //audioSource.Pause();
+            audioSource.Stop();
+        }
+        else
+        {
+            Debug.LogWarning("No hay un audio reproduciéndose para pausar.");
+        }
+    }
 }

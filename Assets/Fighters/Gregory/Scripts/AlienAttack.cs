@@ -69,7 +69,7 @@ public class AlienAttack : MonoBehaviour
         if (Input.GetKeyDown(userConfiguration.getSpecialPowerKey()))
         {
             specialAttack.useSpecialAttack();
-            return;
+            
         }
     }
 
@@ -96,28 +96,25 @@ public class AlienAttack : MonoBehaviour
         Damageable damageable = playerEnemy.GetComponent<Damageable>();
         Shieldable shieldable = playerEnemy.GetComponent<Shieldable>();
 
-        if (damageable == null || shieldable == null || gameObject.CompareTag(playerEnemy.tag))
+        if (damageable == null || gameObject.CompareTag(playerEnemy.tag))
         {
-            Debug.Log("No damageable or shieldable. Alien: " + gameObject.tag + " and PlayerEnemy: " + playerEnemy.tag);
             return;
         }
 
         if (shieldable == null || !shieldable.IsShieldActive())
         {
-            Debug.Log("Damageable: "+playerEnemy.tag);
+            
             if(damageable == null)
             {
-                Debug.Log("Damageable is NULL: " + playerEnemy.tag);
+                return;
             }
             damageable.decreaseLife(attackValue);
             specialAttack.increaseCharge(attackValue);
-            Debug.Log("Holaaa");
             return;
         }
 
         if (shieldable != null && shieldable.IsShieldActive())
         {
-            Debug.Log("Shieldable: " + playerEnemy.tag);
             shieldable.decreaseShieldCapacity(attackValueToShield);
             return;
         }

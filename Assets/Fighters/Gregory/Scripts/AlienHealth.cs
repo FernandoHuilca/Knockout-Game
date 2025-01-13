@@ -27,8 +27,7 @@ public class AlienHealth : MonoBehaviour, Damageable
     [SerializeField] private AlienSpecialAttack specialAttack;
 
     [SerializeField] private UserConfiguration userConfiguration;
-    [SerializeField] private UIController UIController;
-
+    [SerializeField] private UIController UIController;    
 
     private void Start()
     {
@@ -47,10 +46,10 @@ public class AlienHealth : MonoBehaviour, Damageable
         specialAttack = GetComponent<AlienSpecialAttack>();
 
         userConfiguration = GetComponent<UserConfiguration>();
-
         UIController = GetComponent<UIController>();
         livesRemaining = UIController.getNumberOfLives();
-        currentHealth = maxHealth;        
+        currentHealth = maxHealth;
+
     }
 
     void updateUI()
@@ -128,6 +127,8 @@ public class AlienHealth : MonoBehaviour, Damageable
 
     private void die()
     {
+        Debug.Log("Game Over");
+        GameManager.gameManagerInstance.enableGameOverPanel(gameObject.tag);
         Destroy(gameObject);
     }
 
