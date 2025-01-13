@@ -30,15 +30,17 @@ public class AlienSpecialAttack : MonoBehaviour
     // Método para usar el ataque especial.
     public void useSpecialAttack()
     {
-        specialCharge = 0f; // Reiniciar la barra.
-        performSpecialAttack(); // Aquí colocas la lógica del ataque especial.
-        updateUI();
-    }
-
-    private void performSpecialAttack()
-    {
-        galacticOctopus.GetComponent<GalacticOctopus>().setTag(gameObject.tag);
+        
+        if(specialCharge < maxCharge)
+        {
+            return;
+        }
+        galacticOctopus.GetComponent<GalacticOctopusLogic>().setTag(gameObject.tag);
+        
         GameObject galacticOctopusInstance = Instantiate(galacticOctopus, spawnPosition, spawnRotation);
+        specialCharge = 0f; // Reiniciar la barra.
+        updateUI();
+
     }
 
     private void updateUI()

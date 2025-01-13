@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    
     [SerializeField] private string userTag;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Compara si la capa del objeto coincide con la capa deseada

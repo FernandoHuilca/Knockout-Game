@@ -14,39 +14,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1129147576050782473, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
       propertyPath: m_TagString
-      value: User2
+      value: User1
       objectReference: {fileID: 0}
     - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
       propertyPath: axis
-      value: Horizontal
+      value: Horizontal2
       objectReference: {fileID: 0}
     - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
       propertyPath: shieldKey
-      value: 118
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
       propertyPath: facingRight
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
       propertyPath: 'attackKeys.Array.data[0]'
-      value: 98
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
       propertyPath: 'attackKeys.Array.data[1]'
-      value: 110
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
       propertyPath: 'attackKeys.Array.data[2]'
-      value: 109
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
       propertyPath: 'movementKeys.Array.data[0]'
-      value: 273
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 1491429846455738578, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
       propertyPath: 'movementKeys.Array.data[1]'
-      value: 274
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 2055890416216286067, guid: 9831c6dd73c3fd7459e725a665863b40, type: 3}
       propertyPath: groundCheckRadius

@@ -1382,6 +1382,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a8cd07ef0e007bd43b9967a05a3f5e5d, type: 2}
   - {fileID: 11400000, guid: 1cd7ae6768edcaf4aaab1995fb1e09c6, type: 2}
   - {fileID: 11400000, guid: 074497c419a817b46a6efd8d2d7f2ab2, type: 2}
+  gameOverUI: {fileID: 8606105152508761056, guid: 39c88adf88ce86d4493a00eaa703656b, type: 3}
+  knockoutVoice: {fileID: 8300000, guid: 723ed390515bd9b4fb65ae4dd4de49b8, type: 3}
 --- !u!1 &1316719509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,8 +1576,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Jugador 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1899,8 +1901,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Jugador 2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -7,6 +7,12 @@ public class OVNIMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float progress = 0f;  // Progreso del movimiento (0 a 1)
+    [SerializeField] private AudioClip movementSound;
+
+    private void Start()
+    {
+        SoundsController.Instance.RunSound(movementSound);
+    }
 
     void Update()
     {
