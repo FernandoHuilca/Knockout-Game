@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 17
+  jumpForce: 20
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
   attack2Value: 50
   attackRange: 0.4
   attack1ValueToShield: 20
-  attack2ValueToShield: 45
+  attack2ValueToShield: 30
   attackRate: 1
   waitingTimeAttack1: 0.75
   waitingTimeAttack2: 1.25

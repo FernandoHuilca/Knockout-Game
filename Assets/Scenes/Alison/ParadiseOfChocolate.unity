@@ -357,7 +357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8432756591119375243, guid: 03ef74465d4d96b488e603be627e10bc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30.387901
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8432756591119375243, guid: 03ef74465d4d96b488e603be627e10bc, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -365,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8432756591119375243, guid: 03ef74465d4d96b488e603be627e10bc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 402.0675
+      value: 378
       objectReference: {fileID: 0}
     - target: {fileID: 9180821712443164049, guid: 03ef74465d4d96b488e603be627e10bc, type: 3}
       propertyPath: m_Color.b
@@ -377,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9180821712443164049, guid: 03ef74465d4d96b488e603be627e10bc, type: 3}
       propertyPath: m_Color.r
-      value: 0.32941177
+      value: 0.85490197
       objectReference: {fileID: 0}
     - target: {fileID: 9180821712443164049, guid: 03ef74465d4d96b488e603be627e10bc, type: 3}
       propertyPath: m_FillAmount
@@ -1180,6 +1180,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 80ce0046bd4b4c14eb64d4971bb83b93, type: 2}
   - {fileID: 11400000, guid: 659211227cc58aa4aa4bcc0cc682cfa9, type: 2}
   - {fileID: 11400000, guid: 074497c419a817b46a6efd8d2d7f2ab2, type: 2}
+  gameOverUI: {fileID: 0}
+  knockoutVoice: {fileID: 0}
+  puaseUI: {fileID: 0}
+  pauseKey: 112
 --- !u!1001 &617633326
 PrefabInstance:
   m_ObjectHideFlags: 0
