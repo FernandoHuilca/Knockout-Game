@@ -10,12 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public List<FightersData> fightersData;
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private AudioClip knockoutVoice;
-
-    private void Start()
-    {
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
-    }
+    [SerializeField] private GameObject puaseUI;
+    [SerializeField] private KeyCode pauseKey = KeyCode.P;
 
     private void Awake()
     {
@@ -32,13 +28,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        //if (gameOverUI.activeInHierarchy) { 
-        //    Cursor.visible = true;
-        //    Cursor.lockState = CursorLockMode.None;
-        //    return;
-        //}
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
+        if(Input.GetKeyDown(pauseKey) && puaseUI != null)
+        {
+            puaseUI.SetActive(!puaseUI.activeSelf);
+            Time.timeScale = puaseUI.activeSelf ? 0 : 1;
+            SoundsController.Instance.pauseSound();
+            //SoundsController.Instance.RunSound(pauseSound);
+        }
     }
 
     public void enableGameOverPanel(string userTag)
@@ -47,6 +43,13 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         SoundsController.Instance.pauseSound();
         SoundsController.Instance.RunSound(knockoutVoice);
+    }
+
+    public void resume()
+    {
+        puaseUI.SetActive(false);
+        Time.timeScale = 1;
+        //SoundsController.Instance.RunSound(pauseSound);
     }
 
     public void restartGame()
