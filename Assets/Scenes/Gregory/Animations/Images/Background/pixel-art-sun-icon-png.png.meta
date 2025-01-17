@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pixel-art-sun-icon-png_0: 4352013811192687671
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

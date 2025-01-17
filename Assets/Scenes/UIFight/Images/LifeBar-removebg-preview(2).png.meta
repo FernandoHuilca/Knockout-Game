@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LifeBar-removebg-preview(2)_0: -5094889007234045659
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
