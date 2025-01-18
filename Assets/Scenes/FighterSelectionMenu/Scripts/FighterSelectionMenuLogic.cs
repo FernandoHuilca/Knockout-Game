@@ -113,7 +113,7 @@ public class FighterSelectionMenuLogic : MonoBehaviour
     public void goBackToThePreviousFighterUser1()
     {
         indexUser1 = goBackToThePreviousFighterUser(indexUser1);
-        indexUser1 = goBackToThePreviousFighterUser(indexUser1);
+        //indexUser1 = goBackToThePreviousFighterUser(indexUser1);
         updateUser1SelectionScreen();
     }
 

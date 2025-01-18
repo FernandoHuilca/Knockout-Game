@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/FighterSelectionMenu/FighterSelectionMenu.unity
     guid: ab4cec32ff18b65429e600f8abf8d828
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
+    path: Assets/Scenes/Fernando/GameScene.unity
     guid: 6a9ce5b5a1068a346bee39efa3bb0914
   - enabled: 1
     path: Assets/Scenes/ScenerySelectionMenu/ScenarySelectionMenu.unity
