@@ -1378,8 +1378,8 @@ MonoBehaviour:
   fightersData:
   - {fileID: 11400000, guid: 659211227cc58aa4aa4bcc0cc682cfa9, type: 2}
   - {fileID: 11400000, guid: a8cd07ef0e007bd43b9967a05a3f5e5d, type: 2}
-  - {fileID: 11400000, guid: 1cd7ae6768edcaf4aaab1995fb1e09c6, type: 2}
   - {fileID: 11400000, guid: 074497c419a817b46a6efd8d2d7f2ab2, type: 2}
+  - {fileID: 11400000, guid: 1cd7ae6768edcaf4aaab1995fb1e09c6, type: 2}
   gameOverUI: {fileID: 8606105152508761056, guid: 39c88adf88ce86d4493a00eaa703656b, type: 3}
   knockoutVoice: {fileID: 8300000, guid: 723ed390515bd9b4fb65ae4dd4de49b8, type: 3}
   puaseUI: {fileID: 0}

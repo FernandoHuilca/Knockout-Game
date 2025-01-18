@@ -292,12 +292,12 @@ MonoBehaviour:
   hitDamage: 40
   kickDamage: 50
   specialPowerDamage: 30
-  hitDamageToShield: 50
-  kickDamageToShield: 60
+  hitDamageToShield: 25
+  kickDamageToShield: 30
   attackRate: 1
   waitingTimeHit: 0.75
-  waitingTimeKick: 0.25
-  soundAttack1: {fileID: 0}
+  waitingTimeKick: 0.9
+  soundAttack1: {fileID: 8300000, guid: 5ea91a7d551a32049b4f6c6754c14cb9, type: 3}
 --- !u!114 &3786660211388923180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +337,7 @@ MonoBehaviour:
   shieldCapacity: 0
   maxShieldCapacity: 100
   rechargeRate: 10
+  soundShield: {fileID: 8300000, guid: 3ad53dec855d9c0428aab7c36bd48110, type: 3}
   specialAttack: {fileID: 0}
   fighterAttack: {fileID: 0}
   fighterHealth: {fileID: 0}
@@ -415,8 +416,8 @@ Transform:
   m_GameObject: {fileID: 7020672408087064560}
   serializedVersion: 2
   m_LocalRotation: {x: 0.009773729, y: 0, z: 0, w: 0.99995226}
-  m_LocalPosition: {x: 0.183, y: -0.296, z: 0}
-  m_LocalScale: {x: 28.3641, y: 31.437729, z: 5.407372}
+  m_LocalPosition: {x: 0.11, y: -0.13, z: 0}
+  m_LocalScale: {x: 34.23547, y: 37.00221, z: 5.407372}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8234786728138817651}
