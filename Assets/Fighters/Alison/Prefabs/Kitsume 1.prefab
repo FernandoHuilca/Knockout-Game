@@ -58,8 +58,8 @@ Transform:
   m_GameObject: {fileID: 3163400796530799937}
   serializedVersion: 2
   m_LocalRotation: {x: 0.009773729, y: 0, z: 0, w: 0.99995226}
-  m_LocalPosition: {x: 0.010048, y: -0.10015, z: 0}
-  m_LocalScale: {x: 7.450168, y: 7.358353, z: 5.407372}
+  m_LocalPosition: {x: -0.111, y: -0.009, z: 0}
+  m_LocalScale: {x: 4.5412245, y: 4.476227, z: 5.407372}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1562058623242770796}
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.59607846}
+  m_Color: {r: 1, g: 0.795074, b: 0, a: 0.59607846}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 3120452960295588998}
   m_Layer: 9
   m_Name: Kitsume 1
-  m_TagString: User1
+  m_TagString: User2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,8 +358,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.005670395, y: 0.0038349607}
-  m_Size: {x: 0.46242464, y: 0.7945126}
+  m_Offset: {x: 0.104867235, y: -0.06551071}
+  m_Size: {x: 0.2640313, y: 0.65582055}
   m_Direction: 0
 --- !u!95 &3861810647792258462
 Animator:
@@ -413,11 +413,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b89ed33177129408b5cf8172f7681a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementKeys: 7700000073000000
-  attackKeys: 320000003300000034000000
-  shieldKey: 49
-  facingRight: 1
-  axis: Horizontal2
+  movementKeys: 1101000012010000
+  attackKeys: 620000006e0000006d000000
+  shieldKey: 118
+  facingRight: 0
+  axis: Horizontal
 --- !u!114 &2762472100221713735
 MonoBehaviour:
   m_ObjectHideFlags: 0
