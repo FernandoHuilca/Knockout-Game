@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mateo/ChimborazoScene.unity
     guid: 88ebf30b5ff315e47a4da556bbc2e7d0
+  - enabled: 1
+    path: Assets/Scenes/Fernando/SquidGame.unity
+    guid: 3dbf501928bffad47a067adbabcdb99d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
