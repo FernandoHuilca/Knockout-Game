@@ -5,10 +5,14 @@ public class Genkidama : MonoBehaviour
     public Animator animator;
     private float speed;
     private float damage;
-    private string userTag; 
+    private string userTag;
     private Transform target; // Referencia al enemigo a seguir.
     private float followTime; // Tiempo durante el cual seguirá al enemigo.
     private float elapsedTime; // Tiempo transcurrido desde que comenzó a seguir.
+
+    [Header("Components")]
+    [SerializeField] private AudioClip soundGenkidama;
+    [SerializeField] private AudioSource audioSource;
 
     public void Initialize(float speed, float damage, string userTag, Transform target, float followTime)
     {
@@ -17,14 +21,26 @@ public class Genkidama : MonoBehaviour
         this.userTag = userTag;
         this.target = target;
         this.followTime = followTime;
-        this.elapsedTime = 0f; // Reiniciar el tiempo transcurrido
-        animator = GetComponent<Animator>();
-        animator.SetTrigger("GenkidamaIdle");
-    }
+        this.elapsedTime = 0f; // Reiniciar el tiempo transcurrido.
 
+        // Obtener los componentes necesarios.
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
+        // Configurar la animación inicial.
+        animator.SetTrigger("GenkidamaIdle");
+
+        // Reproducir el sonido inicial de la Genkidama.
+        if (audioSource != null && soundGenkidama != null)
+        {
+            audioSource.clip = soundGenkidama;
+            audioSource.Play();
+        }
+    }
 
     private void Update()
     {
+        // Movimiento y seguimiento del objetivo.
         if (target != null && elapsedTime < followTime)
         {
             // Incrementar el tiempo transcurrido.
@@ -40,9 +56,13 @@ public class Genkidama : MonoBehaviour
         {
             // Si el tiempo ha terminado o el objetivo es nulo, mover en línea recta.
             transform.position += Vector3.up * speed * Time.deltaTime;
+            // Detener el sonido de la Genkidama.
+            if (audioSource != null && audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
         }
     }
-
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -55,6 +75,12 @@ public class Genkidama : MonoBehaviour
         if (damageable != null)
         {
             damageable.decreaseLife(damage);
+        }
+
+        // Detener el sonido de la Genkidama.
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
         }
 
         // Destruir la Genkidama tras colisionar.
