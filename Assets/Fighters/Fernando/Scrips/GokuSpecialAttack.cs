@@ -17,7 +17,9 @@ public class GokuSpecialAttack : MonoBehaviour
     [SerializeField] private float genkidamaDamage = 75f; // Daño de la Genkidama.
     [SerializeField] private float followTime = 8f; // Tiempo de persecución.
     [SerializeField] private float animationDuration = 10;//Duración de la animación de la genkidama stateInfo.length;
-
+    [Header("Components")]
+    [SerializeField] private AudioClip soundSpecialAttack;
+    [SerializeField] private AudioSource audioSource;
 
 
     private void Start()
@@ -55,6 +57,12 @@ public class GokuSpecialAttack : MonoBehaviour
             if (isPerformingSpecialAttack)
                 return;
             isPerformingSpecialAttack = true;
+            if (audioSource != null && soundSpecialAttack != null)
+            {
+                audioSource.clip = soundSpecialAttack;
+                audioSource.Play();
+            }
+
             animator.SetTrigger("specialAttack");
             // Calcular duración de la animación
             AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
@@ -63,13 +71,17 @@ public class GokuSpecialAttack : MonoBehaviour
             Invoke(nameof(performSpecialAttack), animationDuration);
             specialCharge = 0f; // Reiniciar la barra.
             isReady = false;
-            updateUI();
+            
         }
     }
     private void EndSpecialAttack()
     {
         isPerformingSpecialAttack = false;
-
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+        updateUI();
     }
 
     private void performSpecialAttack()
