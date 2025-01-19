@@ -1862,11 +1862,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fightersData:
-  - {fileID: 11400000, guid: 944c084e296a64d4f8b76a21d2d293cb, type: 2}
-  - {fileID: 11400000, guid: 80ce0046bd4b4c14eb64d4971bb83b93, type: 2}
   - {fileID: 11400000, guid: 659211227cc58aa4aa4bcc0cc682cfa9, type: 2}
-  - {fileID: 11400000, guid: 1cd7ae6768edcaf4aaab1995fb1e09c6, type: 2}
   - {fileID: 11400000, guid: a8cd07ef0e007bd43b9967a05a3f5e5d, type: 2}
+  - {fileID: 11400000, guid: 1cd7ae6768edcaf4aaab1995fb1e09c6, type: 2}
+  - {fileID: 11400000, guid: 074497c419a817b46a6efd8d2d7f2ab2, type: 2}
+  gameOverUI: {fileID: 0}
+  knockoutVoice: {fileID: 0}
+  puaseUI: {fileID: 0}
+  pauseKey: 112
 --- !u!4 &1810013103
 Transform:
   m_ObjectHideFlags: 0

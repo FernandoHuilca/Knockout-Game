@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Kitsume
   m_EditorClassIdentifier: 
   fighterImage: {fileID: -1545209068409145737, guid: 09e2be45ebd083f4ebf9b048d2e1518a, type: 3}
-  fighterName: Damita
+  fighterName: Kitsume
   fighterDescription: Personaje Kitsume
   fighterPrefab: {fileID: 8144658562816297097, guid: 02671f429fe1ea34fbed1083cd7d3bdc, type: 3}
   groundCheckRadius: 0.1

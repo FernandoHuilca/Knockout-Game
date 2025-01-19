@@ -54,7 +54,6 @@ public class GokuAttack : MonoBehaviour
             if (Input.GetKeyDown(userConfiguration.getHitKey()))
             {
                 hit();
-                SoundsController.Instance.RunSound(soundAttack1);
                 nexAttackTime = Time.time + waitingTimeHit / attackRate;
             }
             // Si se presiona la tecla correspondiente, realiza una patada
@@ -75,6 +74,7 @@ public class GokuAttack : MonoBehaviour
     void hit()
     {
         animator.SetTrigger("attack1"); // Activa la animación de ataque
+        SoundsController.Instance.RunSound(soundAttack1);
         applyDamageToEnemies(hitDamage, hitDamageToShield); // Aplica daño a los enemigos detectados
     }
 

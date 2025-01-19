@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pngtree-pixel-art-moon-png-image_10008610_0: 5420455517101553694
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
