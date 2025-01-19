@@ -62,12 +62,22 @@ public class GameManager : MonoBehaviour
 
     public void goToMainMenu()
     {
+        // Al volver al menú principal, asegúrate de que la música se reanude
+        if (MenuMusicManager.Instance != null)
+        {
+            MenuMusicManager.Instance.ResumeMusic();
+        }
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1;
     }
 
     public void goToFighterSelectionMenu()
     {
+        // Al volver al menú principal, asegúrate de que la música se reanude
+        if (MenuMusicManager.Instance != null)
+        {
+            MenuMusicManager.Instance.ResumeMusic();
+        }
         SceneManager.LoadScene("FighterSelectionMenu");
         Time.timeScale = 1;
     }
