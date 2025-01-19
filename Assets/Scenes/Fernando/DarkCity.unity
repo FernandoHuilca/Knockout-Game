@@ -6438,16 +6438,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456580764}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3c080c056bf58948a6886a62ab06165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shenlongPrefab: {fileID: 508993123419277224, guid: c8587b74c09d7af4f992030e542bbab0, type: 3}
-  shenlongStartPosition: {x: -8, y: -4}
-  shenlongEndPosition: {x: 8, y: 2}
-  spawnInterval: 12
-  spawnIntervalRandomness: 5
+  spawnPositionMin: {x: -10, y: -10}
+  spawnPositionMax: {x: -10, y: 10}
+  targetPositionMin: {x: 20, y: -8}
+  targetPositionMax: {x: 20, y: 8}
+  minSpawnInterval: 10
+  maxSpawnInterval: 20
 --- !u!4 &1456580766
 Transform:
   m_ObjectHideFlags: 0
