@@ -70,4 +70,5 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
         // Uso correcto de LeanTween con gameObject
         LeanTween.moveLocal(levelPagesRect.gameObject, targetPos, tweenTime).setEase(tweenType);
     }
+   
 }

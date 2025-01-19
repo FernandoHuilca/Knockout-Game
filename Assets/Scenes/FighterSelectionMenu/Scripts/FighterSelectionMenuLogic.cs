@@ -130,5 +130,10 @@ public class FighterSelectionMenuLogic : MonoBehaviour
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         SceneManager.LoadScene("ScenarySelectionMenu");
     }
+
+    public void BackButton(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }
 
