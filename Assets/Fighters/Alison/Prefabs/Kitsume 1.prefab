@@ -221,7 +221,7 @@ GameObject:
   m_TagString: User1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1562058623242770796
 Transform:
@@ -436,7 +436,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   groundCheck: {fileID: 5820196177928276211}
-  groundCheckRadius: 0
+  groundCheckRadius: 1.04
   weaponHitBox: {fileID: 967591210433232411}
   soundJump: {fileID: 0}
 --- !u!114 &1477910553198530664
