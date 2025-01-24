@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,8 +38,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void enableGameOverPanel(string userTag)
+    public void enableGameOverPanel(string looserUserTag)
     {
+        string winnerUserTag = looserUserTag == "User1" ? "User2" : "User1";
+        GameObject winner = GameObject.FindGameObjectWithTag(winnerUserTag);
+        //gameOverUI.setSpriteRenderer(winner.GetComponent<SpriteRenderer>());
+        Image winnerImage = winner.GetComponent<Image>();
+        Transform childTransform = gameOverUI.transform.transform.Find("WinnerImage");
+        childTransform.GetComponent<Image>().sprite = winnerImage.sprite;
+
         gameOverUI.SetActive(true);
         Time.timeScale = 0;
         SoundsController.Instance.pauseSound();

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 162190882500185800}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.026, y: -0.489, z: 0}
+  m_LocalPosition: {x: -0.026, y: -0.457, z: 0}
   m_LocalScale: {x: 1.1316036, y: 1.031383, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: -6597546959832696309}
   m_Layer: 9
   m_Name: Zoe
-  m_TagString: User1
+  m_TagString: User2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,7 +193,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.03193792, y: -0.06921892}
-  m_Size: {x: 0.20380765, y: 0.6237558}
+  m_Size: {x: 0.24, y: 0.7}
   m_Direction: 0
 --- !u!95 &6257153250411107707
 Animator:
@@ -247,11 +247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b89ed33177129408b5cf8172f7681a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementKeys: 7700000073000000
-  attackKeys: 320000003300000034000000
-  shieldKey: 49
-  facingRight: 1
-  axis: Horizontal2
+  movementKeys: 1101000012010000
+  attackKeys: 620000006e0000006d000000
+  shieldKey: 118
+  facingRight: 0
+  axis: Horizontal
 --- !u!114 &9046573924487445485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   weaponHitBox: {fileID: 5978992941991935399}
-  attackRange: 0.5
+  attackRange: 0.3
   hitDamage: 50
   kickDamage: 15
   hitDamageToShield: 5
@@ -382,13 +382,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7020672408087064560}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.009773729, y: 0, z: 0, w: 0.99995226}
-  m_LocalPosition: {x: -0.0132, y: -0.1035, z: 0}
-  m_LocalScale: {x: 2.7134135, y: 3.7148473, z: 5.407372}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0352, y: -0.0717, z: 0}
+  m_LocalScale: {x: 2.6481466, y: 3.4867873, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8234786728138817651}
-  m_LocalEulerAnglesHint: {x: 1.12, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2793658522161377112
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -515,7 +515,7 @@ Transform:
   m_GameObject: {fileID: 8641308753366593918}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.284, y: 0.037, z: 0}
+  m_LocalPosition: {x: 0.201, y: 0.037, z: 0}
   m_LocalScale: {x: 1.75, y: 1.07, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
