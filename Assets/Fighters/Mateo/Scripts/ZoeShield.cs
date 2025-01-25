@@ -7,6 +7,9 @@ public class ZoeShield : MonoBehaviour, Shieldable
     public BoxCollider2D boxCollider2D;
     public SpriteRenderer spriteRenderer;
 
+    [SerializeField] private AudioClip soundShield;
+    [SerializeField] private AudioClip soundAttackToShield;
+
     [Header("Shield Settings")]
     public float shieldDuration; // Tiempo de recarga si el escudo se desactiva.
     public float shieldCapacity = 0; // Capacidad del escudo.
@@ -75,6 +78,7 @@ public class ZoeShield : MonoBehaviour, Shieldable
         }
 
         isShieldActive = !isShieldActive;
+        SoundsController.Instance.RunSound(soundShield);
         UpdateShieldComponents();
         UpdateScriptStates();
     }
@@ -114,6 +118,7 @@ public class ZoeShield : MonoBehaviour, Shieldable
 
     public void TakeDamage(float damage)
     {
+        SoundsController.Instance.RunSound(soundAttackToShield);
         if (!isShieldActive || isRechargingFromZero)
             return;
 
