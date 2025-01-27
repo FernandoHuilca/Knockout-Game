@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2232838529831158322}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.292, y: -0.03, z: 0}
+  m_LocalPosition: {x: 0.238, y: -0.004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58,8 +58,8 @@ Transform:
   m_GameObject: {fileID: 3163400796530799937}
   serializedVersion: 2
   m_LocalRotation: {x: 0.009773729, y: 0, z: 0, w: 0.99995226}
-  m_LocalPosition: {x: -0.111, y: -0.009, z: 0}
-  m_LocalScale: {x: 4.5412245, y: 4.476227, z: 5.407372}
+  m_LocalPosition: {x: -0.061, y: -0.059, z: 0.001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1562058623242770796}
@@ -153,7 +153,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.08226219, y: 0.0497998}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -163,7 +163,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.19, y: 0.19}
+  m_Size: {x: 0.4237978, y: 0.76594543}
   m_EdgeRadius: 0
 --- !u!1 &5389860147459991516
 GameObject:
@@ -190,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 5389860147459991516}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.499, y: 0.159, z: 0}
+  m_LocalPosition: {x: 0.284, y: 0.037, z: 0}
   m_LocalScale: {x: 1.75, y: 1.07, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -232,8 +232,8 @@ Transform:
   m_GameObject: {fileID: 8144658562816297097}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1045, y: -0.5718, z: 0}
-  m_LocalScale: {x: 2.1264887, y: 2.4849052, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 967591210433232411}
@@ -436,7 +436,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   groundCheck: {fileID: 5820196177928276211}
-  groundCheckRadius: 1.04
+  groundCheckRadius: 0.13
   weaponHitBox: {fileID: 967591210433232411}
   soundJump: {fileID: 0}
 --- !u!114 &1477910553198530664
@@ -458,10 +458,10 @@ MonoBehaviour:
   kickDamage: 30
   specialPowerDamage: 40
   hitDamageToShield: 30
-  kickDamageToShield: 30
+  kickDamageToShield: 25
   attackRate: 1
   waitingTimeHit: 0.75
-  waitingTimeKick: 1.25
+  waitingTimeKick: 0.98
   soundAttack1: {fileID: 0}
 --- !u!114 &5286326417084829687
 MonoBehaviour:
@@ -542,9 +542,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9134188761923562891}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.064, y: -0.397, z: 0}
-  m_LocalScale: {x: 1.1316036, y: 1.031383, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.026, y: -0.489, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1562058623242770796}
