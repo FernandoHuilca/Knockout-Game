@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d750995a6ca2743a2dc90ef9f4e2a0, type: 3}
   m_Name: Alien
   m_EditorClassIdentifier: 
-  fighterImage: {fileID: 8212814697626224067, guid: a9a81245974db1b478194e58d18172a5, type: 3}
+  fighterImage: {fileID: -532276496897717744, guid: 91b0b0273edca894293175930a538223, type: 3}
   fighterName: Alien
   fighterDescription: 'The most famous gangster in the eastern part of a city inundated
     by chaos '

@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     public void restartGame()
     {
         Debug.Log("Restarting game...");
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
 
@@ -87,7 +88,7 @@ public class GameManager : MonoBehaviour
             MenuMusicManager.Instance.ResumeMusic();
         }
         SceneManager.LoadScene("FighterSelectionMenu");
-        Time.timeScale = 1;
+        Time.timeScale = 1; 
     }
 
 }
