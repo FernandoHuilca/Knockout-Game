@@ -3,11 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public GameObject InstructionsUI;
-    public GameObject CreditsUI;
+    [SerializeField] private GameObject InstructionsUI;
+    [SerializeField] private GameObject CreditsUI;
 
 
-    public void buttonStart()
+    public void startGame()
     {
         SceneManager.LoadScene("FighterSelectionMenu");
     }

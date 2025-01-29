@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject puaseUI;
     [SerializeField] private KeyCode pauseKey = KeyCode.P;
 
+    [SerializeField] private AudioClip fighterSelectionAudio;
+
     private void Awake()
     {
         if (GameManager.gameManagerInstance == null)
@@ -24,6 +26,14 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "FighterSelectionMenu")
+        {
+            SoundsController.Instance.RunSound(fighterSelectionAudio);
         }
     }
 
