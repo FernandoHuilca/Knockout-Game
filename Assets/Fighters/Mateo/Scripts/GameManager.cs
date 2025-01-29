@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using NUnit.Framework;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -39,12 +40,19 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(pauseKey) && puaseUI != null)
+        if (Input.GetKeyDown(pauseKey) && puaseUI != null)
         {
             puaseUI.SetActive(!puaseUI.activeSelf);
             Time.timeScale = puaseUI.activeSelf ? 0 : 1;
-            SoundsController.Instance.pauseSound();
-            //SoundsController.Instance.RunSound(pauseSound);
+
+            if (puaseUI.activeSelf)
+            {
+                SoundsController.Instance.pauseSound();  // Pausar todos los sonidos
+            }
+            else
+            {
+                SoundsController.Instance.reactiveSound();  // Reanudar todos los sonidos
+            }
         }
     }
 
@@ -59,14 +67,19 @@ public class GameManager : MonoBehaviour
 
         gameOverUI.SetActive(true);
         Time.timeScale = 0;
-        SoundsController.Instance.pauseSound();
+        //SoundsController.Instance.PauseAllSounds();  // Pausar todos los sonidos
         SoundsController.Instance.RunSound(knockoutVoice);
+
+        TextMeshProUGUI textMeshProUGUI = gameOverUI.transform.Find("KnockoutTMP").GetComponent<TextMeshProUGUI>();
+        textMeshProUGUI.text = "KNOCKOUT!";
     }
 
     public void resume()
     {
         puaseUI.SetActive(false);
         Time.timeScale = 1;
+        SoundsController.Instance.reactiveSound();  // Reanudar todos los sonidos
+        //SoundsController.Instance.ResumeAllSounds();  // Reanudar todos los sonidos
         //SoundsController.Instance.RunSound(pauseSound);
     }
 

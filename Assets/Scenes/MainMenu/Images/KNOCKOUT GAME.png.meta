@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      KNOCKOUT GAME_0: 9102128909878150722
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
