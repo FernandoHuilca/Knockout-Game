@@ -42,6 +42,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         SoundsController.Instance.pauseSound();
         SoundsController.Instance.RunSound(knockoutVoice);
+        if(userTag == "User1")
+        {
+            string nameWinner = PlayerPrefs.GetString("User2");
+            Debug.Log("El ganador es: " + nameWinner);
+        }else if(userTag == "User2")
+        {
+            string nameWinner = PlayerPrefs.GetString("User1");
+            Debug.Log("El ganador es: " + nameWinner);
+        }
     }
 
     public void resume()
