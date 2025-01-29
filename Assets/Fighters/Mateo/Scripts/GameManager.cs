@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     private void Update()
     {
         if(Input.GetKeyDown(pauseKey) && puaseUI != null)
