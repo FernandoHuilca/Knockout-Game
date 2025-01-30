@@ -21,6 +21,11 @@ public class LevelManager : MonoBehaviour
         CreditsUI.SetActive(true);
     }
 
+    public void loadLeaderboardScene()
+    {
+        SceneManager.LoadScene("LeaderboardMenu");
+    }
+
     public void back()
     {
         if(InstructionsUI.activeSelf)

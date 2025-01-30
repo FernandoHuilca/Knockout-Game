@@ -20,8 +20,14 @@ public class UserDBManager : MonoBehaviour
     public string username;
     [SerializeField] private string userTag;
 
+    public Text advertisementUser1;
+    public Text advertisementUser2;
+
     void Start()
     {
+        username = null;
+        ShowMessage(advertisementUser1, "Welcome, Player 1", new Color(0.95f, 0.52f, 0.0f));
+        ShowMessage(advertisementUser2, "Welcome, Player 2", new Color(0.95f, 0.52f, 0.0f));
         createDB();
     }
 
@@ -65,213 +71,110 @@ public class UserDBManager : MonoBehaviour
             connection.Close();
         }
     }
-
-
-    public void registerUser1()
+    public void registerUser(InputField enterNameUser, InputField enterPasswordUser, Text advertisement)
     {
-        //if (enterNameUser1.text != string.Empty && enterPasswordUser1.text != string.Empty)
-        //{
-        //    if (isUserExists(enterNameUser1.text))
-        //    {
-        //        Debug.Log("El usuario ya existe. Intenta con otro nombre.");
-        //    }
-        //    else
-        //    {
-        //        addUser(enterNameUser1.text, enterPasswordUser1.text);
-        //        Debug.Log("Usuario registrado exitosamente.");
+        string username = enterNameUser.text;
+        string password = enterPasswordUser.text;
 
-        //        enterNameUser1.text = string.Empty;
-        //        enterPasswordUser1.text = string.Empty;
-        //    }
-        //}
-        //else
-        //{
-        //    Debug.Log("El nombre de usuario y la contraseña no pueden estar vacíos.");
-        //}
-        registerUser(enterNameUser1, enterPasswordUser1);
-    }
-
-    public void registerUser(InputField enterNameUser, InputField enterPasswordUser)
-    {
-        if (enterNameUser.text != string.Empty && enterPasswordUser.text != string.Empty)
+        if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
         {
-            if (isUserExists(enterNameUser.text))
+            if (isUserExists(username))
             {
-                Debug.Log("El usuario ya existe. Intenta con otro nombre.");
+                ShowMessage(advertisement, "User exists", Color.red);
             }
             else
             {
-                addUser(enterNameUser.text, enterPasswordUser.text);
-                Debug.Log("Usuario registrado exitosamente.");
-
-                enterNameUser.text = string.Empty;
-                enterPasswordUser.text = string.Empty;
+                addUser(username, password);
+                ShowMessage(advertisement, "Registered", Color.green);
+                ClearInputFields(enterNameUser, enterPasswordUser);
             }
         }
         else
         {
-            Debug.Log("El nombre de usuario y la contraseña no pueden estar vacíos.");
+            ShowMessage(advertisement, "Fields empty", Color.red);
         }
     }
 
-    public void registerUser2()
+    public void registerUser1() => registerUser(enterNameUser1, enterPasswordUser1, advertisementUser1);
+    public void registerUser2() => registerUser(enterNameUser2, enterPasswordUser2, advertisementUser2);
+
+    public void loginUser(InputField enterNameUser, InputField enterPasswordUser, string userTag, Text advertisement)
     {
-        //if (enterNameUser2.text != string.Empty && enterPasswordUser2.text != string.Empty)
-        //{
-        //    if (isUserExists(enterNameUser2.text))
-        //    {
-        //        Debug.Log("El usuario ya existe. Intenta con otro nombre.");
-        //    }
-        //    else
-        //    {
-        //        addUser(enterNameUser2.text, enterPasswordUser2.text);
-        //        Debug.Log("Usuario registrado exitosamente.");
+        string enteredUsername = enterNameUser.text.Trim(); // Elimina espacios en blanco
+        string user1 = PlayerPrefs.GetString("User1", "");
+        string user2 = PlayerPrefs.GetString("User2", "");
 
-        //        enterNameUser2.text = string.Empty;
-        //        enterPasswordUser2.text = string.Empty;
-        //    }
-        //}
-        //else
-        //{
-        //    Debug.Log("El nombre de usuario y la contraseña no pueden estar vacíos.");
-        //}
-        registerUser(enterNameUser2, enterPasswordUser2);
-    }
-
-    public void loginUser1()
-    {
-        //if (enterNameUser1.tag == "User1")
-        //{
-        //    Debug.Log("User1");
-        //    userTag = "User1";
-        //}
-        //else
-        //{
-        //    Debug.Log("User2");
-        //    userTag = "User2";
-        //}
-
-        //if (enterNameUser1.text != string.Empty && enterPasswordUser1.text != string.Empty)
-        //{
-        //    if (validateUser(enterNameUser1.text, enterPasswordUser1.text))
-        //    {
-        //        Debug.Log("Inicio de sesión exitoso. ¡Bienvenido!");
-        //        username = enterNameUser1.text;
-        //        Debug.Log(username);
-        //        PlayerPrefs.SetString(userTag, username);
-        //        Debug.Log(PlayerPrefs.GetString(userTag));
-        //        Debug.Log(userTag);
-
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("Usuario o contraseña incorrectos.");
-        //    }
-        //}
-        //else
-        //{
-        //    Debug.Log("El nombre de usuario y la contraseña no pueden estar vacíos.");
-        //}
-        loginUser(enterNameUser1, enterPasswordUser1, "User1");
-    }
-
-    public void loginUser(InputField enterNameUser, InputField enterPasswordUser, string userTag)
-    {
-
-        if (enterNameUser.text != string.Empty && enterPasswordUser.text != string.Empty)
+        // Verificar si los campos están vacíos primero
+        if (string.IsNullOrEmpty(enteredUsername) || string.IsNullOrEmpty(enterPasswordUser.text))
         {
-            if (validateUser(enterNameUser.text, enterPasswordUser.text))
-            {
-                Debug.Log("Inicio de sesión exitoso. ¡Bienvenido!");
-                username = enterNameUser.text;
-                Debug.Log(username);
-                PlayerPrefs.SetString(userTag, username);
-                Debug.Log(PlayerPrefs.GetString(userTag));
-                Debug.Log(userTag);
+            ShowMessage(advertisement, "Fields empty", Color.red);
+            return;
+        }
 
-            }
-            else
-            {
-                Debug.Log("Usuario o contraseña incorrectos.");
-            }
+        // Evitar que detecte un usuario vacío como "en uso"
+        if (((userTag == "User1" && enteredUsername == user2) ||
+             (userTag == "User2" && enteredUsername == user1)))
+        {
+            ShowMessage(advertisement, "User in use", Color.red);
+            return;
+        }
+
+        // Validar usuario y contraseña en la base de datos
+        if (validateUser(enteredUsername, enterPasswordUser.text))
+        {
+            PlayerPrefs.SetString(userTag, enteredUsername);
+            PlayerPrefs.Save();
+            ShowMessage(advertisement, "Welcome, " + enteredUsername, Color.green);
+            ClearInputFields(enterNameUser, enterPasswordUser);
         }
         else
         {
-            Debug.Log("El nombre de usuario y la contraseña no pueden estar vacíos.");
+            ShowMessage(advertisement, "Wrong user/pass", Color.red);
         }
     }
 
-    public void loginUser2()
-    {
-        //if (enterNameUser2.tag == "User1")
-        //{
-        //    Debug.Log("User1");
-        //    userTag = "User1";
-        //}
-        //else
-        //{
-        //    Debug.Log("User2");
-        //    userTag = "User2";
-        //}
 
-        //if (enterNameUser2.text != string.Empty && enterPasswordUser2.text != string.Empty)
-        //{
-        //    if (validateUser(enterNameUser2.text, enterPasswordUser2.text))
-        //    {
-        //        Debug.Log("Inicio de sesión exitoso. ¡Bienvenido!");
-        //        username = enterNameUser2.text;
-        //        Debug.Log(username);
-        //        PlayerPrefs.SetString(userTag, username);
-        //        Debug.Log(PlayerPrefs.GetString(userTag));
-        //        Debug.Log(userTag);
+    public void loginUser1() => loginUser(enterNameUser1, enterPasswordUser1, "User1", advertisementUser1);
+    public void loginUser2() => loginUser(enterNameUser2, enterPasswordUser2, "User2", advertisementUser2);
 
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("Usuario o contraseña incorrectos.");
-        //    }
-        //}
-        //else
-        //{
-        //    Debug.Log("El nombre de usuario y la contraseña no pueden estar vacíos.");
-        //}
-        loginUser(enterNameUser2, enterPasswordUser2, "User2");
-    }
-
-    // Verificar si el usuario ya existe en la base de datos
     private bool isUserExists(string username)
     {
         using (var connection = new SqliteConnection(dbName))
         {
             connection.Open();
-
             using (var command = connection.CreateCommand())
             {
                 command.CommandText = "SELECT COUNT(*) FROM User WHERE username = @username;";
                 command.Parameters.AddWithValue("@username", username);
-
-                int userCount = Convert.ToInt32(command.ExecuteScalar());
-                return userCount > 0;
+                return Convert.ToInt32(command.ExecuteScalar()) > 0;
             }
         }
     }
 
-    // Validar credenciales del usuario
     private bool validateUser(string username, string password)
     {
         using (var connection = new SqliteConnection(dbName))
         {
             connection.Open();
-
             using (var command = connection.CreateCommand())
             {
                 command.CommandText = "SELECT COUNT(*) FROM User WHERE username = @username AND password = @password;";
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);
-
-                int userCount = Convert.ToInt32(command.ExecuteScalar());
-                return userCount > 0;
+                return Convert.ToInt32(command.ExecuteScalar()) > 0;
             }
         }
+    }
+
+    private void ShowMessage(Text advertisement, string message, Color color)
+    {
+        advertisement.text = message;
+        advertisement.color = color;
+    }
+
+    private void ClearInputFields(InputField nameField, InputField passwordField)
+    {
+        nameField.text = "";
+        passwordField.text = "";
     }
 }

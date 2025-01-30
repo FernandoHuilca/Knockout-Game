@@ -47,7 +47,16 @@ public class UIInitializer : MonoBehaviour
         if (userName != null)
         {
             TextMeshProUGUI textMeshPro = userName.GetComponent<TextMeshProUGUI>();
-            textMeshPro.text = PlayerPrefs.GetString($"User{playerIndex}");
+            string playerName = PlayerPrefs.GetString($"User{playerIndex}", ""); // Obtener nombre o vacío
+
+            if (!string.IsNullOrEmpty(playerName)) // Si hay un nombre guardado en PlayerPrefs
+            {
+                textMeshPro.text = playerName;
+            }
+            else // Si no hay nombre, asigna "PlayerX"
+            {
+                textMeshPro.text = "Player " + playerIndex;
+            }
         }
     }
 

@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Mono.Data.Sqlite;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "FighterSelectionMenu")
         {
+            PlayerPrefs.SetString("User1", "");
+            PlayerPrefs.Save();
+            PlayerPrefs.SetString("User2", "");
+            PlayerPrefs.Save();
             SoundsController.Instance.RunSound(fighterSelectionAudio);
 
         }
@@ -72,17 +77,30 @@ public class GameManager : MonoBehaviour
         SoundsController.Instance.RunSound(knockoutVoice);
 
         TextMeshProUGUI textMeshProUGUI = gameOverUI.transform.Find("KnockoutTMP").GetComponent<TextMeshProUGUI>();
-        
-        if(winnerUserTag == "User1")
+
+        if (winnerUserTag == "User1" && !string.IsNullOrEmpty(PlayerPrefs.GetString("User1")))
         {
             string nameWinner = PlayerPrefs.GetString("User1");
-            textMeshProUGUI.text = PlayerPrefs.GetString("User1") + " is the winner!";
+            textMeshProUGUI.text = nameWinner + " is the winner!";
             Debug.Log("El ganador es: " + nameWinner);
-        }else if(winnerUserTag == "User2")
+            updateWinnerScore(nameWinner);
+        }
+        else if (winnerUserTag == "User2" && !string.IsNullOrEmpty(PlayerPrefs.GetString("User2")))
         {
             string nameWinner = PlayerPrefs.GetString("User2");
-            textMeshProUGUI.text = PlayerPrefs.GetString("User2") + " is the winner!";
+            textMeshProUGUI.text = nameWinner + " is the winner!";
             Debug.Log("El ganador es: " + nameWinner);
+            updateWinnerScore(nameWinner);
+        }
+        else if (winnerUserTag == "User1")
+        {
+            Debug.Log("Valor de User1: " + PlayerPrefs.GetString("User1"));
+            textMeshProUGUI.text = "Player 1 is the winner!";
+        }
+        else
+        {
+            Debug.Log("Valor de User2: " + PlayerPrefs.GetString("User2"));
+            textMeshProUGUI.text = "Player 2 is the winner!";
         }
     }
 
@@ -111,6 +129,13 @@ public class GameManager : MonoBehaviour
         {
             MenuMusicManager.Instance.ResumeMusic();
         }
+        
+        PlayerPrefs.SetString("User1", "");
+        PlayerPrefs.Save();
+        PlayerPrefs.SetString("User2", "");
+        PlayerPrefs.Save();
+
+
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1;
     }
@@ -122,8 +147,39 @@ public class GameManager : MonoBehaviour
         {
             MenuMusicManager.Instance.ResumeMusic();
         }
+
+        PlayerPrefs.SetString("User1", "");
+        PlayerPrefs.Save();
+        PlayerPrefs.SetString("User2", "");
+        PlayerPrefs.Save();
+
         SceneManager.LoadScene("FighterSelectionMenu");
         Time.timeScale = 1; 
+    }
+
+    private void updateWinnerScore(string username)
+    {
+        string dbName = "URI=file:LeaderboardDB.db"; // Ruta de la base de datos
+
+        using (var connection = new SqliteConnection(dbName))
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                // Sumar 5 al score del usuario en una sola consulta
+                command.CommandText = "UPDATE User SET score = score + 5 WHERE username = @username";
+                command.Parameters.AddWithValue("@username", username);
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                    Debug.Log("Puntaje actualizado para: " + username);
+                else
+                    Debug.LogError("Usuario no encontrado en la base de datos: " + username);
+            }
+
+            connection.Close();
+        }
     }
 
 }

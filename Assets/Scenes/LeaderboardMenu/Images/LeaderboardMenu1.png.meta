@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b402fca491bceb74c82a4edcf50f9a0c
+guid: 4add22116f925b44fbc99f6ab553dcc1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5151287172811804609
-    second: KNOCKOUT GAME(3)_0
+      213: -2122833410250220263
+    second: LeaderboardMenu1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: KNOCKOUT GAME(3)_0
+      name: LeaderboardMenu1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1cf4977146c0d7740800000000000000
-      internalID: 5151287172811804609
+      spriteID: 91d54b8b24e2a82e0800000000000000
+      internalID: -2122833410250220263
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      KNOCKOUT GAME(3)_0: 5151287172811804609
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
