@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "FighterSelectionMenu")
         {
             SoundsController.Instance.RunSound(fighterSelectionAudio);
+
         }
     }
 
@@ -71,14 +72,16 @@ public class GameManager : MonoBehaviour
         SoundsController.Instance.RunSound(knockoutVoice);
 
         TextMeshProUGUI textMeshProUGUI = gameOverUI.transform.Find("KnockoutTMP").GetComponent<TextMeshProUGUI>();
-        textMeshProUGUI.text = "KNOCKOUT!";
+        
         if(winnerUserTag == "User1")
         {
-            string nameWinner = PlayerPrefs.GetString("User2");
+            string nameWinner = PlayerPrefs.GetString("User1");
+            textMeshProUGUI.text = PlayerPrefs.GetString("User1") + " is the winner!";
             Debug.Log("El ganador es: " + nameWinner);
         }else if(winnerUserTag == "User2")
         {
-            string nameWinner = PlayerPrefs.GetString("User1");
+            string nameWinner = PlayerPrefs.GetString("User2");
+            textMeshProUGUI.text = PlayerPrefs.GetString("User2") + " is the winner!";
             Debug.Log("El ganador es: " + nameWinner);
         }
     }

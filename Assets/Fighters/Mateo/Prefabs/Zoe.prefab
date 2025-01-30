@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4613510333145972431}
   m_Layer: 9
   m_Name: Zoe
-  m_TagString: User1
+  m_TagString: User2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,11 +253,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b89ed33177129408b5cf8172f7681a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementKeys: 7700000073000000
-  attackKeys: 320000003300000034000000
-  shieldKey: 49
-  facingRight: 1
-  axis: Horizontal2
+  movementKeys: 1101000012010000
+  attackKeys: 620000006e0000006d000000
+  shieldKey: 118
+  facingRight: 0
+  axis: Horizontal
 --- !u!114 &9046573924487445485
 MonoBehaviour:
   m_ObjectHideFlags: 0
