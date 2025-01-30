@@ -939,7 +939,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5130558894233647175, guid: 8b0b86302532ecf4f8bf6068af0cf69a, type: 3}
+  m_Sprite: {fileID: 6072976774189460352, guid: c4bf95dbf276a08469bdae5e937b4c2d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4115,8 +4115,8 @@ MonoBehaviour:
   activeDuration: 5
   fireCooldown: 0.05
   backgroundRenderer: {fileID: 437440674}
-  attackBackground: {fileID: -3658567448834911527, guid: b87dc203588fbb147862f5e5d937bf0d, type: 3}
-  defaultBackground: {fileID: -4001594888091737698, guid: 8d0536990df87674eb70cc0ba5325f0c, type: 3}
+  attackBackground: {fileID: -5130558894233647175, guid: 8b0b86302532ecf4f8bf6068af0cf69a, type: 3}
+  defaultBackground: {fileID: 6072976774189460352, guid: c4bf95dbf276a08469bdae5e937b4c2d, type: 3}
 --- !u!4 &2124276457
 Transform:
   m_ObjectHideFlags: 0
