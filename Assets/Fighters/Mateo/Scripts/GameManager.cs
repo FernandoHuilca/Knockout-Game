@@ -72,11 +72,11 @@ public class GameManager : MonoBehaviour
 
         TextMeshProUGUI textMeshProUGUI = gameOverUI.transform.Find("KnockoutTMP").GetComponent<TextMeshProUGUI>();
         textMeshProUGUI.text = "KNOCKOUT!";
-        if(userTag == "User1")
+        if(winnerUserTag == "User1")
         {
             string nameWinner = PlayerPrefs.GetString("User2");
             Debug.Log("El ganador es: " + nameWinner);
-        }else if(userTag == "User2")
+        }else if(winnerUserTag == "User2")
         {
             string nameWinner = PlayerPrefs.GetString("User1");
             Debug.Log("El ganador es: " + nameWinner);
