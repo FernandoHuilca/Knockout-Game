@@ -34,7 +34,7 @@ public class KitsuneMovement : MonoBehaviour
 
     private UserConfiguration userConfiguration;
     private Animator animator;
-    private KitsuneSpecialAttack KitsuneSpecialAttack;
+    //private KitsuneSpecialAttack KitsuneSpecialAttack;
 
     void Start()
     {
@@ -48,7 +48,7 @@ public class KitsuneMovement : MonoBehaviour
         userConfiguration = GetComponent<UserConfiguration>();
         animator = GetComponent<Animator>();
 
-        KitsuneSpecialAttack = GetComponent<KitsuneSpecialAttack>();
+        //KitsuneSpecialAttack = GetComponent<KitsuneSpecialAttack>();
 
         InitializeFacingDirection();
     }
@@ -60,12 +60,15 @@ public class KitsuneMovement : MonoBehaviour
         HandlePlatformDrop();
         animator.SetBool("isJumping", !isGrounded);
 
+        
+        /*
         // Revisar si se presiona la tecla del ataque especial
         if (Input.GetKeyDown(userConfiguration.getSpecialPowerKey()))
         {
             // Activar ataque especial
             KitsuneSpecialAttack.useSpecialAttack(); // Referencia al ataque especial
         }
+        */
     }
 
     private void HandleMovement()
