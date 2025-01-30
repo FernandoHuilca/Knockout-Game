@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 162190882500185800}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.026, y: -0.457, z: 0}
+  m_LocalPosition: {x: -0.024, y: -0.374, z: 0}
   m_LocalScale: {x: 1.1316036, y: 1.031383, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -198,8 +198,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.03193792, y: -0.06921892}
-  m_Size: {x: 0.24, y: 0.7}
+  m_Offset: {x: -0.017445663, y: -0.086485304}
+  m_Size: {x: 0.23279192, y: 0.6582885}
   m_Direction: 0
 --- !u!95 &6257153250411107707
 Animator:
@@ -278,7 +278,7 @@ MonoBehaviour:
   groundCheck: {fileID: 1075876621959843433}
   groundCheckRadius: 0.1
   weaponHitBox: {fileID: 5978992941991935399}
-  soundJump: {fileID: 0}
+  soundJump: {fileID: 8300000, guid: 1a391739afdab8940b7cbd981c8b0542, type: 3}
 --- !u!114 &3615768496912345573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,15 +293,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   weaponHitBox: {fileID: 5978992941991935399}
-  attackRange: 0.3
-  hitDamage: 50
-  kickDamage: 15
-  hitDamageToShield: 5
-  kickDamageToShield: 50
+  attackRange: 0.5
+  hitDamage: 15
+  kickDamage: 10
+  hitDamageToShield: 7
+  kickDamageToShield: 3
   attackRate: 1
-  waitingTimeHit: 2
-  waitingTimeKick: 3
-  soundAttack1: {fileID: 8300000, guid: edef044bdb1144f409f9c36aeaec7997, type: 3}
+  waitingTimeHit: 0.75
+  waitingTimeKick: 0.8
+  soundAttack1: {fileID: 8300000, guid: 75a804397cacc4b458a26c32d9f11c00, type: 3}
+  soundAttack2: {fileID: 8300000, guid: 2c1f69ed0807bd0449d333544edc2039, type: 3}
 --- !u!114 &3995799931703033830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,14 +317,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialCharge: 0
   maxCharge: 100
-  specialPowerDamage: 50
-  specialPowerDamageToShield: 30
+  specialPowerDamage: 20
+  specialPowerDamageToShield: 10
   animator: {fileID: 6257153250411107707}
   ballPrefab: {fileID: 4717737401202766347, guid: 324a72b060d3d6349a5423c799005621, type: 3}
   ballCount: 30
   expansionSpeed: 2
   bursts: 2
   timeBetweenBursts: 4
+  soundSpecialAttack1: {fileID: 8300000, guid: c67fb5a3dbbb3de42bb382f178863524, type: 3}
 --- !u!114 &-8346464428723491535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +342,7 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 100
   livesRemaining: 0
+  soundHurt: {fileID: 8300000, guid: 201513567a49d144fb839b1b6d793cff, type: 3}
 --- !u!114 &-6597546959832696309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxCollider2D: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  soundShield: {fileID: 8300000, guid: 0d808cd1b61872546bbfd63ffb2cd127, type: 3}
+  soundAttackToShield: {fileID: 8300000, guid: 717abb38b31ba0b458e65484451574a8, type: 3}
   shieldDuration: 5
   shieldCapacity: 0
   maxShieldCapacity: 100

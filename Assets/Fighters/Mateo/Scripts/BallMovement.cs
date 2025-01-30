@@ -6,6 +6,9 @@ public class BallMovement : MonoBehaviour
     private float expansionSpeed;
     private string userTag;
 
+    public float specialPowerDamage;
+    public float specialPowerDamageToShield;
+
     public void Initialize(Vector2 dir, float speed)
     {
         direction = dir.normalized; // Asegura que la dirección esté normalizada
@@ -28,11 +31,11 @@ public class BallMovement : MonoBehaviour
         {
             if (shield == null || !shield.IsShieldActive())
             {
-                damageable.decreaseLife(50);
+                damageable.decreaseLife(specialPowerDamage);
             }
             else
             {
-                shield.decreaseShieldCapacity(30);
+                shield.decreaseShieldCapacity(specialPowerDamageToShield);
             }
         }
     }

@@ -31,6 +31,7 @@ public class ZoeAttack : MonoBehaviour
 
     // Atributos para sonidos
     [SerializeField] private AudioClip soundAttack1;
+    [SerializeField] private AudioClip soundAttack2;
 
     string ownTag;
 
@@ -60,6 +61,7 @@ public class ZoeAttack : MonoBehaviour
             else if (Input.GetKeyDown(userConfiguration.getKickKey()))
             {
                 kick();
+                SoundsController.Instance.RunSound(soundAttack2);
                 nexAttackTime = Time.time + waitingTimeKick / attackRate;
             }
             // Si se presiona la tecla correspondiente, activa el poder especial

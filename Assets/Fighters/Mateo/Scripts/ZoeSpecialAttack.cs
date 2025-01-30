@@ -21,6 +21,8 @@ public class ZoeSpecialAttack : MonoBehaviour
     public int bursts = 3; // Número de ráfagas
     public float timeBetweenBursts = 0.5f; // Tiempo entre ráfagas
 
+    [SerializeField] private AudioClip soundSpecialAttack1;
+
     private void Start()
     {
         UIController = GetComponent<UIController>();
@@ -69,6 +71,7 @@ public class ZoeSpecialAttack : MonoBehaviour
     private void special()
     {
         // Activa la animación de ataque
+        SoundsController.Instance.RunSound(soundSpecialAttack1);
         animator.SetTrigger("special");
         attack.applyDamageToEnemies(specialPowerDamage, specialPowerDamageToShield);
     }

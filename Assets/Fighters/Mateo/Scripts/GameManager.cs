@@ -72,6 +72,15 @@ public class GameManager : MonoBehaviour
 
         TextMeshProUGUI textMeshProUGUI = gameOverUI.transform.Find("KnockoutTMP").GetComponent<TextMeshProUGUI>();
         textMeshProUGUI.text = "KNOCKOUT!";
+        if(userTag == "User1")
+        {
+            string nameWinner = PlayerPrefs.GetString("User2");
+            Debug.Log("El ganador es: " + nameWinner);
+        }else if(userTag == "User2")
+        {
+            string nameWinner = PlayerPrefs.GetString("User1");
+            Debug.Log("El ganador es: " + nameWinner);
+        }
     }
 
     public void resume()
@@ -94,7 +103,7 @@ public class GameManager : MonoBehaviour
 
     public void goToMainMenu()
     {
-        // Al volver al menú principal, asegúrate de que la música se reanude
+        // Al volver al menÃº principal, asegÃºrate de que la mÃºsica se reanude
         if (MenuMusicManager.Instance != null)
         {
             MenuMusicManager.Instance.ResumeMusic();
@@ -105,7 +114,7 @@ public class GameManager : MonoBehaviour
 
     public void goToFighterSelectionMenu()
     {
-        // Al volver al menú principal, asegúrate de que la música se reanude
+        // Al volver al menÃº principal, asegÃºrate de que la mÃºsica se reanude
         if (MenuMusicManager.Instance != null)
         {
             MenuMusicManager.Instance.ResumeMusic();
