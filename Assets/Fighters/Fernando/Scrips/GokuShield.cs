@@ -15,6 +15,9 @@ public class GokuShield : MonoBehaviour, Shieldable
     private bool isShieldActive = false; // Estado del escudo.
     private bool isRechargingFromZero = false; // Para controlar la recarga tras agotarse.
 
+    [Header("Components")]
+    [SerializeField] private AudioClip soundShield;
+
     //public KeyCode shieldKey = KeyCode.V;
 
     private Rigidbody2D rb;
@@ -73,7 +76,7 @@ public class GokuShield : MonoBehaviour, Shieldable
             Debug.Log("Shield is recharging from zero and cannot be activated.");
             return;
         }
-
+        SoundsController.Instance.RunSound(soundShield);
         isShieldActive = !isShieldActive;
         UpdateShieldComponents();
         UpdateScriptStates();

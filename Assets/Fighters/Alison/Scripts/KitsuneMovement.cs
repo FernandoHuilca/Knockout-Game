@@ -128,6 +128,10 @@ public class KitsuneMovement : MonoBehaviour
             Vector3 localPosition = weaponHitBox.localPosition;
             localPosition.x *= -1;
             weaponHitBox.localPosition = localPosition;
+
+            Vector3 localPositionGroundChekc = groundCheck.localPosition;
+            localPositionGroundChekc.x *= -1;
+            groundCheck.localPosition = localPositionGroundChekc;
         }
 
         // Invertir el CapsuleCollider2D

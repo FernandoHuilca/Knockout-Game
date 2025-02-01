@@ -21,7 +21,7 @@ public class ZoeHealth : MonoBehaviour, Damageable
     private UserConfiguration userConfiguration;
     private UIController UIController;
 
-
+    [SerializeField] private AudioClip soundHurt;
 
     private void Start()
     {
@@ -56,6 +56,7 @@ public class ZoeHealth : MonoBehaviour, Damageable
     public void decreaseLife(float damage)
     {
         currentHealth -= damage;
+        SoundsController.Instance.RunSound(soundHurt);
         animator.SetTrigger("hurt");
 
         if (currentHealth <= 0)
@@ -139,6 +140,7 @@ public class ZoeHealth : MonoBehaviour, Damageable
     private void die()
     {
         Debug.Log("Player " + gameObject.layer.ToString());
+        GameManager.gameManagerInstance.enableGameOverPanel(gameObject.tag);
         Destroy(gameObject);
     }
 

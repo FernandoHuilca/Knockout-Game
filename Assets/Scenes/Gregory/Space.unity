@@ -1347,16 +1347,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fightersData:
-  - {fileID: 11400000, guid: 944c084e296a64d4f8b76a21d2d293cb, type: 2}
-  - {fileID: 11400000, guid: 80ce0046bd4b4c14eb64d4971bb83b93, type: 2}
   - {fileID: 11400000, guid: 659211227cc58aa4aa4bcc0cc682cfa9, type: 2}
   - {fileID: 11400000, guid: a8cd07ef0e007bd43b9967a05a3f5e5d, type: 2}
-  - {fileID: 11400000, guid: 1cd7ae6768edcaf4aaab1995fb1e09c6, type: 2}
   - {fileID: 11400000, guid: 074497c419a817b46a6efd8d2d7f2ab2, type: 2}
+  - {fileID: 11400000, guid: 1cd7ae6768edcaf4aaab1995fb1e09c6, type: 2}
   gameOverUI: {fileID: 837456356}
   knockoutVoice: {fileID: 8300000, guid: 723ed390515bd9b4fb65ae4dd4de49b8, type: 3}
   puaseUI: {fileID: 4965064537579144799}
   pauseKey: 112
+  fighterSelectionAudio: {fileID: 0}
 --- !u!1001 &1203070671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2045,6 +2044,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27cca2ed15aaed346a361a97567cd6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundSound: {fileID: 0}
+  fightSound: {fileID: 8300000, guid: ff198f2ab4c85794cb7b3c51a5c094f6, type: 3}
 --- !u!82 &1692480018
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2055,12 +2056,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d8fbdfc5030e4ed49928b455fbef9064, type: 3}
+  m_Resource: {fileID: 8300000, guid: d8fbdfc5030e4ed49928b455fbef9064, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2710,8 +2711,7 @@ MonoBehaviour:
   nextAppearanceTime: 0
   spawnInterval: 10
   isChangedX: 0
-  backgroundSound: {fileID: 8300000, guid: d8fbdfc5030e4ed49928b455fbef9064, type: 3}
-  fightSound: {fileID: 8300000, guid: ff198f2ab4c85794cb7b3c51a5c094f6, type: 3}
+  fightSound: {fileID: 0}
 --- !u!61 &3368812854001972984
 BoxCollider2D:
   m_ObjectHideFlags: 0

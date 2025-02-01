@@ -12,8 +12,26 @@ EditorBuildSettings:
     path: Assets/Scenes/FighterSelectionMenu/FighterSelectionMenu.unity
     guid: ab4cec32ff18b65429e600f8abf8d828
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
+    path: Assets/Scenes/Fernando/GameScene.unity
     guid: 6a9ce5b5a1068a346bee39efa3bb0914
+  - enabled: 1
+    path: Assets/Scenes/ScenerySelectionMenu/ScenarySelectionMenu.unity
+    guid: c38a245abc279834ebd4d8d04fb2cab2
+  - enabled: 1
+    path: Assets/Scenes/Alison/ParadiseOfChocolate.unity
+    guid: 796f26a1fc673b24dbea3aab29da8a6b
+  - enabled: 1
+    path: Assets/Scenes/Fernando/DarkCity.unity
+    guid: 5a62a576c79a6624db82b997e8265baa
+  - enabled: 1
+    path: Assets/Scenes/Gregory/Space.unity
+    guid: bf8421b105ead8d46a3020f452824e56
+  - enabled: 1
+    path: Assets/Scenes/Mateo/ChimborazoScene.unity
+    guid: 88ebf30b5ff315e47a4da556bbc2e7d0
+  - enabled: 1
+    path: Assets/Scenes/LeaderboardMenu/LeaderboardMenu.unity
+    guid: 91f37a2ed18aeb04795fc14a5d7327e7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

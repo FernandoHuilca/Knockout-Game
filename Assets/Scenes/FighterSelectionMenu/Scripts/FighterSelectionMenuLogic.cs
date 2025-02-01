@@ -113,7 +113,7 @@ public class FighterSelectionMenuLogic : MonoBehaviour
     public void goBackToThePreviousFighterUser1()
     {
         indexUser1 = goBackToThePreviousFighterUser(indexUser1);
-        indexUser1 = goBackToThePreviousFighterUser(indexUser1);
+        //indexUser1 = goBackToThePreviousFighterUser(indexUser1);
         updateUser1SelectionScreen();
     }
 
@@ -127,7 +127,13 @@ public class FighterSelectionMenuLogic : MonoBehaviour
     // ------------------------------------------------------------------------------------------------------------------------------------------
     public void startGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("ScenarySelectionMenu");
+    }
+
+    public void BackButton(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
 

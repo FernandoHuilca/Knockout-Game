@@ -60,6 +60,11 @@ public class AlienHealth : MonoBehaviour, Damageable
 
     public void decreaseLife(float damage)
     {
+        if(currentHealth < 0)
+        {
+            return;
+        }
+
         currentHealth -= damage;
         SoundsController.Instance.RunSound(soundHurt);
         animator.SetTrigger("hurt");
