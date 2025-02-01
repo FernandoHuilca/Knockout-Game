@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 572760694698597550}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.126, y: -0.047, z: 0}
+  m_LocalPosition: {x: 0.204, y: -0.047, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1614119828179999095, guid: efa547acd4e0a6b4e88e6480573ab3f5, type: 3}
+  m_Sprite: {fileID: -811850554563380565, guid: dd67ab9d39038df4194720acc51e9f85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -359,14 +359,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21bd4b8c927ab2b48904d52858dacdd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack1Value: 25
-  attack2Value: 50
+  attack1Value: 15
+  attack2Value: 25
   attackRange: 0.4
-  attack1ValueToShield: 20
-  attack2ValueToShield: 30
+  attack1ValueToShield: 40
+  attack2ValueToShield: 80
   attackRate: 1
-  waitingTimeAttack1: 0.75
-  waitingTimeAttack2: 1.25
+  waitingTimeAttack1: 0.5
+  waitingTimeAttack2: 0.75
   nexAttackTime: 0
   animator: {fileID: 0}
   weaponHitBox: {fileID: 5572737540903751156}

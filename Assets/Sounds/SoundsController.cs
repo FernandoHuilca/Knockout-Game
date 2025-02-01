@@ -7,6 +7,7 @@ public class SoundsController : MonoBehaviour
 
     [Header("Audio Settings")]
     [SerializeField] private AudioClip backgroundSound;  // Esto es para asignar la música de fondo
+    [SerializeField] private AudioClip fightSound;
     private bool isPaused = false;  // Variable para manejar el estado de la pausa
 
     private void Awake()
@@ -82,10 +83,17 @@ public class SoundsController : MonoBehaviour
     // Esto debería ser llamado desde tu GameSceneManager cuando se inicia la escena para evitar reiniciar el audio
     public void StartBackgroundMusic()
     {
+        
         if (audioSource != null && !audioSource.isPlaying)
         {
             audioSource.clip = backgroundSound;
             audioSource.Play();
         }
+    }
+
+    private void Start()
+    {
+        RunSound(fightSound);
+        
     }
 }

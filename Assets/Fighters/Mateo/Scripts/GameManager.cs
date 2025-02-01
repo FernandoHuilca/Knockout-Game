@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(pauseKey) && puaseUI != null)
+        if (Input.GetKeyDown(pauseKey) && puaseUI != null && !gameOverUI.activeSelf)
         {
             puaseUI.SetActive(!puaseUI.activeSelf);
             Time.timeScale = puaseUI.activeSelf ? 0 : 1;

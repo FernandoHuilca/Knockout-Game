@@ -2045,6 +2045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundSound: {fileID: 0}
+  fightSound: {fileID: 8300000, guid: ff198f2ab4c85794cb7b3c51a5c094f6, type: 3}
 --- !u!82 &1692480018
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2060,7 +2061,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2710,7 +2711,7 @@ MonoBehaviour:
   nextAppearanceTime: 0
   spawnInterval: 10
   isChangedX: 0
-  fightSound: {fileID: 8300000, guid: ff198f2ab4c85794cb7b3c51a5c094f6, type: 3}
+  fightSound: {fileID: 0}
 --- !u!61 &3368812854001972984
 BoxCollider2D:
   m_ObjectHideFlags: 0
