@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      qrcode-generado_0: -1033904438469868791
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
