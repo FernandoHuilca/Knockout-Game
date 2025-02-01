@@ -140,6 +140,7 @@ public class ZoeHealth : MonoBehaviour, Damageable
     private void die()
     {
         Debug.Log("Player " + gameObject.layer.ToString());
+        GameManager.gameManagerInstance.enableGameOverPanel(gameObject.tag);
         Destroy(gameObject);
     }
 

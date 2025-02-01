@@ -9,6 +9,7 @@ TagManager:
   - OneWayPlatform
   - User1
   - User2
+  - score
   layers:
   - Default
   - TransparentFX
@@ -45,6 +46,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: 1
+    uniqueID: 1414108363
     locked: 0
   m_RenderingLayers:
   - Default

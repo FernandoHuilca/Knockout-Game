@@ -14,17 +14,16 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField] private const float totalDamage = 100;
 
     [Header("Audio Settings")]
-    [SerializeField] private AudioClip backgroundSound;
+    //[SerializeField] private AudioClip backgroundSound;
     [SerializeField] private AudioClip fightSound;
 
     // ---------------------------- Audio Background Music ----------------------------
-    private void Start()
-    {
-        SoundsController.Instance.RunSound(fightSound);
-        
-        SoundsController.Instance.RunSound(backgroundSound);
-        
-    }
+    //private void Start()
+    //{
+    //    // Asegurarse de que la música de fondo se inicie o se reanude
+    //    SoundsController.Instance.StartBackgroundMusic(); // Esto asegura que la música de fondo empiece a sonar
+    //    SoundsController.Instance.RunSound(fightSound);  // Esto reproduce efectos de sonido si es necesario
+    //}
 
     // ---------------------------- Spawn OVNI ----------------------------
     void spawnObject()

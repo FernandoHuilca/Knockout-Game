@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 public class UIInitializer : MonoBehaviour
 {
@@ -39,6 +40,23 @@ public class UIInitializer : MonoBehaviour
         {
             Image specialBarFill = specialBarTransform.GetComponent<Image>();
             UIController.setSpecialBarFill(specialBarFill);
+        }
+
+        // User2NameTMP
+        Transform userName = canvas.transform.Find($"{uiPrefix}/User{playerIndex}NameTMP");
+        if (userName != null)
+        {
+            TextMeshProUGUI textMeshPro = userName.GetComponent<TextMeshProUGUI>();
+            string playerName = PlayerPrefs.GetString($"User{playerIndex}", ""); // Obtener nombre o vacío
+
+            if (!string.IsNullOrEmpty(playerName)) // Si hay un nombre guardado en PlayerPrefs
+            {
+                textMeshPro.text = playerName;
+            }
+            else // Si no hay nombre, asigna "PlayerX"
+            {
+                textMeshPro.text = "Player " + playerIndex;
+            }
         }
     }
 
