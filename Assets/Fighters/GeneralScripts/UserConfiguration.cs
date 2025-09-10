@@ -70,4 +70,14 @@ public class UserConfiguration : EntityConfiguration
         this.attackKeys[2] = keyCode;
     }
 
+    public void setAttack1Key(KeyCode keyCode)
+    {
+        this.attackKeys[0] = keyCode;
+    }
+
+    public void setAttack2Key(KeyCode keyCode)
+    {
+        this.attackKeys[1] = keyCode;
+    }
+
 }

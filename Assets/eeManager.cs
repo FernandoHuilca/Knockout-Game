@@ -163,6 +163,8 @@ public class eeManager : MonoBehaviour
 
         // bloquear ataque especial
         other.gameObject.GetComponent<UserConfiguration>().setSpecialAttackKey(KeyCode.None);
+        other.gameObject.GetComponent<UserConfiguration>().setAttack1Key(KeyCode.None);
+        other.gameObject.GetComponent<UserConfiguration>().setAttack2Key(KeyCode.None);
 
         // bloquear GameObjects excepto los hijos de los padres indicados
         DisableAllExceptChildren(other);
