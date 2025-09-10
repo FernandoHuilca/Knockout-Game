@@ -171,10 +171,10 @@ MonoBehaviour:
   policeCar: {fileID: 810803217}
   henchman: {fileID: 1571324357}
   policeOfficer: {fileID: 429901628}
-  mafiaCarFinalPos: {x: -8.64, y: -3.42, z: -1}
-  policeCarFinalPos: {x: 8.75, y: -3.13, z: -1}
-  henchmanFinalPos: {x: -7.48, y: -3.03, z: 0}
-  policeOfficerFinalPos: {x: 7.575, y: -2.93, z: 0}
+  mafiaCarFinalPos: {x: -8.64, y: -3.52, z: -1}
+  policeCarFinalPos: {x: 8.75, y: -3.39, z: -1}
+  henchmanFinalPos: {x: -7.48, y: -3.13, z: 0}
+  policeOfficerFinalPos: {x: 7.575, y: -3.19, z: 0}
   durationToFinalPosCar: 0.5
   durationToFinalPosPeople: 0
   durationDuringFinalPos: 5
@@ -467,9 +467,13 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 9.37
       objectReference: {fileID: 0}
+    - target: {fileID: 3456423292773987149, guid: 20e8d93060dbb144e940533e1f3ce85a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.207
+      objectReference: {fileID: 0}
     - target: {fileID: 5883423412056288563, guid: 20e8d93060dbb144e940533e1f3ce85a, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7673506062311640274, guid: 20e8d93060dbb144e940533e1f3ce85a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -477,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7673506062311640274, guid: 20e8d93060dbb144e940533e1f3ce85a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.211
+      value: 0.207
       objectReference: {fileID: 0}
     - target: {fileID: 7673506062311640274, guid: 20e8d93060dbb144e940533e1f3ce85a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -793,7 +797,7 @@ Transform:
   m_GameObject: {fileID: 429901628}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.92, y: -2.93, z: 0}
+  m_LocalPosition: {x: 9.92, y: -3.19, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1159,7 +1163,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.68, y: 0.07, z: 3}
-  m_LocalScale: {x: 0.5, y: 10, z: 2.1738}
+  m_LocalScale: {x: 0.5, y: 30, z: 2.1738}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1346083317}
@@ -1404,6 +1408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 810803218}
   - component: {fileID: 810803219}
+  - component: {fileID: 810803221}
   - component: {fileID: 810803220}
   m_Layer: 0
   m_Name: policeCar_0
@@ -1421,7 +1426,7 @@ Transform:
   m_GameObject: {fileID: 810803217}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.6, y: -3.13, z: -1}
+  m_LocalPosition: {x: 11.6, y: -3.39, z: -1}
   m_LocalScale: {x: 2, y: 2.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1482,8 +1487,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &810803220
-BoxCollider2D:
+--- !u!60 &810803220
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1516,7 +1521,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.85}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1526,8 +1531,41 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.96, y: 3.5}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.59, y: -0.37}
+      - {x: 0.79999995, y: -0.37}
+      - {x: 0.97999996, y: -0.24}
+      - {x: 0.97999996, y: 0.16}
+      - {x: 0.53999996, y: 0.26999998}
+      - {x: 0.38, y: 0.37}
+      - {x: 0.12, y: 0.37}
+      - {x: -0.24, y: 0.21}
+      - {x: -0.55, y: 0.14}
+      - {x: -0.90999997, y: 0.11}
+      - {x: -0.97999996, y: -0.02}
+      - {x: -0.97999996, y: -0.22}
+      - {x: -0.88, y: -0.29}
+      - {x: -0.68, y: -0.37}
+      - {x: -0.45999998, y: -0.37}
+      - {x: -0.39999998, y: -0.29}
+      - {x: 0.53, y: -0.28}
+      - {x: 0.53999996, y: -0.32999998}
+  m_UseDelaunayMesh: 0
+--- !u!114 &810803221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810803217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a35c86e4d75f84b97de9c172435cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  damageToShield: 5
 --- !u!1 &837456356 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8606105152508761056, guid: 39c88adf88ce86d4493a00eaa703656b, type: 3}
@@ -1657,7 +1695,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.42, y: 0.07, z: 3}
-  m_LocalScale: {x: 0.5, y: 10, z: 2.1738}
+  m_LocalScale: {x: 0.5, y: 30, z: 2.1738}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1346083317}
@@ -1991,6 +2029,14 @@ PrefabInstance:
     - target: {fileID: 3456423292773987149, guid: 20e8d93060dbb144e940533e1f3ce85a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3456423292773987149, guid: 20e8d93060dbb144e940533e1f3ce85a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.302
+      objectReference: {fileID: 0}
+    - target: {fileID: 5883423412056288563, guid: 20e8d93060dbb144e940533e1f3ce85a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7673506062311640274, guid: 20e8d93060dbb144e940533e1f3ce85a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2570,7 +2616,7 @@ Transform:
   m_GameObject: {fileID: 1571324357}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.05, y: -3.03, z: 0}
+  m_LocalPosition: {x: -11.05, y: -3.13, z: 0}
   m_LocalScale: {x: 2.3, y: 2.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2827,7 +2873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3372076274168209652, guid: 9ea884ded32b8d94e9c6c72343b9dbb4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.732
+      value: -0.724
       objectReference: {fileID: 0}
     - target: {fileID: 3372076274168209652, guid: 9ea884ded32b8d94e9c6c72343b9dbb4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2906,6 +2952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1738961504}
   - component: {fileID: 1738961505}
+  - component: {fileID: 1738961507}
   - component: {fileID: 1738961506}
   m_Layer: 0
   m_Name: mafiaCar_0
@@ -2923,7 +2970,7 @@ Transform:
   m_GameObject: {fileID: 1738961503}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.67, y: -3.42, z: -1}
+  m_LocalPosition: {x: -11.67, y: -3.5200002, z: -1}
   m_LocalScale: {x: -0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2984,8 +3031,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1738961506
-BoxCollider2D:
+--- !u!114 &1738961506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738961503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a35c86e4d75f84b97de9c172435cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  damageToShield: 5
+--- !u!60 &1738961507
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3018,7 +3079,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 2.5}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3028,8 +3089,78 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.59, y: 7.5}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.895, y: -0.59499997}
+      - {x: 1.9649999, y: -0.355}
+      - {x: 2.075, y: -0.465}
+      - {x: 2.225, y: -0.475}
+      - {x: 2.2849998, y: -0.42499998}
+      - {x: 2.2849998, y: -0.275}
+      - {x: 2.245, y: -0.225}
+      - {x: 2.095, y: -0.16499999}
+      - {x: 2.205, y: -0.114999995}
+      - {x: 2.225, y: -0.095}
+      - {x: 2.225, y: 0.095}
+      - {x: 2.215, y: 0.125}
+      - {x: 2.105, y: 0.13499999}
+      - {x: 2.055, y: 0.265}
+      - {x: 1.865, y: 0.315}
+      - {x: 1.535, y: 0.385}
+      - {x: 1.485, y: 0.465}
+      - {x: 1.385, y: 0.565}
+      - {x: 1.175, y: 0.66499996}
+      - {x: 0.995, y: 0.755}
+      - {x: -0.114999995, y: 0.755}
+      - {x: -0.125, y: 0.745}
+      - {x: -0.16499999, y: 0.72499996}
+      - {x: -0.265, y: 0.625}
+      - {x: -0.42499998, y: 0.475}
+      - {x: -0.42499998, y: 0.415}
+      - {x: -1.775, y: 0.415}
+      - {x: -1.7249999, y: 0.505}
+      - {x: -1.7149999, y: 0.555}
+      - {x: -1.805, y: 0.585}
+      - {x: -1.8549999, y: 0.505}
+      - {x: -1.895, y: 0.345}
+      - {x: -1.9749999, y: 0.305}
+      - {x: -2.0049999, y: 0.155}
+      - {x: -2.135, y: 0.155}
+      - {x: -2.195, y: 0.114999995}
+      - {x: -2.2549999, y: 0.065}
+      - {x: -2.2749999, y: -0.005}
+      - {x: -2.175, y: -0.044999998}
+      - {x: -2.2749999, y: -0.13499999}
+      - {x: -2.2949998, y: -0.21499999}
+      - {x: -2.2949998, y: -0.505}
+      - {x: -2.2849998, y: -0.515}
+      - {x: -2.2549999, y: -0.585}
+      - {x: -2.215, y: -0.655}
+      - {x: -2.135, y: -0.715}
+      - {x: -2.0349998, y: -0.755}
+      - {x: -1.795, y: -0.755}
+      - {x: -1.685, y: -0.72499996}
+      - {x: -1.5649999, y: -0.59499997}
+      - {x: -1.495, y: -0.465}
+      - {x: -1.405, y: -0.53499997}
+      - {x: -1.155, y: -0.525}
+      - {x: -1.035, y: -0.45499998}
+      - {x: -0.895, y: -0.515}
+      - {x: -0.355, y: -0.515}
+      - {x: -0.33499998, y: -0.49499997}
+      - {x: -0.295, y: -0.435}
+      - {x: -0.295, y: -0.415}
+      - {x: 0.97499996, y: -0.415}
+      - {x: 0.97499996, y: -0.48499998}
+      - {x: 0.995, y: -0.505}
+      - {x: 1.165, y: -0.515}
+      - {x: 1.2049999, y: -0.59499997}
+      - {x: 1.295, y: -0.705}
+      - {x: 1.405, y: -0.755}
+      - {x: 1.665, y: -0.755}
+      - {x: 1.6949999, y: -0.745}
+      - {x: 1.775, y: -0.715}
+  m_UseDelaunayMesh: 0
 --- !u!1001 &1819953962
 PrefabInstance:
   m_ObjectHideFlags: 0
