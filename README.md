@@ -1,8 +1,11 @@
 # Knockout 🎮💥
 
-Knockout es un juego de peleas en 2D con un estilo retro, donde los jugadores pueden enfrentarse en intensos combates 1vs1 en diversos escenarios. Este proyecto fue desarrollado como parte de la materia de Ingeniería en Software y Requerimientos, aplicando conceptos de diseño de software y desarrollo en equipo. El juego está creado en **Unity** y programado en **C#**, ofreciendo una experiencia de combate única, nostálgica y llena de acción. ⚔️👾
+Knockout es un juego de peleas en 2D con un estilo retro, donde los jugadores pueden enfrentarse en intensos combates 1vs1 en diversos escenarios. Este proyecto fue desarrollado como parte de la materia de Ingeniería en Software y Requerimientos, aplicando conceptos de diseño de software y desarrollo en equipo. El juego está creado en **Unity** y programado en **C#**, ofreciendo una experiencia de combate única, nostálgica y llena de acción. 🥊👾
+>[!TIP]
+> **¡Juega ahora!**  
+[👉🏻**Knockout Click Aquí**👈🏻](https://fernandohuilca.itch.io/knockout-game) 
 
-## Índice de Contenidos
+## 📌 Índice de Contenidos
 
 1. [Funcionamiento del Juego](#funcionamiento-del-juego)
    - [Sistema de Combate](#1-sistema-de-combate)
@@ -13,9 +16,9 @@ Knockout es un juego de peleas en 2D con un estilo retro, donde los jugadores pu
 3. [Herramientas Usadas](#herramientas-usadas)
 4. [Autores](#autores)
 
-## Funcionamiento del Juego
+## 🎮 Funcionamiento del Juego
 
-Knockout permite a los jugadores experimentar combates intensos y melancólicos en un mundo lleno de personajes diversos y escenarios intrigantes. Este juego está diseñado para aquellos que buscan una experiencia retro pero con una sensación de profundidad y nostalgia.
+Knockout permite a los jugadores experimentar combates intensos en un mundo lleno de personajes diversos y escenarios intrigantes. Este juego está diseñado para aquellos que buscan una experiencia retro pero con una sensación de profundidad y nostalgia.
 
 ### 1. Sistema de Combate
 
@@ -32,33 +35,32 @@ Knockout incluye una variedad de personajes con características y estilos de lu
 
 ### 3. Selección de Escenarios
 
-El juego ofrece varios escenarios que complementan la temática melancólica del juego:
-- **Escenarios Urbanos y Oscuros:** Con efectos de lluvia y luces de neón, creando una atmósfera nostálgica.
+El juego ofrece varios escenarios que complementan la temática del juego:
+- **Escenarios Variados:** Cada escenario está diseñado de manera unica con eventos sorpresa dentro de los mismos.
 - Cada escenario incluye detalles visuales únicos que enriquecen la experiencia de combate.
 
-## Demostración de Funcionamiento
-
+## ✅ Demostración de Funcionamiento
 ### Visualización del Juego
 
 <table>
     <tr>
-    <td><img src="https://via.placeholder.com/400" alt="Pantalla de combate"></td>
-    <td><img src="https://via.placeholder.com/400" alt="Selección de personajes"></td>
+    <td><img src="https://github.com/user-attachments/assets/f5f714c0-72ca-4b45-9a4c-30c3ff7ac85d" alt="Pantalla de combate"></td>
+    <td><img src="https://github.com/user-attachments/assets/e31d08aa-6d36-429b-850c-319533bb4510" alt="Selección de personajes"></td>
   </tr>
      <tr>
-    <td><img src="https://via.placeholder.com/400" alt="Escenario de combate"></td>
-    <td><img src="https://via.placeholder.com/400" alt="Efectos visuales"></td>
+    <td><img src="https://github.com/user-attachments/assets/4592874e-0f46-43d3-a099-57f74ffa53f6" alt="Escenario de combate"></td>
+    <td><img src="https://github.com/user-attachments/assets/215c3b10-938d-4008-a5db-d72e435b0e77" alt="Efectos visuales"></td>
   </tr>
 </table>
 
-## Herramientas Usadas
+## 🛠 Herramientas Usadas
 
 - **Motor de Juego:** Unity
 - **Lenguaje de Programación:** C#
 - **Versionamiento:** Git y GitHub
 - **Plataformas de Desarrollo:** Windows, Mac, Linux
 
-## Autores
+## 🧑🏻‍💻 Autores
 
 - **Fernando Huilca** - Programador [@FernandoHuilca](https://github.com/FernandoHuilca)
 - **Mateo Simbaña** - Programador [@mateonicolasg](https://github.com/mateonicolasg)
