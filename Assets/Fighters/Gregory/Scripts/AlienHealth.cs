@@ -27,7 +27,9 @@ public class AlienHealth : MonoBehaviour, Damageable
     [SerializeField] private AlienSpecialAttack specialAttack;
 
     [SerializeField] private UserConfiguration userConfiguration;
-    [SerializeField] private UIController UIController;    
+    [SerializeField] private UIController UIController;
+    
+    private bool isDead;
 
     private void Start()
     {
@@ -50,6 +52,7 @@ public class AlienHealth : MonoBehaviour, Damageable
         livesRemaining = UIController.getNumberOfLives();
         currentHealth = maxHealth;
 
+        isDead = false;
     }
 
     void updateUI()
@@ -60,7 +63,11 @@ public class AlienHealth : MonoBehaviour, Damageable
 
     public void decreaseLife(float damage)
     {
-        if(currentHealth < 0)
+        if (isDead) {
+            return;
+        }
+
+        if (currentHealth < 0)
         {
             return;
         }
@@ -79,16 +86,30 @@ public class AlienHealth : MonoBehaviour, Damageable
 
     public void manageDead()
     {
+        isDead = true;
+
         rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
         specialAttack.enabled = false;
         attack.enabled = false;
         movement.enabled = false;
+        shield.enabled = false;
 
         livesRemaining--;
 
         SoundsController.Instance.RunSound(soundDie);
         animator.SetTrigger("die");
+
+        StartCoroutine(DeathAnimationFallback());
+    }
+
+    private System.Collections.IEnumerator DeathAnimationFallback()
+    {
+        // Esperar um tiempo mayor a la duración de la animación de muerte. Con esto se asegura que primero se visualiza la animación
+        // de muerte completa y luego se ejecuta el resto de la lógica de onDeathAnimationComplete() (Respawn, muerte definitiva, etc.)
+        yield return new WaitForSeconds(0.60f);
+
+        onDeathAnimationComplete();
     }
 
     // Este método se ejecuta al final de la animación de muerte
@@ -100,10 +121,6 @@ public class AlienHealth : MonoBehaviour, Damageable
         }
         currentHealth = maxHealth;
         respawn();
-        
-        specialAttack.enabled = true;
-        attack.enabled = true;
-        movement.enabled = true;
         
         // Restaura las restricciones originales
         rigidBody2D.constraints = originalConstraints;
@@ -128,6 +145,14 @@ public class AlienHealth : MonoBehaviour, Damageable
         userConfiguration.setFacingRight(userConfiguration.getFacingRight());
         transform.localScale = originalLocalScale;
         startRigidbody2D.simulated = true;
+
+        // Asegúrate de que todos los scripts estén habilitados.
+        specialAttack.enabled = true;
+        attack.enabled = true;
+        movement.enabled = true;
+        shield.enabled = true;
+
+        isDead = false;
     }
 
     private void die()

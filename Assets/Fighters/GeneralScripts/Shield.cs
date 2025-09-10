@@ -6,6 +6,8 @@ public class Shield : MonoBehaviour, Shieldable
     [Header("Shield Components")]
     public BoxCollider2D boxCollider2D;
     public SpriteRenderer spriteRenderer;
+    [SerializeField] private AudioClip soundShield;
+    [SerializeField] private AudioClip soundAttackToShield;
 
     [Header("Shield Settings")]
     public float shieldDuration; // Tiempo de recarga si el escudo se desactiva.
@@ -22,11 +24,15 @@ public class Shield : MonoBehaviour, Shieldable
 
     private UserConfiguration userConfiguration;
 
+
+
     [Header("Scripts to Disable")]
     public MonoBehaviour specialAttack;
     public MonoBehaviour fighterAttack;
     public MonoBehaviour fighterHealth;
     public MonoBehaviour fighterMovement;
+
+    public Animator animator;
 
     void Start()
     {
@@ -48,6 +54,8 @@ public class Shield : MonoBehaviour, Shieldable
         originalConstraints = rb.constraints;
 
         userConfiguration = GetComponent<UserConfiguration>();
+
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -75,6 +83,7 @@ public class Shield : MonoBehaviour, Shieldable
         }
 
         isShieldActive = !isShieldActive;
+        SoundsController.Instance.RunSound(soundShield);
         UpdateShieldComponents();
         UpdateScriptStates();
     }
@@ -87,6 +96,7 @@ public class Shield : MonoBehaviour, Shieldable
         // Restringir movimiento en X y congelar rotación
         if (isShieldActive)
         {
+            animator.SetFloat("xVelocity", 0.0f);
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             Debug.Log("Shield Activated");
         }
@@ -114,6 +124,7 @@ public class Shield : MonoBehaviour, Shieldable
 
     public void TakeDamage(float damage)
     {
+        SoundsController.Instance.RunSound(soundAttackToShield);
         if (!isShieldActive || isRechargingFromZero)
             return;
 
@@ -129,6 +140,7 @@ public class Shield : MonoBehaviour, Shieldable
 
     private IEnumerator DeactivateAndRechargeShieldFromZero()
     {
+        SoundsController.Instance.RunSound(soundShield);
         isRechargingFromZero = true;
         isShieldActive = false;
         UpdateShieldComponents();

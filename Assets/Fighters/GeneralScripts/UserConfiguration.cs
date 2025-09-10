@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UserConfiguration : MonoBehaviour
+public class UserConfiguration : EntityConfiguration
 {
     //[SerializeField] private int userIndex; // Índice del usuario (1 o 2)
     //[SerializeField] private Transform spawnPosition; // Posición de aparición del luchador
@@ -8,7 +8,7 @@ public class UserConfiguration : MonoBehaviour
     [SerializeField] private KeyCode[] movementKeys;
     [SerializeField] private KeyCode[] attackKeys;
     [SerializeField] private KeyCode shieldKey;
-    [SerializeField] private bool facingRight;
+    
     [SerializeField] private string axis;
 
     //[SerializeField] private UIInitializer UIInitializer;
@@ -23,11 +23,6 @@ public class UserConfiguration : MonoBehaviour
     public void setShieldKey(KeyCode shieldKey)
     {
         this.shieldKey = shieldKey;
-    }
-
-    public void setFacingRight(bool facingRight)
-    {
-        this.facingRight = facingRight;
     }
 
     public void setAxis(string axis)
@@ -65,13 +60,14 @@ public class UserConfiguration : MonoBehaviour
         return shieldKey;
     }
 
-    public bool getFacingRight()
-    {
-        return facingRight;
-    }
-
     public string getAxis()
     {
         return axis;
     }
+
+    public void setSpecialAttackKey(KeyCode keyCode)
+    {
+        this.attackKeys[2] = keyCode;
+    }
+
 }

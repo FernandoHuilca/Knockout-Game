@@ -60,6 +60,16 @@ public class ZoeMovement : MonoBehaviour
 
     private void HandleMovement()
     {
+        if (DialogueManager.Instance != null)
+        {
+            if (DialogueManager.Instance.isDialogueActive)
+            {
+
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); // Detener completamente el movimiento físico
+                animator.SetFloat("speed", 0.0f);
+                return;
+            }
+        }
         // Movimiento horizontal
         float moveX = Input.GetAxis(userConfiguration.getAxis());
         rb.linearVelocity = new Vector2(moveX * speed, rb.linearVelocity.y);

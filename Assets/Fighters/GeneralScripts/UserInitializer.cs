@@ -15,7 +15,8 @@ public class UserInitializer : MonoBehaviour
     private void Start()
     {
         int fighterIndex = PlayerPrefs.GetInt($"User{userIndex}Index"); // Se obtiene el índice del luchador seleccionado por el usuario
-        
+        //Debug.LogWarning("User Index: "+ userIndex);
+        //Debug.LogWarning("fighterIndex: "+ fighterIndex);
         FightersData fighterData = GameManager.gameManagerInstance.fightersData[fighterIndex]; // Se obtienen los datos del luchador seleccionado
         GameObject fighter = fighterData.getFighterPrefab(); // Se obtiene el prefab del luchador seleccionado
         fighter.tag = userIndex == 1 ? "User1" : "User2"; // Se asigna la etiqueta correspondiente al luchador

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Mono.Data.Sqlite;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,11 +13,31 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public List<FightersData> fightersData;
     [SerializeField] private GameObject gameOverUI;
-    [SerializeField] private AudioClip knockoutVoice;
+    [SerializeField] private AudioClip gameOverSound;
     [SerializeField] private GameObject puaseUI;
     [SerializeField] private KeyCode pauseKey = KeyCode.P;
 
     [SerializeField] private AudioClip fighterSelectionAudio;
+
+    private DamageToEnemies damageToEnemies;
+
+    // Control de pausa
+    public static bool isPaused = false;
+
+    // Almacenar estado de componentes para restaurarlos
+    private Dictionary<MonoBehaviour, bool> componentStates = new Dictionary<MonoBehaviour, bool>();
+
+    private static bool isEESpaceDiscovered = false;
+
+    public static void setIsEESpaceDiscovered(bool eeFlag)
+    {
+        isEESpaceDiscovered = eeFlag;
+    }
+
+    public static bool getIsEESpaceDiscovered()
+    {
+        return isEESpaceDiscovered;
+    }
 
     private void Awake()
     {
@@ -48,22 +69,111 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(pauseKey) && puaseUI != null && !gameOverUI.activeSelf)
         {
-            puaseUI.SetActive(!puaseUI.activeSelf);
-            Time.timeScale = puaseUI.activeSelf ? 0 : 1;
+            togglePause();
+        }
+    }
 
-            if (puaseUI.activeSelf)
+    private void togglePause()
+    {
+        puaseUI.SetActive(!puaseUI.activeSelf);
+        Time.timeScale = puaseUI.activeSelf ? 0 : 1;
+
+        if (puaseUI.activeSelf)
+        {
+            pauseGame();
+        }
+        else
+        {
+            resumeGame();
+        }
+    }
+
+    private void pauseGame()
+    {
+        SoundsController.Instance.pauseSound();  // Pausar todos los sonidos
+
+        disableScripts();
+    }
+
+    private void resumeGame()
+    {
+        // Restaurar estados de componentes
+        foreach (var kvp in componentStates)
+        {
+            if (kvp.Key != null)
             {
-                SoundsController.Instance.pauseSound();  // Pausar todos los sonidos
+                kvp.Key.enabled = kvp.Value; // Restaurar estado original
             }
-            else
+        }
+
+        // Reanudar sonidos
+        if (SoundsController.Instance != null)
+        {
+            SoundsController.Instance.reactiveSound();
+        }
+    }
+
+    public void disableScripts()
+    {
+        // Limpiar diccionarios para nueva pausa
+        componentStates.Clear();
+
+        // Obtener todos los GameObjects en la escena
+        GameObject[] allObjects = FindObjectsOfType<GameObject>();
+        
+        foreach (GameObject obj in allObjects)
+        {
+            // Saltar objetos de UI de pausa y game over
+            if (obj.layer == LayerMask.NameToLayer("UI"))
             {
-                SoundsController.Instance.reactiveSound();  // Reanudar todos los sonidos
+                continue;
+            }
+
+            if (obj.transform.parent != null && obj.GetComponent<Camera>() != null)
+            {
+                continue;
+            }
+
+            if (obj.transform.parent != null && obj.GetComponent<EventSystem>() != null)
+            {
+                continue;
+            }
+
+            if (obj != null && obj.GetComponent<SoundsController>() != null)
+            {
+                continue;
+            }
+
+            if(obj != null && obj.GetComponent<LeanTween>() != null)
+            {
+                continue;
+            }
+
+            if (obj != null && obj.GetComponent<UIController>() != null)
+            {
+                continue;
+            }
+
+            // Obtener todos los componentes del objeto
+            MonoBehaviour[] components = obj.GetComponents<MonoBehaviour>();
+            
+            foreach (MonoBehaviour component in components)
+            {
+                // Guardar estado original y deshabilitar
+                if (component != null && component != this)
+                {
+                    Debug.Log(component.name);
+                    componentStates[component] = component.enabled;
+                    component.enabled = false;
+                }
             }
         }
     }
 
     public void enableGameOverPanel(string looserUserTag)
     {
+        disableScripts();
+
         string winnerUserTag = looserUserTag == "User1" ? "User2" : "User1";
         GameObject winner = GameObject.FindGameObjectWithTag(winnerUserTag);
         //gameOverUI.setSpriteRenderer(winner.GetComponent<SpriteRenderer>());
@@ -73,8 +183,10 @@ public class GameManager : MonoBehaviour
 
         gameOverUI.SetActive(true);
         Time.timeScale = 0;
-        //SoundsController.Instance.PauseAllSounds();  // Pausar todos los sonidos
-        SoundsController.Instance.RunSound(knockoutVoice);
+        //SoundsController.Instance.pauseSound();  // Pausar todos los sonidos
+        GameObject.Find("SoundsController").GetComponent<AudioSource>().clip = gameOverSound;
+        //GameObject.Find("SoundsController").GetComponent<AudioSource>().Play();
+        SoundsController.Instance.RunSound(gameOverSound);
 
         TextMeshProUGUI textMeshProUGUI = gameOverUI.transform.Find("KnockoutTMP").GetComponent<TextMeshProUGUI>();
 
@@ -108,7 +220,8 @@ public class GameManager : MonoBehaviour
     {
         puaseUI.SetActive(false);
         Time.timeScale = 1;
-        SoundsController.Instance.reactiveSound();  // Reanudar todos los sonidos
+        //SoundsController.Instance.reactiveSound();  // Reanudar todos los sonidos
+        resumeGame();
         //SoundsController.Instance.ResumeAllSounds();  // Reanudar todos los sonidos
         //SoundsController.Instance.RunSound(pauseSound);
     }
@@ -135,6 +248,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString("User2", "");
         PlayerPrefs.Save();
 
+        resumeGame();
 
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1;
@@ -152,6 +266,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
         PlayerPrefs.SetString("User2", "");
         PlayerPrefs.Save();
+
+        resumeGame();
 
         SceneManager.LoadScene("FighterSelectionMenu");
         Time.timeScale = 1; 
@@ -182,5 +298,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void setPauseKey(KeyCode keyCode)
+    {
+        pauseKey = keyCode;
+    }
 }
 

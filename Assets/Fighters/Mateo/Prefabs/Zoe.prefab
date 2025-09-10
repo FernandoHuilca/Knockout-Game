@@ -236,10 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarFill: {fileID: 0}
-  lives:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  lives: []
   specialBarFill: {fileID: 0}
 --- !u!114 &8000213823854721247
 MonoBehaviour:
@@ -253,10 +250,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b89ed33177129408b5cf8172f7681a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facingRight: 0
   movementKeys: 1101000012010000
   attackKeys: 620000006e0000006d000000
   shieldKey: 118
-  facingRight: 0
   axis: Horizontal
 --- !u!114 &9046573924487445485
 MonoBehaviour:

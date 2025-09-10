@@ -67,7 +67,17 @@ public class GameSceneManager : MonoBehaviour
     {
         if (collision.gameObject.layer != LayerMask.NameToLayer("BaseFighter"))
         {
+            Debug.Log("1. No era un luchador");
             return;
+        }
+
+        if(collision.gameObject.transform.Find("Shield") != null)
+        {
+            if(collision.gameObject.transform.Find("Shield").GetComponent<SpriteRenderer>().enabled == true)
+            {
+                collision.gameObject.GetComponent<Shieldable>().decreaseShieldCapacity(totalDamage);
+
+            }
         }
 
         if (collision.gameObject.name != "Shield")
@@ -76,8 +86,10 @@ public class GameSceneManager : MonoBehaviour
             Damageable damageable = collision.gameObject.GetComponent<Damageable>();
             if (damageable == null)
             {
+                Debug.Log("2. Un luchador sin interface damageable");
                 return;
             }
+            Debug.Log("3. Sí tiene damegeable y le vamos a bajar la vida");
             damageable.decreaseLife(totalDamage);
             return;
         }
@@ -86,14 +98,17 @@ public class GameSceneManager : MonoBehaviour
         Transform parentTransform = collision.gameObject.transform.parent;
         if (parentTransform == null)
         {
+            Debug.Log("4. El shield no tiene padre");
             return;
         }
         Shieldable shieldableParent = parentTransform.GetComponent<Shieldable>();
         
         if (shieldableParent == null)
         {
+            Debug.Log("5. el padre no tiene shieldable");
             return;
         }
+        Debug.Log("6. Sí tiene shieldable y le bajamos el escudo");
         shieldableParent.decreaseShieldCapacity(totalDamage);
     }
 }

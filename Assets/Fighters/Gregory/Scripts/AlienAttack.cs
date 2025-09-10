@@ -78,6 +78,8 @@ public class AlienAttack : MonoBehaviour
         SoundsController.Instance.RunSound(soundAttack);
         animator.SetTrigger(nameAttackAnimator);
         applyDamageToEnemies(attackValue, attackValueToShield); // Aplica daño a los enemigos detectados
+        //applyDamageToEnemies(attackValue, attackValueToShield, weaponHitBox.position, attackRange, gameObject.tag);
+        
         nexAttackTime = Time.time + waitingTimeAttack / attackRate;
     }
 

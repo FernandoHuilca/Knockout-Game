@@ -255,10 +255,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b89ed33177129408b5cf8172f7681a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facingRight: 1
   movementKeys: 7700000073000000
   attackKeys: 320000003300000034000000
   shieldKey: 49
-  facingRight: 1
   axis: Horizontal2
 --- !u!114 &4666515681307787323
 MonoBehaviour:

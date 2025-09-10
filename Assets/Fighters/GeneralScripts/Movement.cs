@@ -8,12 +8,6 @@ public class Movement : MonoBehaviour
     public float speed; // Diferente para cada nuevo luchador
     public float jumpForce; // Diferente para cada nuevo luchador
 
-    // Atributos modificables en base al player 1 o player 2
-    //public KeyCode jumpKey; // Asignar teclas a cada jugador
-    //public KeyCode downKey; // Tecla para pasar plataformas
-    //public bool facingRight; // Orientaci�n inicial basada en el jugador
-    //public string axis; // Eje horizontal del jugador
-
     // Atributos comunes a todos los luchadores
     public LayerMask groundLayer;
     public Transform groundCheck;
@@ -52,10 +46,19 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if (DialogueManager.Instance != null)
+        {
+            if (DialogueManager.Instance.isDialogueActive)
+            {
+
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); // Detener completamente el movimiento físico
+                animator.SetFloat("xVelocity", 0.0f);
+                return;
+            }
+        }
         HandleMovement();
         HandleJump();
         HandlePlatformDrop();
-        animator.SetBool("isJumping", !isGrounded);
     }
 
     private void HandleMovement()
@@ -63,8 +66,9 @@ public class Movement : MonoBehaviour
         // Movimiento horizontal
         float moveX = Input.GetAxis(userConfiguration.getAxis());
         rb.linearVelocity = new Vector2(moveX * speed, rb.linearVelocity.y);
-        animator.SetFloat("speed", Mathf.Abs(moveX * speed));
-        
+        //animator.SetFloat("speed", Mathf.Abs(moveX * speed));
+        animator.SetFloat("xVelocity", Mathf.Abs(moveX * speed));
+
         // Cambiar orientación del sprite dependiendo de `facingRight`
         if (moveX > 0 && !userConfiguration.getFacingRight())
         {
@@ -79,18 +83,23 @@ public class Movement : MonoBehaviour
 
     private void HandleJump()
     {
+        bool wasGrounded = isGrounded;
         // Detectar si est� en el suelo
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        
+
+        // Si estaba en el aire y ahora toca el suelo, termina la animación de salto
+        if (!wasGrounded && isGrounded){
+            animator.SetBool("isJumping", false);
+        }
 
         if (isGrounded && Input.GetKeyDown(userConfiguration.getJumpKey()))
         {
-            
-            //animator.SetBool("isJumping", true);
-            Debug.Log("Jump");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            SoundsController.Instance.RunSound(soundJump);
+            isGrounded=false;
+            animator.SetBool("isJumping", !isGrounded);
             
+            //Debug.Log("Jump");
+            SoundsController.Instance.RunSound(soundJump);
         }
     }
 
@@ -108,25 +117,7 @@ public class Movement : MonoBehaviour
     private void Flip()
     {
         userConfiguration.setFacingRight(!userConfiguration.getFacingRight());
-
-        // Cambiar la orientaci�n del sprite
-        spriteRenderer.flipX = !spriteRenderer.flipX;
-
-        // Invertir la posici�n X del weaponHitBox
-        if (weaponHitBox != null)
-        {
-            Vector3 localPosition = weaponHitBox.localPosition;
-            localPosition.x *= -1;
-            weaponHitBox.localPosition = localPosition;
-        }
-
-        // Invertir el CapsuleCollider2D
-        if (playerCollider != null)
-        {
-            Vector2 offset = playerCollider.offset;
-            offset.x *= -1;
-            playerCollider.offset = offset;
-        }
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -164,7 +155,7 @@ public class Movement : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        // Visualizar el �rea de detecci�n del suelo en el editor
+        // Visualizar el area de detecci�n del suelo en el editor
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
@@ -172,24 +163,12 @@ public class Movement : MonoBehaviour
     public void InitializeFacingDirection()
     {
         // Ajustar el sprite y componentes según el valor inicial de facingRight
-        if (!userConfiguration.getFacingRight())
+        if (userConfiguration.getFacingRight())
         {
-            spriteRenderer.flipX = true;
-
-            if (weaponHitBox != null)
-            {
-                Vector3 localPosition = weaponHitBox.localPosition;
-                localPosition.x *= -1;
-                weaponHitBox.localPosition = localPosition;
-            }
-
-            if (playerCollider != null)
-            {
-                Vector2 offset = playerCollider.offset;
-                offset.x *= -1;
-                playerCollider.offset = offset;
-            }
+            return;
         }
+
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
 
     public UserConfiguration getUserConfiguration()
@@ -202,43 +181,8 @@ public class Movement : MonoBehaviour
         return animator;
     }
 
-    //public void setAxis(string axisFromPersonaje)
-    //{
-    //    axis = axisFromPersonaje;
-    //}
-
-    //public void setUpKey(KeyCode upKey)
-    //{
-    //    jumpKey = upKey;
-    //}
-
-    //public void setDownKey(KeyCode downKey)
-    //{
-    //    this.downKey = downKey;
-    //}
-
-    //public void setFacingRight(bool facingRight)
-    //{
-    //    this.facingRight = facingRight;
-    //}
-
-    //public bool GetFacingRight()
-    //{
-    //    return facingRight;
-    //}
-
-    //public void setSpeed(float speedFromPersonaje)
-    //{
-    //    speed = speedFromPersonaje;
-    //}
-
-    //public void setJumpForce(float jumpForceFromPersonaje)
-    //{
-    //    jumpForce = jumpForceFromPersonaje;
-    //}
-
-    //public void setGroundCheckRadius(float checkRadiusFromPersonaje)
-    //{
-    //    groundCheckRadius = checkRadiusFromPersonaje;
-    //}
+    public bool getIsGrounded()
+    {
+        return isGrounded;
+    }
 }

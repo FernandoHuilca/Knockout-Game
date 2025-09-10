@@ -3,24 +3,34 @@ using UnityEngine;
 
 public class Health : MonoBehaviour, Damageable
 {
-    public Animator animator; // Referencia al Animator para reproducir animaciones de ataque
+    [Header("Health Settings")]
     public float currentHealth;
     public float maxHealth;
-    public int livesRemaining;
+    public int livesRemaining;    
 
-    private Vector2 startPosition;
+    [Header("Sounds")]
+    [SerializeField] private AudioClip soundHurt;
+    [SerializeField] private AudioClip sounDeath;
+
+    // Components
+    private Animator animator; // Referencia al Animator para reproducir animaciones de ataque
     private Rigidbody2D startRigidbody2D;
-    private Vector3 originalLocalScale;
+    private Rigidbody2D rigidBody2D;
+    private RigidbodyConstraints2D originalConstraints;
+
+    // Transform
+    private Vector2 startPosition;
+    //private Vector3 originalLocalScale;
+    
+    // Scripts
     private Movement movement;
     private Attack attack;
     private Shield shield;
     private SpecialAttack specialAttack;
-    private Rigidbody2D rigidBody2D;
-    private RigidbodyConstraints2D originalConstraints;
     private UserConfiguration userConfiguration;
     private UIController UIController;
 
-    
+    private bool isDead;
 
     private void Start()
     {
@@ -32,7 +42,7 @@ public class Health : MonoBehaviour, Damageable
 
         startPosition = transform.position;
         startRigidbody2D = GetComponent<Rigidbody2D>();
-        originalLocalScale = transform.localScale;
+        //originalLocalScale = transform.localScale;
 
         movement = GetComponent<Movement>();
         attack = GetComponent<Attack>();
@@ -44,6 +54,8 @@ public class Health : MonoBehaviour, Damageable
 
         // Guarda las restricciones originales del Rigidbody
         originalConstraints = rigidBody2D.constraints;
+
+        isDead = false;
     }
 
     void updateUI()
@@ -54,38 +66,57 @@ public class Health : MonoBehaviour, Damageable
 
     public void decreaseLife(float damage)
     {
-        currentHealth -= damage;
-        //animator.SetTrigger("hurt");
-
-        if (currentHealth <= 0)
+        if (isDead)
         {
-            rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            
-            specialAttack.enabled = false;
-            attack.enabled = false;
-            movement.enabled = false;
-            shield.enabled = false;
-
-            livesRemaining--;
-            //animator.SetBool("isDead", true);
-            //animator.SetTrigger("die");
-
-            if (livesRemaining <= 0)
-            {
-                die();
-            }
-            else
-            {
-                specialAttack.enabled = true;
-                attack.enabled = true;
-                movement.enabled = true;
-                shield.enabled = true;
-                currentHealth = maxHealth;
-                respawn();
-               
-            }
+            return;
         }
-        updateUI();
+
+        if (currentHealth < 0)
+        {
+            return;
+        }
+
+        currentHealth -= damage;
+        SoundsController.Instance.RunSound(soundHurt);
+        animator.SetTrigger("hurt");
+        //animator.SetBool("isHurt", true);
+
+        if (currentHealth > 0)
+        {
+            updateUI();
+            return;
+        }
+        manageDead();
+    }
+
+    public void manageDead()
+    {
+        // Desactivar scripts para que no pueda hacer nada 
+        specialAttack.enabled = false;
+        attack.enabled = false;
+        movement.enabled = false;
+        shield.enabled = false;
+
+        isDead = true;
+
+        animator.SetTrigger("die"); // Animación de muerte iniciada
+
+        rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+
+        livesRemaining--; 
+
+        SoundsController.Instance.RunSound(sounDeath);
+
+        StartCoroutine(DeathAnimationFallback());
+    }
+
+    private System.Collections.IEnumerator DeathAnimationFallback()
+    {
+        // Esperar um tiempo mayor a la duración de la animación de muerte. Con esto se asegura que primero se visualiza la animación
+        // de muerte completa y luego se ejecuta el resto de la lógica de onDeathAnimationComplete() (Respawn, muerte definitiva, etc.)
+        yield return new WaitForSeconds(0.90f);
+
+        onDeathAnimationComplete();
     }
 
     private void respawn()
@@ -94,22 +125,24 @@ public class Health : MonoBehaviour, Damageable
         startRigidbody2D.simulated = false;
 
         // Hace que el jugador sea invisible temporalmente.
-        transform.localScale = Vector3.zero;
+        //transform.localScale = Vector3.zero;
 
         // Restablece la posición inicial del jugador.
         transform.position = startPosition;
 
         // Restaurar la orientación basada en `facingRight`.
-        if (userConfiguration != null)
+        /*if (userConfiguration == null)
         {
-            userConfiguration.setFacingRight(userConfiguration.getFacingRight());
+            return;
         }
+        userConfiguration.setFacingRight(userConfiguration.getFacingRight());*/
+
 
         // Restaura las restricciones originales del Rigidbody.
-        rigidBody2D.constraints = originalConstraints;
+        //rigidBody2D.constraints = originalConstraints;
 
         // Hace visible al jugador y reactiva la simulación.
-        transform.localScale = originalLocalScale;
+        //transform.localScale = originalLocalScale;
         startRigidbody2D.simulated = true;
 
         // Asegúrate de que todos los scripts estén habilitados.
@@ -118,19 +151,34 @@ public class Health : MonoBehaviour, Damageable
         movement.enabled = true;
         shield.enabled = true;
 
+        isDead = false;
+
         Debug.Log("Respawn completed successfully.");
     }
 
+    // Este método se ejecuta al final de la animación de muerte
+    public void onDeathAnimationComplete()
+    {
+        if (livesRemaining <= 0)
+        {
+            die();
+        }
+        currentHealth = maxHealth;
+        respawn();
 
+        // Restaura las restricciones originales
+        rigidBody2D.constraints = originalConstraints;
+
+        // Corrige ligeramente la posición para forzar el recalculo de colisiones
+        rigidBody2D.position = new Vector2(rigidBody2D.position.x, rigidBody2D.position.y + 0.01f);
+        updateUI();
+    }
 
     private void die()
     {
         Debug.Log("Player " + gameObject.layer.ToString());
+        GameManager.gameManagerInstance.enableGameOverPanel(gameObject.tag);
         Destroy(gameObject);
     }
 
-    //public void setMaxHealth(float healthFromPersonaje)
-    //{
-    //    maxHealth = healthFromPersonaje;
-    //}
 }

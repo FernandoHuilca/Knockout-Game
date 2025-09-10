@@ -1,39 +1,44 @@
 using System;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public abstract class Attack : MonoBehaviour
 {
-    
-    public Animator animator; // Referencia al Animator para reproducir animaciones de ataque
-    public Transform weaponHitBox; // Posición donde se verificará el impacto de las armas
-    public float attackRange; // Rango en el que se pueden detectar jugadores enemigos
+    [Header("Components Settings")]
+    [SerializeField] protected Animator animator; // Referencia al Animator para reproducir animaciones de ataque
+    [SerializeField] protected Transform weaponHitBox; // Posición donde se verificará el impacto de las armas
+    [SerializeField] protected float attackRange; // Rango en el que se pueden detectar jugadores enemigos
 
     // Valores de daño para diferentes ataques
-    public float hitDamage;
-    public float kickDamage;
+    [Header("Attack Values")]
+    public float attack1Damage;
+    public float attack2Damage;
     public float specialPowerDamage;
     
-    public float hitDamageToShield; 
-    public float kickDamageToShield;
-    
+    public float attack1DamageToShield; 
+    public float attack2DamageToShield;
+
+    [Header("Attack Settings")]
     public float attackRate = 1f; // Tasa de ataque: número de ataques por segundo permitidos
-    public float waitingTimeHit; // Tiempo de espera entre golpes
-    public float waitingTimeKick; // Tiempo de espera entre patadas
+    public float waitingTimeAttack1; // Tiempo de espera entre golpes
+    public float waitingTimeAttack2; // Tiempo de espera entre patadas
     private float nexAttackTime = 0f; // Acumulador del tiempo de espera para el próximo ataque
-    
+
     //public KeyCode hitKey;
     //public KeyCode kickKey;
     //public KeyCode specialPowerKey;
 
-    private SpecialAttack specialAttack;
-    private UserConfiguration userConfiguration;
+    [Header("Script")]
+    [SerializeField] private SpecialAttack specialAttack; //SpecialAttack specialAttack;
+    [SerializeField] private UserConfiguration userConfiguration;
 
     // Atributos para sonidos
+    [Header("Sounds")]
     [SerializeField] private AudioClip soundAttack1;
+    [SerializeField] private AudioClip soundAttack2;
 
-    string ownTag;
+    private string ownTag;
 
-    void Start()
+    public void Start()
     {
         specialAttack = GetComponent<SpecialAttack>();
         animator = GetComponent<Animator>();
@@ -51,15 +56,16 @@ public class Attack : MonoBehaviour
             // Si se presiona la tecla correspondiente, realiza un golpe
             if (Input.GetKeyDown(userConfiguration.getHitKey()))
             {
-                hit();
+                performAttack1();
                 SoundsController.Instance.RunSound(soundAttack1);
-                nexAttackTime = Time.time + waitingTimeHit / attackRate;
+                nexAttackTime = Time.time + waitingTimeAttack1 / attackRate;
             }
             // Si se presiona la tecla correspondiente, realiza una patada
             else if (Input.GetKeyDown(userConfiguration.getKickKey()))
             {
-                kick();
-                nexAttackTime = Time.time + waitingTimeKick / attackRate;
+                performAttack2();
+                SoundsController.Instance.RunSound(soundAttack2);
+                nexAttackTime = Time.time + waitingTimeAttack2 / attackRate;
             }
             // Si se presiona la tecla correspondiente, activa el poder especial
             else if (Input.GetKeyDown(userConfiguration.getSpecialPowerKey()))
@@ -70,57 +76,33 @@ public class Attack : MonoBehaviour
     }
 
     // Método para realizar el golpe
-    void hit()
-    {
-        animator.SetTrigger("attack1"); // Activa la animación de ataque
-        applyDamageToEnemies(hitDamage, hitDamageToShield); // Aplica daño a los enemigos detectados
-    }
+    protected abstract void performAttack1();
 
     // Método para realizar la patada
-    private void kick()
+    protected abstract void performAttack2();
+
+    // Método helper para aplicar daño
+    protected void ApplyMeleeDamage(float damage, float shieldDamage)
     {
-        // Activa la animación de ataque
-        animator.SetTrigger("attack2"); // DEBERÍA SER DIFRENTE PARA LA ANIMACIÓN DE KICK
-        applyDamageToEnemies(kickDamage, kickDamageToShield);
+        // Suscribirse temporalmente al evento de daño
+        DamageToEnemies.instance.OnDamageDealt += HandleDamageDealt;
+
+        DamageToEnemies.instance.applyDamageToEnemies(damage, shieldDamage, weaponHitBox.position, attackRange, gameObject.tag);
     }
 
-    // Método que aplica daño a los enemigos detectados
-    private void applyDamageToEnemies(float damage, float damageToShield)
+    private void HandleDamageDealt(bool wasSuccessful, float totalDamage)
     {
-        // Detecta jugadores enemigos dentro del área del "weaponHitBox"
-        //Collider2D[] hitOtherPlayers = Physics2D.OverlapCircleAll(weaponHitBox.position, attackRange, otherPlayer);
-        //Collider2D[] hitOtherPlayers = Physics2D.OverlapCapsuleAll(weaponHitBox.position, attackRange, )
-        Collider2D[] hitOtherPlayers = Physics2D.OverlapCircleAll(weaponHitBox.position, attackRange);
+        // Desuscribirse del evento
+        DamageToEnemies.instance.OnDamageDealt -= HandleDamageDealt;
 
-
-        // Aplica daño a cada enemigo detectado
-        foreach (Collider2D playerEnemy in hitOtherPlayers)
+        // SI se aplicó daño exitosamente, cargar barra especial
+        if (wasSuccessful && specialAttack != null)
         {
-            
-            //var health = playerEnemy.GetComponent<Health>();
-            //var shield = playerEnemy.GetComponent<Shield>();
-            Damageable damageable = playerEnemy.GetComponent<Damageable>();
-            Shieldable shieldable = playerEnemy.GetComponent<Shieldable>();
-
-            if (damageable != null && gameObject.tag != playerEnemy.tag)
-            {
-                if (shieldable == null || !shieldable.IsShieldActive())
-                {
-                    damageable.decreaseLife(damage);
-                    Debug.Log("We performAttack1 " + playerEnemy.name);
-                    // Cargar barra de ataque especial con cada golpe acertado
-                    specialAttack.increaseCharge(damage);
-                }
-                else
-                {
-                    shieldable.decreaseShieldCapacity(damageToShield);
-                }
-            }
-            
+            specialAttack.increaseCharge(totalDamage);
+            Debug.Log($"Special attack charged with: {totalDamage}");
         }
     }
 
-   
     // Método necesario para usar hijos del GameObject en el editor
     private void OnValidate()
     {
@@ -145,63 +127,19 @@ public class Attack : MonoBehaviour
         Gizmos.DrawWireSphere(weaponHitBox.position, attackRange); // Área circular del rango de ataque
     }
 
-    //public void setHitKey(KeyCode hitKey)
-    //{
-    //    this.hitKey = hitKey;
-    //}
+    public Animator getAnimator()
+    {
+        return animator;
+    }
 
-    //public void setKickKey(KeyCode kickKey)
-    //{
-    //    this.kickKey = kickKey;
-    //}
+    public float getAttack2DamageToShield()
+    {
+        return attack2DamageToShield;
+    }
 
-    //public void setSpecialPowerKey(KeyCode specialPowerKey)
-    //{
-    //    this.specialPowerKey = specialPowerKey;
-    //}
+    public float getSpecialPowerDamage()
+    {
+        return specialPowerDamage;
+    }
 
-    //public void setHitDamage(float hitDamageFromPersonaje)
-    //{
-    //    attack1Value = hitDamageFromPersonaje;
-    //}
-
-    //public void setKickDamage(float kickDamageFromPersonaje)
-    //{
-    //    attack2Value = kickDamageFromPersonaje;
-    //}
-
-    //public void setSpecialPowerDamage(float specialPowerDamageFromPersonaje)
-    //{
-    //    specialPowerDamage = specialPowerDamageFromPersonaje;
-    //}
-
-    //public void setHitDamageToShield(float hitDamageToShieldFromPersonaje)
-    //{
-    //    attack1ValueToShield = hitDamageToShieldFromPersonaje;
-    //}
-
-    //public void setKickDamageToShield(float kickDamageToShieldFromPersonaje)
-    //{
-    //    attack2ValueToShield = kickDamageToShieldFromPersonaje;
-    //}
-
-    //public void setWaitingTimeHit(float waitingTimeHitFromPersonaje)
-    //{
-    //    waitingTimeAttack1 = waitingTimeHitFromPersonaje;
-    //}
-
-    //public void setWaitingTimeKick(float waitingTimeKickFromPersonaje)
-    //{
-    //    waitingTimeAttack2 = waitingTimeKickFromPersonaje;
-    //}
-
-    //public void setAttackRange(float attackRangeFromPersonaje)
-    //{
-    //    attackRange = attackRangeFromPersonaje;
-    //}
-
-    //public void setAttackRate(float attackRateFromPersonaje)
-    //{
-    //    attackRate = attackRateFromPersonaje;
-    //}
 }

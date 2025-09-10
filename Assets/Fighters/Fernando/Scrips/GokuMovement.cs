@@ -55,6 +55,17 @@ public class GokuMovement : MonoBehaviour
 
     void Update()
     {
+        if (DialogueManager.Instance != null)
+        {
+            if (DialogueManager.Instance.isDialogueActive)
+            {
+
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); // Detener completamente el movimiento físico
+                animator.SetFloat("speed", 0.0f);
+                return;
+            }
+        }
+
         // Bloquear inputs si el ataque especial está activo
         // Detener movimiento si el ataque especial está activo
         if (specialAttack.IsPerformingSpecialAttack())
