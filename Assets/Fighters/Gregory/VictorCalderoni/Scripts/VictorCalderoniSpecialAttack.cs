@@ -10,10 +10,13 @@ public class VictorCalderoniSpecialAttack : SpecialAttack
     private GameObject carGameObject;
     [SerializeField] private float durationToDecreaseCharge;
     private bool isFalling = false;
+    private bool isArrived = false;
+
+    [SerializeField] private Sprite idleSprite;
 
     void Update()
     {
-        if (Input.GetKeyDown(gameObject.GetComponent<UserConfiguration>().getSpecialPowerKey()) && carGameObject != null)
+        if (Input.GetKeyDown(gameObject.GetComponent<UserConfiguration>().getSpecialPowerKey()) && carGameObject != null && isArrived)
         {
 
             string tag = gameObject.tag;
@@ -67,7 +70,13 @@ public class VictorCalderoniSpecialAttack : SpecialAttack
 
     private void prepareSpecialAttackSequence()
     {
-        Vector2 targetPosition = gameObject.GetComponent<CapsuleCollider2D>().bounds.center;
+        // 2. Evitar que el luchador se mueva, ataque, use el escudo, reciba daño
+        gameObject.GetComponent<SpriteRenderer>().sprite = idleSprite;
+        gameObject.GetComponent<Animator>().enabled = false;
+        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        manageComponents(false);
+
+        Vector2 targetPosition = transform.Find("CarPoint").gameObject.transform.position;
         Vector3 startPosition = new Vector3(targetPosition.x - 50.0f, targetPosition.y, 0.0f);
         carGameObject = Instantiate(victorCalderoniCarPrefab, startPosition, gameObject.transform.rotation);
 
@@ -88,9 +97,12 @@ public class VictorCalderoniSpecialAttack : SpecialAttack
         SoundsController.Instance.RunSound(carGameObject.GetComponent<VictorCalderoniCar>().getCarDriftingSound());
         yield return StartCoroutine(moveObject(carGameObject, targetPosDuringSpecialAttack, durationToFinalPosCar)); // 1. Mover a la primera posición
 
-        manageComponents(false); // 2. Evitar que el luchador se mueva, ataque, use el escudo, reciba daño y se visible 
+        isArrived = true;
 
         carGameObject.GetComponent<Collider2D>().isTrigger = false;
+
+        Vector3 posVictorDuringCar = new Vector3(targetPosition.x, targetPosition.y + 1.5f, 0);
+        yield return StartCoroutine(moveObject(gameObject, posVictorDuringCar, durationToFinalPosCar / 2.0f));
 
         yield return new WaitForSeconds(1f); // Espera 1 segundo
 
@@ -99,11 +111,12 @@ public class VictorCalderoniSpecialAttack : SpecialAttack
         yield return StartCoroutine(reduceAmount(durationToDecreaseCharge)); // 3. Reducir la barra de carga
 
         manageComponents(true); // 3. Volver a habilitar componentes
+        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        gameObject.GetComponent<Animator>().enabled = true;
+
         gameObject.GetComponent<Rigidbody2D>().constraints = originalConstraints;
 
         carGameObject.GetComponent<Collider2D>().isTrigger = true;
-
-        //yield return StartCoroutine(moveObject(gameObject, targetPosDuringSpecialAttack, durationToFinalPosCar/2.0f)); // 4. Regresar al luchador a su posición original
 
         SoundsController.Instance.RunSound(carGameObject.GetComponent<VictorCalderoniCar>().getCarDrivindSound());
         yield return StartCoroutine(moveObject(carGameObject, targetPosAfterSpecialAttack, durationToFinalPosCar)); // 5. Mover al carro a la segunda posición

@@ -42,9 +42,10 @@ public class Bullet : DamageToEnemies
         var damageable = other.GetComponent<Damageable>();
         if (damageable != null)
         {
-            // Suscribirse al evento para saber si se aplic� da�o
+            // PASO 1: Suscribirse al evento para saber si se aplicó daño. Y la forma de notificar es ejecutando la función HandleBulletDamage cuando se aplique daño
             DamageToEnemies.instance.OnDamageDealt += HandleBulletDamage;
 
+            // PASO 2: Aplicar daño a los enemigos en el área. Se calcula el daño y si fue exitoso o no.
             DamageToEnemies.instance.applyDamageToEnemies(damage, shieldDamage, transform.position, damageRadius, shooterTag);
             hasDealtDamage = true;
             Destroy(gameObject);
@@ -52,9 +53,10 @@ public class Bullet : DamageToEnemies
         
     }
 
+    // PASO 4: Respuesta a la notificación del evento. 
     private void HandleBulletDamage(bool wasSuccessful, float totalDamage)
     {
-        // Desuscribirse del evento
+        // Desuscribirse del evento para evitar problemas de memoria o llamadas múltiples
         DamageToEnemies.instance.OnDamageDealt -= HandleBulletDamage;
 
         // SI la bala aplic� da�o exitosamente, cargar barra especial del shooter

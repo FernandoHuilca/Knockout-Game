@@ -309,6 +309,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.09
       objectReference: {fileID: 0}
+    - target: {fileID: 3456423292773987149, guid: 20e8d93060dbb144e940533e1f3ce85a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5883423412056288563, guid: 20e8d93060dbb144e940533e1f3ce85a, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -481,7 +485,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 7654884596472903861}
   gunPoint: {fileID: 3436799895907452714}
   bulletPrefab: {fileID: 2851284468183456845, guid: ad17a7d97fe2a954da5858b994891be4, type: 3}
-  bulletSpeed: 20
+  bulletSpeed: 40
   shootSound: {fileID: 8300000, guid: c6852ca9c1331fc49be278db442ad30a, type: 3}
   gunFacingRight: 1
   timeBetweenBullets: 0.1

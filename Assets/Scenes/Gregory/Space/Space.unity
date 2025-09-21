@@ -4165,6 +4165,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1196650467}
+    - target: {fileID: 6357017524950092444, guid: 39c88adf88ce86d4493a00eaa703656b, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357017524950092444, guid: 39c88adf88ce86d4493a00eaa703656b, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357017524950092444, guid: 39c88adf88ce86d4493a00eaa703656b, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357017524950092444, guid: 39c88adf88ce86d4493a00eaa703656b, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 8606105152508761056, guid: 39c88adf88ce86d4493a00eaa703656b, type: 3}
       propertyPath: m_Name
       value: GameOverScreen
@@ -4737,7 +4753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &7999766259343824761
 GameObject:
   m_ObjectHideFlags: 0

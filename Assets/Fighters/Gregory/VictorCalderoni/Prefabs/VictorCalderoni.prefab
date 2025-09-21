@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 862002790351938250}
   serializedVersion: 2
   m_LocalRotation: {x: 0.009773729, y: 0, z: 0, w: 0.99995226}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 4, y: 4.6, z: 1.8061}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 6591070379914375165}
   m_Layer: 9
   m_Name: VictorCalderoni
-  m_TagString: User2
+  m_TagString: User1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,6 +179,7 @@ RectTransform:
   - {fileID: 1843120082025138721}
   - {fileID: 4278475687921404407}
   - {fileID: 482591999045264982}
+  - {fileID: 1198324799043544762}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -323,7 +324,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   groundCheck: {fileID: 1843120082025138721}
-  groundCheckRadius: 0.3
+  groundCheckRadius: 0.37
   weaponHitBox: {fileID: 8764358177803978719}
   soundJump: {fileID: 8300000, guid: 0ed33e12989abee46817c64b65fae08d, type: 3}
 --- !u!114 &6262407588232778134
@@ -420,11 +421,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b89ed33177129408b5cf8172f7681a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facingRight: 0
-  movementKeys: 1101000012010000
-  attackKeys: 620000006e0000006d000000
-  shieldKey: 118
-  axis: Horizontal
+  facingRight: 1
+  movementKeys: 7700000073000000
+  attackKeys: 320000003300000034000000
+  shieldKey: 49
+  axis: Horizontal2
 --- !u!114 &1739951735301769161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,6 +444,7 @@ MonoBehaviour:
   victorCalderoniCarPrefab: {fileID: 5408232697039867340, guid: 51adafddc76702940847c0236523eff6, type: 3}
   durationToFinalPosCar: 1
   durationToDecreaseCharge: 10
+  idleSprite: {fileID: 4723107735738678597, guid: 3856d5e1476ec7d47891ba8f37bb37f0, type: 3}
 --- !u!114 &2494801021101717981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +511,41 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2740689925192094338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1198324799043544762}
+  m_Layer: 9
+  m_Name: CarPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1198324799043544762
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2740689925192094338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8798357567669413292}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.1}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6996565387393483191
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +602,7 @@ Transform:
   m_GameObject: {fileID: 7434709659569384480}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.41, z: 0}
+  m_LocalPosition: {x: 0, y: -0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

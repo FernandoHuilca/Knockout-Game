@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Fernando/DarkCity.unity
     guid: 5a62a576c79a6624db82b997e8265baa
   - enabled: 1
-    path: Assets/Scenes/Gregory/Space.unity
+    path: Assets/Scenes/Gregory/Space/Space.unity
     guid: bf8421b105ead8d46a3020f452824e56
   - enabled: 1
     path: Assets/Scenes/Mateo/ChimborazoScene.unity

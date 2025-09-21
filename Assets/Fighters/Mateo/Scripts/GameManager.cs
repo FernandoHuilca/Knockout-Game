@@ -240,6 +240,7 @@ public class GameManager : MonoBehaviour
         // Al volver al menú principal, asegúrate de que la música se reanude
         if (MenuMusicManager.Instance != null)
         {
+            Debug.Log("Resuming music...");
             MenuMusicManager.Instance.ResumeMusic();
         }
         

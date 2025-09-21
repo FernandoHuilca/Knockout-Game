@@ -28,6 +28,18 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
+        if(DialogueManager.Instance == null)
+        {
+            GameObject[] allGameObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+
+            foreach (GameObject obj in allGameObjects)
+            {
+                if (obj.scene.name != null && obj.name == "Dialogue")
+                {
+                    obj.SetActive(true);
+                }
+            }
+        }
         DialogueManager.Instance.StartDialogue(dialogue);
     }
 

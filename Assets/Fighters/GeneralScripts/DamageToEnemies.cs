@@ -5,6 +5,13 @@ public class DamageToEnemies : MonoBehaviour
 
     public static DamageToEnemies instance { get; private set; }
 
+    // Evento para notificar cuando se aplica daño exitosamente
+    /*
+     * ´System.Action<bool, float>´ es un delegate (delegado) que puede almacenar referencias a métodos que no retornan nada (void) o 
+     * reciben dos parámetros: un bool y un float. Funciona como una "lista de métodos" que se pueden ejecutar cuando ocurre un evento.
+    */
+    public System.Action<bool, float> OnDamageDealt;
+
     void Awake()
     {
         if (instance == null)
@@ -58,10 +65,14 @@ public class DamageToEnemies : MonoBehaviour
             }
 
         }
-        // RETORNAR información sobre el daño aplicado
+        // PASO 3: Notificación. RETORNAR información sobre el daño aplicado
+        /*
+         * ?. Verifica si hay métodos suscritos antes de ejecutar 
+         * .Invoke(): Ejecuta TODOS los métodos suscritos al evento
+         * Pasa como parámetros si se aplicó daño exitosamente (damageDealt) y el total de daño aplicado (totalDamageDealt) a cada método suscritoº
+        */
         OnDamageDealt?.Invoke(damageDealt, totalDamageDealt);
     }
 
-    // Evento para notificar cuando se aplica daño exitosamente
-    public System.Action<bool, float> OnDamageDealt;
+    
 }

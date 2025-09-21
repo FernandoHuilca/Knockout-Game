@@ -236,7 +236,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarFill: {fileID: 0}
-  lives: []
+  lives:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   specialBarFill: {fileID: 0}
 --- !u!114 &8000213823854721247
 MonoBehaviour:
