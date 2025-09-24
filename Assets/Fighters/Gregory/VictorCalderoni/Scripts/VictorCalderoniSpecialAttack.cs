@@ -82,7 +82,7 @@ public class VictorCalderoniSpecialAttack : SpecialAttack
 
         Debug.Log("Tag del gameobject que se va a guardar en cargameobject: " + gameObject.tag);
         carGameObject.GetComponent<VictorCalderoniCar>().setTag(gameObject.tag);
-        carGameObject.GetComponent<Collider2D>().isTrigger = true;
+        //carGameObject.GetComponent<Collider2D>().isTrigger = true;
 
         StartCoroutine(CompleteAttackSequence(carGameObject, targetPosition));
     }
@@ -99,7 +99,7 @@ public class VictorCalderoniSpecialAttack : SpecialAttack
 
         isArrived = true;
 
-        carGameObject.GetComponent<Collider2D>().isTrigger = false;
+        //carGameObject.GetComponent<Collider2D>().isTrigger = false;
 
         Vector3 posVictorDuringCar = new Vector3(targetPosition.x, targetPosition.y + 1.5f, 0);
         yield return StartCoroutine(moveObject(gameObject, posVictorDuringCar, durationToFinalPosCar / 2.0f));

@@ -50,24 +50,38 @@ public class Movement : MonoBehaviour
         {
             if (DialogueManager.Instance.isDialogueActive)
             {
-
-                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); // Detener completamente el movimiento físico
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
                 animator.SetFloat("xVelocity", 0.0f);
                 return;
             }
         }
+
+        // Actualizar parámetros del animator en Update (como en el video)
+        animator.SetBool("isJumping", !isGrounded);
+
         HandleMovement();
         HandleJump();
         HandlePlatformDrop();
     }
 
+    void FixedUpdate()
+    {
+        // Según el video, los parámetros de velocidad se actualizan en FixedUpdate
+        animator.SetFloat("xVelocity", Mathf.Abs(rb.linearVelocity.x));
+        animator.SetFloat("yVelocity", rb.linearVelocity.y); // Sin Mathf.Abs para detectar caída
+        animator.SetBool("isJumping", !isGrounded);
+    }
+
     private void HandleMovement()
     {
+        if (gameObject.GetComponent<Shield>().IsShieldActive())
+        {
+            return;
+        }
+
         // Movimiento horizontal
         float moveX = Input.GetAxis(userConfiguration.getAxis());
         rb.linearVelocity = new Vector2(moveX * speed, rb.linearVelocity.y);
-        //animator.SetFloat("speed", Mathf.Abs(moveX * speed));
-        animator.SetFloat("xVelocity", Mathf.Abs(moveX * speed));
 
         // Cambiar orientación del sprite dependiendo de `facingRight`
         if (moveX > 0 && !userConfiguration.getFacingRight())
@@ -80,25 +94,14 @@ public class Movement : MonoBehaviour
         }
     }
 
-
     private void HandleJump()
     {
-        bool wasGrounded = isGrounded;
-        // Detectar si est� en el suelo
+        // Detectar si está en el suelo
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        // Si estaba en el aire y ahora toca el suelo, termina la animación de salto
-        if (!wasGrounded && isGrounded){
-            animator.SetBool("isJumping", false);
-        }
-
-        if (isGrounded && Input.GetKeyDown(userConfiguration.getJumpKey()))
+        if (isGrounded && Input.GetKeyDown(userConfiguration.getJumpKey()) && !gameObject.GetComponent<Shield>().IsShieldActive())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            isGrounded=false;
-            animator.SetBool("isJumping", !isGrounded);
-            
-            //Debug.Log("Jump");
             SoundsController.Instance.RunSound(soundJump);
         }
     }
@@ -155,14 +158,12 @@ public class Movement : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        // Visualizar el area de detecci�n del suelo en el editor
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 
     public void InitializeFacingDirection()
     {
-        // Ajustar el sprite y componentes según el valor inicial de facingRight
         if (userConfiguration.getFacingRight())
         {
             return;

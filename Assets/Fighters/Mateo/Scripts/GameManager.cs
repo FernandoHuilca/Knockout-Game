@@ -123,6 +123,7 @@ public class GameManager : MonoBehaviour
         
         foreach (GameObject obj in allObjects)
         {
+            //Debug.Log("Evaluando objeto: " + obj.name + " en layer: " + LayerMask.LayerToName(obj.layer));
             // Saltar objetos de UI de pausa y game over
             if (obj.layer == LayerMask.NameToLayer("UI"))
             {
@@ -149,10 +150,12 @@ public class GameManager : MonoBehaviour
                 continue;
             }
 
-            if (obj != null && obj.GetComponent<UIController>() != null)
+            /*if (obj != null && obj.GetComponent<UIController>() != null)
             {
                 continue;
-            }
+            }*/
+
+            Debug.Log("Deshabilitando scripts en objeto: " + obj.name);
 
             // Obtener todos los componentes del objeto
             MonoBehaviour[] components = obj.GetComponents<MonoBehaviour>();
@@ -162,6 +165,7 @@ public class GameManager : MonoBehaviour
                 // Guardar estado original y deshabilitar
                 if (component != null && component != this)
                 {
+
                     Debug.Log(component.name);
                     componentStates[component] = component.enabled;
                     component.enabled = false;

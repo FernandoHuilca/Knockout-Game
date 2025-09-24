@@ -27,6 +27,8 @@ public class AlienShield : MonoBehaviour, Shieldable
     [SerializeField] private MonoBehaviour AlienHealth;
     [SerializeField] private MonoBehaviour AlienMovement;
 
+    [SerializeField] private Sprite idleSprite;
+
     void Start()
     {
         shieldCapacity = maxShieldCapacity;
@@ -86,6 +88,7 @@ public class AlienShield : MonoBehaviour, Shieldable
         {
             animator.SetTrigger("shield");
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            gameObject.GetComponent<SpriteRenderer>().sprite = idleSprite;
             return;
         }
         // Restaura las restricciones originales
@@ -93,6 +96,8 @@ public class AlienShield : MonoBehaviour, Shieldable
 
         // Corrige ligeramente la posición para forzar el recalculo de colisiones
         rb.position = new Vector2(rb.position.x, rb.position.y + 0.01f);
+
+        animator.SetTrigger("shield");
     }
 
     private void UpdateScriptStates()
@@ -103,6 +108,7 @@ public class AlienShield : MonoBehaviour, Shieldable
         AlienAttack.enabled = isActive;
         AlienHealth.enabled = isActive;
         AlienMovement.enabled = isActive;
+        animator.enabled = isActive;
     }
 
     public void TakeDamage(float damage)

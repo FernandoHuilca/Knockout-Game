@@ -24,6 +24,9 @@ public class Shield : MonoBehaviour, Shieldable
 
     private UserConfiguration userConfiguration;
 
+    [SerializeField] private Sprite idleSprite;
+    private AnimatorStateInfo lastAnimatorState;
+    private bool wasAnimatorEnabled;
 
 
     [Header("Scripts to Disable")]
@@ -63,6 +66,7 @@ public class Shield : MonoBehaviour, Shieldable
         // Activa o desactiva el escudo al presionar la tecla "V", solo si no está recargando desde 0.
         if (Input.GetKeyDown(userConfiguration.getShieldKey()) && !isRechargingFromZero)
         {
+            //gameObject.GetComponent<SpriteRenderer>().sprite = idleSprite;
             ToggleShield();
         }
 
@@ -84,6 +88,7 @@ public class Shield : MonoBehaviour, Shieldable
 
         isShieldActive = !isShieldActive;
         SoundsController.Instance.RunSound(soundShield);
+        
         UpdateShieldComponents();
         UpdateScriptStates();
     }
@@ -99,12 +104,14 @@ public class Shield : MonoBehaviour, Shieldable
             animator.SetFloat("xVelocity", 0.0f);
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             Debug.Log("Shield Activated");
+            //animator.SetTrigger("shield");
+            
         }
         else
         {
             // Restaura las restricciones originales
             rb.constraints = originalConstraints;
-
+            //animator.SetTrigger("shield");
             // Corrige ligeramente la posición para forzar el recalculo de colisiones
             rb.position = new Vector2(rb.position.x, rb.position.y + 0.01f);
 
@@ -119,7 +126,12 @@ public class Shield : MonoBehaviour, Shieldable
         specialAttack.enabled = isActive;
         fighterAttack.enabled = isActive;
         fighterHealth.enabled = isActive;
-        fighterMovement.enabled = isActive;
+
+        //fighterMovement.enabled = isActive;
+
+        //animator.SetTrigger("shield");
+
+        //animator.enabled = isActive;
     }
 
     public void TakeDamage(float damage)

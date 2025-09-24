@@ -423,6 +423,7 @@ MonoBehaviour:
   AlienAttack: {fileID: 0}
   AlienHealth: {fileID: 0}
   AlienMovement: {fileID: 0}
+  idleSprite: {fileID: -811850554563380565, guid: dd67ab9d39038df4194720acc51e9f85, type: 3}
 --- !u!222 &5304841683732907446
 CanvasRenderer:
   m_ObjectHideFlags: 0
